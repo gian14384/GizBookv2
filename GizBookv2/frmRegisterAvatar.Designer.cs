@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegisterAvatar));
             panel1 = new Panel();
             panel3 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
             pictureBox13 = new PictureBox();
             panel8 = new Panel();
             panel7 = new Panel();
@@ -50,8 +52,6 @@
             panel6 = new Panel();
             panel5 = new Panel();
             panel4 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
@@ -93,6 +93,29 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(593, 613);
             panel3.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(92, 93, 94);
+            label2.Location = new Point(260, 401);
+            label2.Name = "label2";
+            label2.Size = new Size(110, 30);
+            label2.TabIndex = 7;
+            label2.Text = "Username";
+            label2.Click += label2_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 32.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(242, 344);
+            label1.Name = "label1";
+            label1.Size = new Size(144, 59);
+            label1.TabIndex = 6;
+            label1.Text = "Name";
+            label1.Click += label1_Click;
             // 
             // pictureBox13
             // 
@@ -293,27 +316,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(381, 35);
             panel4.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 32.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(31, 356);
-            label1.Name = "label1";
-            label1.Size = new Size(559, 59);
-            label1.TabIndex = 6;
-            label1.Text = "Gian GaavGIan GIann Gian";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(92, 93, 94);
-            label2.Location = new Point(35, 403);
-            label2.Name = "label2";
-            label2.Size = new Size(550, 30);
-            label2.TabIndex = 7;
-            label2.Text = "Gian Gsdasdasdasd xzcvxvsdvsdvsdvivGIan GIann Gian";
             // 
             // frmRegisterAvatar
             // 
