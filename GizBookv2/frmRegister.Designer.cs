@@ -29,18 +29,26 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel10 = new Panel();
+            panel12 = new Panel();
             panel11 = new Panel();
-            panel9 = new Panel();
-            panel8 = new Panel();
-            panel7 = new Panel();
+            sdada = new Panel();
+            txtconfirmpass = new TextBox();
+            sdsadas = new Panel();
+            txtpassword = new TextBox();
+            sdasd = new Panel();
+            txtusername = new TextBox();
+            dsda = new Panel();
+            txtname = new TextBox();
             panel6 = new Panel();
             panel5 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
             panel2 = new Panel();
-            panel12 = new Panel();
             panel1.SuspendLayout();
+            sdada.SuspendLayout();
+            sdsadas.SuspendLayout();
+            sdasd.SuspendLayout();
+            dsda.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -50,10 +58,10 @@
             panel1.BackgroundImageLayout = ImageLayout.Center;
             panel1.Controls.Add(panel12);
             panel1.Controls.Add(panel11);
-            panel1.Controls.Add(panel10);
-            panel1.Controls.Add(panel9);
-            panel1.Controls.Add(panel8);
-            panel1.Controls.Add(panel7);
+            panel1.Controls.Add(sdada);
+            panel1.Controls.Add(sdsadas);
+            panel1.Controls.Add(sdasd);
+            panel1.Controls.Add(dsda);
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
@@ -64,14 +72,17 @@
             panel1.Size = new Size(779, 657);
             panel1.TabIndex = 0;
             // 
-            // panel10
+            // panel12
             // 
-            panel10.BackgroundImage = Properties.Resources.Text_input__1_;
-            panel10.BackgroundImageLayout = ImageLayout.Center;
-            panel10.Location = new Point(125, 433);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(577, 51);
-            panel10.TabIndex = 7;
+            panel12.BackColor = Color.Transparent;
+            panel12.BackgroundImage = Properties.Resources.Already_have_an_account__Sign_in_instead_;
+            panel12.BackgroundImageLayout = ImageLayout.Center;
+            panel12.Location = new Point(279, 570);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(284, 19);
+            panel12.TabIndex = 1;
+            panel12.Click += panel12_Click;
+            panel12.Paint += panel12_Paint;
             // 
             // panel11
             // 
@@ -81,33 +92,80 @@
             panel11.Name = "panel11";
             panel11.Size = new Size(577, 55);
             panel11.TabIndex = 8;
+            panel11.Click += panel11_Click;
+            panel11.Paint += panel11_Paint;
             // 
-            // panel9
+            // sdada
             // 
-            panel9.BackgroundImage = Properties.Resources.Text_input__1_;
-            panel9.BackgroundImageLayout = ImageLayout.Center;
-            panel9.Location = new Point(125, 336);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(577, 56);
-            panel9.TabIndex = 6;
+            sdada.BackgroundImage = Properties.Resources.Text_input__1_;
+            sdada.BackgroundImageLayout = ImageLayout.Center;
+            sdada.Controls.Add(txtconfirmpass);
+            sdada.Location = new Point(125, 433);
+            sdada.Name = "sdada";
+            sdada.Size = new Size(577, 51);
+            sdada.TabIndex = 7;
             // 
-            // panel8
+            // txtconfirmpass
             // 
-            panel8.BackgroundImage = Properties.Resources.Text_input__1_;
-            panel8.BackgroundImageLayout = ImageLayout.Center;
-            panel8.Location = new Point(125, 242);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(577, 54);
-            panel8.TabIndex = 6;
+            txtconfirmpass.Location = new Point(19, 14);
+            txtconfirmpass.Multiline = true;
+            txtconfirmpass.Name = "txtconfirmpass";
+            txtconfirmpass.Size = new Size(539, 23);
+            txtconfirmpass.TabIndex = 1;
             // 
-            // panel7
+            // sdsadas
             // 
-            panel7.BackgroundImage = Properties.Resources.Text_input__1_;
-            panel7.BackgroundImageLayout = ImageLayout.Center;
-            panel7.Location = new Point(125, 151);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(577, 54);
-            panel7.TabIndex = 5;
+            sdsadas.BackgroundImage = Properties.Resources.Text_input__1_;
+            sdsadas.BackgroundImageLayout = ImageLayout.Center;
+            sdsadas.Controls.Add(txtpassword);
+            sdsadas.Location = new Point(125, 336);
+            sdsadas.Name = "sdsadas";
+            sdsadas.Size = new Size(577, 56);
+            sdsadas.TabIndex = 6;
+            // 
+            // txtpassword
+            // 
+            txtpassword.Location = new Point(19, 17);
+            txtpassword.Multiline = true;
+            txtpassword.Name = "txtpassword";
+            txtpassword.Size = new Size(539, 23);
+            txtpassword.TabIndex = 1;
+            // 
+            // sdasd
+            // 
+            sdasd.BackgroundImage = Properties.Resources.Text_input__1_;
+            sdasd.BackgroundImageLayout = ImageLayout.Center;
+            sdasd.Controls.Add(txtusername);
+            sdasd.Location = new Point(125, 242);
+            sdasd.Name = "sdasd";
+            sdasd.Size = new Size(577, 54);
+            sdasd.TabIndex = 6;
+            // 
+            // txtusername
+            // 
+            txtusername.Location = new Point(19, 16);
+            txtusername.Multiline = true;
+            txtusername.Name = "txtusername";
+            txtusername.Size = new Size(539, 23);
+            txtusername.TabIndex = 1;
+            // 
+            // dsda
+            // 
+            dsda.BackgroundImage = Properties.Resources.Text_input__1_;
+            dsda.BackgroundImageLayout = ImageLayout.Center;
+            dsda.Controls.Add(txtname);
+            dsda.Location = new Point(125, 151);
+            dsda.Name = "dsda";
+            dsda.Size = new Size(577, 54);
+            dsda.TabIndex = 5;
+            // 
+            // txtname
+            // 
+            txtname.Location = new Point(15, 14);
+            txtname.Multiline = true;
+            txtname.Name = "txtname";
+            txtname.Size = new Size(539, 23);
+            txtname.TabIndex = 0;
             // 
             // panel6
             // 
@@ -154,16 +212,6 @@
             panel2.Size = new Size(586, 57);
             panel2.TabIndex = 0;
             // 
-            // panel12
-            // 
-            panel12.BackColor = Color.Transparent;
-            panel12.BackgroundImage = Properties.Resources.Already_have_an_account__Sign_in_instead_;
-            panel12.BackgroundImageLayout = ImageLayout.Center;
-            panel12.Location = new Point(279, 570);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(284, 19);
-            panel12.TabIndex = 1;
-            // 
             // frmRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -177,7 +225,16 @@
             Name = "frmRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmRegister";
+            Load += frmRegister_Load;
             panel1.ResumeLayout(false);
+            sdada.ResumeLayout(false);
+            sdada.PerformLayout();
+            sdsadas.ResumeLayout(false);
+            sdsadas.PerformLayout();
+            sdasd.ResumeLayout(false);
+            sdasd.PerformLayout();
+            dsda.ResumeLayout(false);
+            dsda.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -185,15 +242,19 @@
 
         private Panel panel1;
         private Panel panel2;
-        private Panel panel7;
+        private Panel dsda;
         private Panel panel6;
         private Panel panel5;
         private Panel panel4;
         private Panel panel3;
-        private Panel panel10;
-        private Panel panel9;
-        private Panel panel8;
+        private Panel sdada;
+        private Panel sdsadas;
+        private Panel sdasd;
         private Panel panel11;
         private Panel panel12;
+        private TextBox txtconfirmpass;
+        private TextBox txtpassword;
+        private TextBox txtusername;
+        private TextBox txtname;
     }
 }

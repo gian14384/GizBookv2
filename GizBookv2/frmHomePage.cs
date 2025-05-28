@@ -16,5 +16,10 @@ namespace GizBookv2
         {
             InitializeComponent();
         }
+
+        private void panel20_Click(object sender, EventArgs e)
+        {
+            panelShare.Visible = !panelShare.Visible;
+        }
     }
 }

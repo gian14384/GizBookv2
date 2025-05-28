@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegisterAvatar));
             panel1 = new Panel();
             panel3 = new Panel();
-            label2 = new Label();
-            label1 = new Label();
+            lblusername = new Label();
+            lblname = new Label();
             pictureBox13 = new PictureBox();
             panel8 = new Panel();
             panel7 = new Panel();
@@ -79,13 +79,14 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1365, 769);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.Frame_4273189402;
             panel3.BackgroundImageLayout = ImageLayout.Center;
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(label1);
+            panel3.Controls.Add(lblusername);
+            panel3.Controls.Add(lblname);
             panel3.Controls.Add(pictureBox13);
             panel3.Controls.Add(panel8);
             panel3.Controls.Add(panel7);
@@ -94,28 +95,26 @@
             panel3.Size = new Size(593, 613);
             panel3.TabIndex = 1;
             // 
-            // label2
+            // lblusername
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(92, 93, 94);
-            label2.Location = new Point(260, 401);
-            label2.Name = "label2";
-            label2.Size = new Size(110, 30);
-            label2.TabIndex = 7;
-            label2.Text = "Username";
-            label2.Click += label2_Click;
+            lblusername.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblusername.ForeColor = Color.FromArgb(92, 93, 94);
+            lblusername.Location = new Point(48, 401);
+            lblusername.Name = "lblusername";
+            lblusername.Size = new Size(511, 30);
+            lblusername.TabIndex = 7;
+            lblusername.Text = "Username";
+            lblusername.Click += label2_Click;
             // 
-            // label1
+            // lblname
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 32.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(242, 344);
-            label1.Name = "label1";
-            label1.Size = new Size(144, 59);
-            label1.TabIndex = 6;
-            label1.Text = "Name";
-            label1.Click += label1_Click;
+            lblname.Font = new Font("Segoe UI", 32.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblname.Location = new Point(38, 343);
+            lblname.Name = "lblname";
+            lblname.Size = new Size(532, 59);
+            lblname.TabIndex = 6;
+            lblname.Text = "Name";
+            lblname.Click += label1_Click;
             // 
             // pictureBox13
             // 
@@ -332,7 +331,6 @@
             Text = "frmRegisterAvatar";
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
@@ -373,7 +371,7 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox13;
         private Panel panel8;
-        private Label label1;
-        private Label label2;
+        private Label lblname;
+        private Label lblusername;
     }
 }
