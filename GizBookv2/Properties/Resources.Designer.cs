@@ -523,6 +523,26 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap buttonOff {
+            get {
+                object obj = ResourceManager.GetObject("buttonOff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap buttonOn {
+            get {
+                object obj = ResourceManager.GetObject("buttonOn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel {
             get {
                 object obj = ResourceManager.GetObject("cancel", resourceCulture);
@@ -913,19 +933,9 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Expanded_privacy {
+        internal static System.Drawing.Bitmap Expanded_privacy2 {
             get {
-                object obj = ResourceManager.GetObject("Expanded privacy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Expanded_privacy1 {
-            get {
-                object obj = ResourceManager.GetObject("Expanded privacy1", resourceCulture);
+                object obj = ResourceManager.GetObject("Expanded-privacy2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1116,6 +1126,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap Frame_427319055 {
             get {
                 object obj = ResourceManager.GetObject("Frame 427319055", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Friends {
+            get {
+                object obj = ResourceManager.GetObject("Friends", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1685,6 +1705,16 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Only_Me {
+            get {
+                object obj = ResourceManager.GetObject("Only Me", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap open {
             get {
                 object obj = ResourceManager.GetObject("open", resourceCulture);
@@ -1725,19 +1755,9 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap privacy_modal {
+        internal static System.Drawing.Bitmap privacy_modal2 {
             get {
-                object obj = ResourceManager.GetObject("privacy modal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap privacy_modal1 {
-            get {
-                object obj = ResourceManager.GetObject("privacy modal1", resourceCulture);
+                object obj = ResourceManager.GetObject("privacy-modal2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1768,6 +1788,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap Public {
             get {
                 object obj = ResourceManager.GetObject("Public", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Public1 {
+            get {
+                object obj = ResourceManager.GetObject("Public1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

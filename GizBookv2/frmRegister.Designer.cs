@@ -77,6 +77,7 @@
             panel12.BackColor = Color.Transparent;
             panel12.BackgroundImage = Properties.Resources.Already_have_an_account__Sign_in_instead_;
             panel12.BackgroundImageLayout = ImageLayout.Center;
+            panel12.Cursor = Cursors.Hand;
             panel12.Location = new Point(279, 570);
             panel12.Name = "panel12";
             panel12.Size = new Size(284, 19);
@@ -87,6 +88,7 @@
             // 
             panel11.BackgroundImage = Properties.Resources.Sign_up1;
             panel11.BackgroundImageLayout = ImageLayout.Center;
+            panel11.Cursor = Cursors.Hand;
             panel11.Location = new Point(125, 511);
             panel11.Name = "panel11";
             panel11.Size = new Size(577, 55);

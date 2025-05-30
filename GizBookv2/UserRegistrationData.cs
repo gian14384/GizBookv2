@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using Newtonsoft.Json;
+using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace GizBookv2
 {
@@ -12,5 +14,15 @@ namespace GizBookv2
 
         // Static list to store all registered users
         public static List<UserRegistrationData> RegisteredUsers { get; } = [];
+
+        public static dynamic FetchUserData(string username)
+        {
+            using HttpClient client = new();
+            var endpoint = new Uri($"https://gizbook.vercel.app/api/users/{username}");
+            var response = client.GetAsync(endpoint).Result;
+            var result = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result)!;
+
+            return result;
+        }
     }
 }

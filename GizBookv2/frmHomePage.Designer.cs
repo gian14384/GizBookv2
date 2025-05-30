@@ -207,6 +207,7 @@
             panel3.BackColor = Color.Transparent;
             panel3.BackgroundImage = Properties.Resources.decks_nav;
             panel3.BackgroundImageLayout = ImageLayout.Center;
+            panel3.Cursor = Cursors.Hand;
             panel3.Location = new Point(12, 137);
             panel3.Name = "panel3";
             panel3.Size = new Size(291, 48);
@@ -223,6 +224,7 @@
             panel4.Size = new Size(145, 52);
             panel4.TabIndex = 3;
             panel4.Click += panel4_Click;
+            panel4.Paint += panel4_Paint;
             // 
             // panel5
             // 
@@ -239,6 +241,7 @@
             btndropdown.BackColor = Color.Transparent;
             btndropdown.Controls.Add(panel5);
             btndropdown.Controls.Add(panel4);
+            btndropdown.Cursor = Cursors.Hand;
             btndropdown.Location = new Point(12, 194);
             btndropdown.Name = "btndropdown";
             btndropdown.Size = new Size(291, 52);
@@ -251,6 +254,7 @@
             panel7.BackColor = Color.Transparent;
             panel7.BackgroundImage = Properties.Resources.add;
             panel7.BackgroundImageLayout = ImageLayout.Center;
+            panel7.Cursor = Cursors.Hand;
             panel7.Location = new Point(12, 320);
             panel7.Name = "panel7";
             panel7.Size = new Size(291, 58);
@@ -262,6 +266,7 @@
             panel8.BackColor = Color.Transparent;
             panel8.BackgroundImage = Properties.Resources.learn;
             panel8.BackgroundImageLayout = ImageLayout.Center;
+            panel8.Cursor = Cursors.Hand;
             panel8.Location = new Point(12, 256);
             panel8.Name = "panel8";
             panel8.Size = new Size(291, 58);
@@ -386,6 +391,7 @@
             panel20.BackgroundImage = Properties.Resources.whats_on;
             panel20.BackgroundImageLayout = ImageLayout.Center;
             panel20.Controls.Add(profile);
+            panel20.Cursor = Cursors.Hand;
             panel20.Location = new Point(365, 32);
             panel20.Name = "panel20";
             panel20.Size = new Size(533, 91);
@@ -426,6 +432,7 @@
             // 
             panel23.BackgroundImage = Properties.Resources.share;
             panel23.BackgroundImageLayout = ImageLayout.Center;
+            panel23.Cursor = Cursors.Hand;
             panel23.Location = new Point(413, 421);
             panel23.Name = "panel23";
             panel23.Size = new Size(34, 27);
@@ -435,6 +442,7 @@
             // 
             panel24.BackgroundImage = Properties.Resources.comment;
             panel24.BackgroundImageLayout = ImageLayout.Center;
+            panel24.Cursor = Cursors.Hand;
             panel24.Location = new Point(241, 421);
             panel24.Name = "panel24";
             panel24.Size = new Size(34, 27);
@@ -444,6 +452,7 @@
             // 
             panel25.BackgroundImage = Properties.Resources.heart;
             panel25.BackgroundImageLayout = ImageLayout.Center;
+            panel25.Cursor = Cursors.Hand;
             panel25.Location = new Point(79, 422);
             panel25.Name = "panel25";
             panel25.Size = new Size(34, 27);
@@ -453,6 +462,7 @@
             // 
             panel26.BackgroundImage = Properties.Resources.Button__1_1;
             panel26.BackgroundImageLayout = ImageLayout.Center;
+            panel26.Cursor = Cursors.Hand;
             panel26.Location = new Point(22, 387);
             panel26.Name = "panel26";
             panel26.Size = new Size(110, 28);
@@ -597,6 +607,7 @@
             // 
             panel37.BackgroundImage = Properties.Resources._3_dot;
             panel37.BackgroundImageLayout = ImageLayout.Center;
+            panel37.Cursor = Cursors.Hand;
             panel37.Location = new Point(485, 34);
             panel37.Name = "panel37";
             panel37.Size = new Size(26, 12);
@@ -618,6 +629,7 @@
             panel2.BackColor = Color.Transparent;
             panel2.Controls.Add(page);
             panel2.Controls.Add(lblName);
+            panel2.Cursor = Cursors.Hand;
             panel2.Location = new Point(12, 82);
             panel2.Name = "panel2";
             panel2.Size = new Size(291, 48);
@@ -771,6 +783,7 @@
             // 
             panel32.BackgroundImage = (Image)resources.GetObject("panel32.BackgroundImage");
             panel32.BackgroundImageLayout = ImageLayout.Center;
+            panel32.Cursor = Cursors.Hand;
             panel32.Location = new Point(398, 198);
             panel32.Name = "panel32";
             panel32.Size = new Size(128, 42);
@@ -780,6 +793,7 @@
             // 
             panel33.BackgroundImage = (Image)resources.GetObject("panel33.BackgroundImage");
             panel33.BackgroundImageLayout = ImageLayout.Center;
+            panel33.Cursor = Cursors.Hand;
             panel33.Location = new Point(263, 198);
             panel33.Name = "panel33";
             panel33.Size = new Size(128, 42);
@@ -790,6 +804,7 @@
             // 
             panel34.BackgroundImage = (Image)resources.GetObject("panel34.BackgroundImage");
             panel34.BackgroundImageLayout = ImageLayout.Center;
+            panel34.Cursor = Cursors.Hand;
             panel34.Location = new Point(34, 197);
             panel34.Name = "panel34";
             panel34.Size = new Size(128, 42);

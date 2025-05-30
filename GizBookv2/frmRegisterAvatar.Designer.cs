@@ -134,6 +134,7 @@
             // 
             panel7.BackgroundImage = Properties.Resources.Button__1_;
             panel7.BackgroundImageLayout = ImageLayout.Center;
+            panel7.Cursor = Cursors.Hand;
             panel7.Location = new Point(28, 526);
             panel7.Name = "panel7";
             panel7.Size = new Size(557, 62);
@@ -168,6 +169,7 @@
             // 
             pictureBox12.BackgroundImage = Properties.Resources.bb6;
             pictureBox12.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox12.Cursor = Cursors.Hand;
             pictureBox12.Location = new Point(440, 401);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(96, 98);
@@ -179,6 +181,7 @@
             // 
             pictureBox11.BackgroundImage = Properties.Resources.gb6;
             pictureBox11.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox11.Cursor = Cursors.Hand;
             pictureBox11.Location = new Point(319, 401);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(96, 98);
@@ -190,6 +193,7 @@
             // 
             pictureBox10.BackgroundImage = Properties.Resources.bb5;
             pictureBox10.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox10.Cursor = Cursors.Hand;
             pictureBox10.Location = new Point(201, 401);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(96, 98);
@@ -201,6 +205,7 @@
             // 
             pictureBox9.BackgroundImage = Properties.Resources.bb4;
             pictureBox9.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox9.Cursor = Cursors.Hand;
             pictureBox9.Location = new Point(440, 280);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(96, 98);
@@ -212,6 +217,7 @@
             // 
             pictureBox8.BackgroundImage = Properties.Resources.gb4;
             pictureBox8.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox8.Cursor = Cursors.Hand;
             pictureBox8.Location = new Point(319, 280);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(96, 98);
@@ -223,6 +229,7 @@
             // 
             pictureBox7.BackgroundImage = Properties.Resources.gb5;
             pictureBox7.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox7.Cursor = Cursors.Hand;
             pictureBox7.Location = new Point(78, 401);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(96, 98);
@@ -234,6 +241,7 @@
             // 
             pictureBox6.BackgroundImage = Properties.Resources.bb3;
             pictureBox6.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox6.Cursor = Cursors.Hand;
             pictureBox6.Location = new Point(201, 280);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(96, 98);
@@ -245,6 +253,7 @@
             // 
             pictureBox5.BackgroundImage = Properties.Resources.gb3;
             pictureBox5.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox5.Cursor = Cursors.Hand;
             pictureBox5.Location = new Point(78, 280);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(96, 98);
@@ -256,6 +265,7 @@
             // 
             pictureBox4.BackgroundImage = Properties.Resources.bb2;
             pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox4.Cursor = Cursors.Hand;
             pictureBox4.Location = new Point(440, 153);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(96, 98);
@@ -267,6 +277,7 @@
             // 
             pictureBox3.BackgroundImage = Properties.Resources.gb2;
             pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Location = new Point(319, 153);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(96, 98);
@@ -278,6 +289,7 @@
             // 
             pictureBox2.BackgroundImage = Properties.Resources.bb1;
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Location = new Point(201, 153);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(96, 98);
@@ -289,6 +301,7 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.gb11;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Location = new Point(78, 153);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(96, 98);
@@ -300,6 +313,7 @@
             // 
             panel6.BackgroundImage = Properties.Resources.Button;
             panel6.BackgroundImageLayout = ImageLayout.Center;
+            panel6.Cursor = Cursors.Hand;
             panel6.Location = new Point(29, 526);
             panel6.Name = "panel6";
             panel6.Size = new Size(557, 62);

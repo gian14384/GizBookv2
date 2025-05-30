@@ -72,6 +72,7 @@
             // 
             panel12.BackgroundImage = Properties.Resources.title__2_;
             panel12.BackgroundImageLayout = ImageLayout.Center;
+            panel12.Cursor = Cursors.Hand;
             panel12.Location = new Point(596, 709);
             panel12.Name = "panel12";
             panel12.Size = new Size(118, 32);
@@ -82,6 +83,7 @@
             panel10.BackColor = Color.Transparent;
             panel10.BackgroundImage = Properties.Resources.title;
             panel10.BackgroundImageLayout = ImageLayout.Center;
+            panel10.Cursor = Cursors.Hand;
             panel10.Location = new Point(142, 709);
             panel10.Name = "panel10";
             panel10.Size = new Size(135, 32);
@@ -91,6 +93,7 @@
             // 
             panel11.BackgroundImage = Properties.Resources.title__1_;
             panel11.BackgroundImageLayout = ImageLayout.Center;
+            panel11.Cursor = Cursors.Hand;
             panel11.Location = new Point(358, 709);
             panel11.Name = "panel11";
             panel11.Size = new Size(157, 32);
@@ -100,6 +103,7 @@
             // 
             panel9.BackgroundImage = Properties.Resources.Don_t_have_an_account__Create_one;
             panel9.BackgroundImageLayout = ImageLayout.Center;
+            panel9.Cursor = Cursors.Hand;
             panel9.Location = new Point(313, 553);
             panel9.Name = "panel9";
             panel9.Size = new Size(240, 17);
@@ -110,6 +114,7 @@
             // 
             panel8.BackgroundImage = Properties.Resources.Frame_22;
             panel8.BackgroundImageLayout = ImageLayout.Center;
+            panel8.Cursor = Cursors.Hand;
             panel8.Location = new Point(142, 492);
             panel8.Name = "panel8";
             panel8.Size = new Size(572, 57);
@@ -152,6 +157,7 @@
             // 
             panel7.BackgroundImage = Properties.Resources.close;
             panel7.BackgroundImageLayout = ImageLayout.Center;
+            panel7.Cursor = Cursors.Hand;
             panel7.Location = new Point(528, 14);
             panel7.Name = "panel7";
             panel7.Size = new Size(35, 23);

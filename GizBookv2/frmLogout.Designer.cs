@@ -70,6 +70,7 @@
             panel4.BackColor = Color.Transparent;
             panel4.BackgroundImage = Properties.Resources.cancel_button;
             panel4.BackgroundImageLayout = ImageLayout.Center;
+            panel4.Cursor = Cursors.Hand;
             panel4.Location = new Point(78, 254);
             panel4.Name = "panel4";
             panel4.Size = new Size(161, 48);
@@ -81,6 +82,7 @@
             panel5.BackColor = Color.Transparent;
             panel5.BackgroundImage = Properties.Resources.confirm_button;
             panel5.BackgroundImageLayout = ImageLayout.Center;
+            panel5.Cursor = Cursors.Hand;
             panel5.Location = new Point(315, 254);
             panel5.Name = "panel5";
             panel5.Size = new Size(161, 48);
