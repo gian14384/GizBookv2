@@ -33,7 +33,7 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            txtDeckTitle = new TextBox();
+            txtDeckName = new TextBox();
             panel5 = new Panel();
             btn2 = new Panel();
             btn3 = new Panel();
@@ -92,22 +92,22 @@
             panel4.BackColor = Color.Transparent;
             panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
             panel4.BackgroundImageLayout = ImageLayout.Center;
-            panel4.Controls.Add(txtDeckTitle);
+            panel4.Controls.Add(txtDeckName);
             panel4.Location = new Point(22, 190);
             panel4.Name = "panel4";
             panel4.Size = new Size(645, 64);
             panel4.TabIndex = 3;
             // 
-            // txtDeckTitle
+            // txtDeckName
             // 
-            txtDeckTitle.BorderStyle = BorderStyle.None;
-            txtDeckTitle.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDeckTitle.Location = new Point(12, 15);
-            txtDeckTitle.Multiline = true;
-            txtDeckTitle.Name = "txtDeckTitle";
-            txtDeckTitle.PlaceholderText = " e.g. ITEC 103";
-            txtDeckTitle.Size = new Size(621, 40);
-            txtDeckTitle.TabIndex = 0;
+            txtDeckName.BorderStyle = BorderStyle.None;
+            txtDeckName.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtDeckName.Location = new Point(12, 15);
+            txtDeckName.Multiline = true;
+            txtDeckName.Name = "txtDeckName";
+            txtDeckName.PlaceholderText = " e.g. ITEC 103";
+            txtDeckName.Size = new Size(621, 40);
+            txtDeckName.TabIndex = 0;
             // 
             // panel5
             // 
@@ -128,6 +128,7 @@
             btn2.Name = "btn2";
             btn2.Size = new Size(54, 55);
             btn2.TabIndex = 6;
+            btn2.Click += btn2_Click;
             // 
             // btn3
             // 
@@ -138,6 +139,7 @@
             btn3.Name = "btn3";
             btn3.Size = new Size(54, 55);
             btn3.TabIndex = 7;
+            btn3.Click += btn3_Click;
             // 
             // btn4
             // 
@@ -148,6 +150,7 @@
             btn4.Name = "btn4";
             btn4.Size = new Size(54, 55);
             btn4.TabIndex = 7;
+            btn4.Click += btn4_Click;
             // 
             // btn5
             // 
@@ -158,6 +161,7 @@
             btn5.Name = "btn5";
             btn5.Size = new Size(54, 55);
             btn5.TabIndex = 7;
+            btn5.Click += btn5_Click;
             // 
             // btn6
             // 
@@ -168,6 +172,7 @@
             btn6.Name = "btn6";
             btn6.Size = new Size(54, 55);
             btn6.TabIndex = 7;
+            btn6.Click += btn6_Click;
             // 
             // btn7
             // 
@@ -178,6 +183,7 @@
             btn7.Name = "btn7";
             btn7.Size = new Size(54, 55);
             btn7.TabIndex = 8;
+            btn7.Click += btn7_Click;
             // 
             // btn8
             // 
@@ -188,6 +194,7 @@
             btn8.Name = "btn8";
             btn8.Size = new Size(54, 55);
             btn8.TabIndex = 7;
+            btn8.Click += btn8_Click;
             // 
             // btn9
             // 
@@ -198,6 +205,7 @@
             btn9.Name = "btn9";
             btn9.Size = new Size(54, 55);
             btn9.TabIndex = 7;
+            btn9.Click += btn9_Click;
             // 
             // btn10
             // 
@@ -208,6 +216,7 @@
             btn10.Name = "btn10";
             btn10.Size = new Size(54, 55);
             btn10.TabIndex = 7;
+            btn10.Click += btn10_Click;
             // 
             // panel16
             // 
@@ -313,6 +322,7 @@
             btn1.Name = "btn1";
             btn1.Size = new Size(54, 55);
             btn1.TabIndex = 18;
+            btn1.Click += btn1_Click_1;
             // 
             // frmAddDeck
             // 
@@ -361,7 +371,6 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
-        private TextBox txtDeckTitle;
         private Panel panel5;
         private Panel btn2;
         private Panel btn3;
@@ -382,5 +391,6 @@
         private Panel panel20;
         private Panel btnSaveDeck;
         private Panel btn1;
+        public TextBox txtDeckName;
     }
 }
