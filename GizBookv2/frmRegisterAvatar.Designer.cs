@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegisterAvatar));
             panel1 = new Panel();
             panel3 = new Panel();
             lblusername = new Label();
@@ -99,7 +98,7 @@
             // 
             lblusername.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblusername.ForeColor = Color.FromArgb(92, 93, 94);
-            lblusername.Location = new Point(48, 401);
+            lblusername.Location = new Point(48, 392);
             lblusername.Name = "lblusername";
             lblusername.Size = new Size(511, 30);
             lblusername.TabIndex = 7;
@@ -109,7 +108,7 @@
             // lblname
             // 
             lblname.Font = new Font("Segoe UI", 32.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblname.Location = new Point(38, 343);
+            lblname.Location = new Point(34, 319);
             lblname.Name = "lblname";
             lblname.Size = new Size(532, 59);
             lblname.TabIndex = 6;
@@ -118,11 +117,10 @@
             // 
             // pictureBox13
             // 
-            pictureBox13.BackgroundImage = Properties.Resources.Switch_container;
             pictureBox13.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox13.Location = new Point(172, 138);
+            pictureBox13.Location = new Point(213, 104);
             pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new Size(273, 202);
+            pictureBox13.Size = new Size(190, 195);
             pictureBox13.TabIndex = 5;
             pictureBox13.TabStop = false;
             // 
@@ -143,6 +141,7 @@
             panel7.Name = "panel7";
             panel7.Size = new Size(557, 62);
             panel7.TabIndex = 3;
+            panel7.Click += panel7_Click;
             // 
             // panel2
             // 
@@ -170,118 +169,129 @@
             // 
             // pictureBox12
             // 
-            pictureBox12.BackgroundImage = Properties.Resources.b6;
-            pictureBox12.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox12.BackgroundImage = Properties.Resources.bb6;
+            pictureBox12.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox12.Location = new Point(440, 401);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(96, 98);
             pictureBox12.TabIndex = 13;
             pictureBox12.TabStop = false;
+            pictureBox12.Click += pictureBox12_Click;
             // 
             // pictureBox11
             // 
-            pictureBox11.BackgroundImage = Properties.Resources.g6;
-            pictureBox11.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox11.BackgroundImage = Properties.Resources.gb6;
+            pictureBox11.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox11.Location = new Point(319, 401);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(96, 98);
             pictureBox11.TabIndex = 12;
             pictureBox11.TabStop = false;
+            pictureBox11.Click += pictureBox11_Click;
             // 
             // pictureBox10
             // 
-            pictureBox10.BackgroundImage = Properties.Resources.b5;
-            pictureBox10.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox10.BackgroundImage = Properties.Resources.bb5;
+            pictureBox10.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox10.Location = new Point(201, 401);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(96, 98);
             pictureBox10.TabIndex = 11;
             pictureBox10.TabStop = false;
+            pictureBox10.Click += pictureBox10_Click;
             // 
             // pictureBox9
             // 
-            pictureBox9.BackgroundImage = Properties.Resources.b4;
-            pictureBox9.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox9.BackgroundImage = Properties.Resources.bb4;
+            pictureBox9.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox9.Location = new Point(440, 280);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(96, 98);
             pictureBox9.TabIndex = 10;
             pictureBox9.TabStop = false;
+            pictureBox9.Click += pictureBox9_Click;
             // 
             // pictureBox8
             // 
-            pictureBox8.BackgroundImage = Properties.Resources.g4;
-            pictureBox8.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox8.BackgroundImage = Properties.Resources.gb4;
+            pictureBox8.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox8.Location = new Point(319, 280);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(96, 98);
             pictureBox8.TabIndex = 9;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += pictureBox8_Click;
             // 
             // pictureBox7
             // 
-            pictureBox7.BackgroundImage = (Image)resources.GetObject("pictureBox7.BackgroundImage");
-            pictureBox7.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox7.BackgroundImage = Properties.Resources.gb5;
+            pictureBox7.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox7.Location = new Point(78, 401);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(96, 98);
             pictureBox7.TabIndex = 9;
             pictureBox7.TabStop = false;
+            pictureBox7.Click += pictureBox7_Click;
             // 
             // pictureBox6
             // 
-            pictureBox6.BackgroundImage = Properties.Resources.b3;
-            pictureBox6.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox6.BackgroundImage = Properties.Resources.bb3;
+            pictureBox6.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox6.Location = new Point(201, 280);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(96, 98);
             pictureBox6.TabIndex = 8;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // pictureBox5
             // 
-            pictureBox5.BackgroundImage = Properties.Resources.g3;
-            pictureBox5.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox5.BackgroundImage = Properties.Resources.gb3;
+            pictureBox5.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox5.Location = new Point(78, 280);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(96, 98);
             pictureBox5.TabIndex = 7;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // pictureBox4
             // 
-            pictureBox4.BackgroundImage = Properties.Resources.b2;
-            pictureBox4.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox4.BackgroundImage = Properties.Resources.bb2;
+            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox4.Location = new Point(440, 153);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(96, 98);
             pictureBox4.TabIndex = 6;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // pictureBox3
             // 
-            pictureBox3.BackgroundImage = Properties.Resources.g2;
-            pictureBox3.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox3.BackgroundImage = Properties.Resources.gb2;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox3.Location = new Point(319, 153);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(96, 98);
             pictureBox3.TabIndex = 5;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox2
             // 
-            pictureBox2.BackgroundImage = Properties.Resources.b1;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox2.BackgroundImage = Properties.Resources.bb1;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox2.Location = new Point(201, 153);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(96, 98);
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.g1;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox1.BackgroundImage = Properties.Resources.gb11;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Location = new Point(78, 153);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(96, 98);
@@ -297,6 +307,7 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(557, 62);
             panel6.TabIndex = 2;
+            panel6.Click += panel6_Click;
             // 
             // panel5
             // 

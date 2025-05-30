@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            panel19 = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
@@ -84,7 +85,6 @@
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
-            panel19 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelAllPost.SuspendLayout();
@@ -113,6 +113,14 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(80, 770);
             panel1.TabIndex = 0;
+            // 
+            // panel19
+            // 
+            panel19.Location = new Point(9, 12);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(61, 52);
+            panel19.TabIndex = 0;
+            panel19.Click += panel19_Click;
             // 
             // pictureBox1
             // 
@@ -201,6 +209,7 @@
             mark1.Name = "mark1";
             mark1.Size = new Size(287, 10);
             mark1.TabIndex = 10;
+            mark1.Click += mark1_Click;
             // 
             // mark2
             // 
@@ -694,14 +703,6 @@
             pictureBox3.Size = new Size(74, 68);
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
-            // 
-            // panel19
-            // 
-            panel19.Location = new Point(9, 12);
-            panel19.Name = "panel19";
-            panel19.Size = new Size(61, 52);
-            panel19.TabIndex = 0;
-            panel19.Click += panel19_Click;
             // 
             // frmProfilePage
             // 

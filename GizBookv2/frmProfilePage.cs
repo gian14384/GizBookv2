@@ -118,9 +118,12 @@ namespace GizBookv2
 
         private void panel19_Click(object sender, EventArgs e)
         {
-            frmHomePage fhp = new frmHomePage();
-            fhp.Show();
             this.Hide();
+        }
+
+        private void mark1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

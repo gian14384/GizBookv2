@@ -51,7 +51,7 @@ namespace GizBookv2
                 userData.Name = txtname.Text;
                 userData.Username = txtusername.Text;
                 userData.Password = txtpassword.Text;
-
+                userData.ConfirmPassword = txtconfirmpass.Text;
 
                 var avatarForm = new frmRegisterAvatar(userData);
                 avatarForm.Show();
@@ -65,6 +65,16 @@ namespace GizBookv2
         }
 
         private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtpassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtconfirmpass_TextChanged(object sender, EventArgs e)
         {
 
         }

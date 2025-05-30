@@ -34,9 +34,9 @@
             sdada = new Panel();
             txtconfirmpass = new TextBox();
             sdsadas = new Panel();
-            txtpassword = new TextBox();
-            sdasd = new Panel();
             txtusername = new TextBox();
+            sdasd = new Panel();
+            txtpassword = new TextBox();
             dsda = new Panel();
             txtname = new TextBox();
             panel6 = new Panel();
@@ -107,11 +107,15 @@
             // 
             // txtconfirmpass
             // 
-            txtconfirmpass.Location = new Point(19, 14);
+            txtconfirmpass.BorderStyle = BorderStyle.None;
+            txtconfirmpass.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtconfirmpass.Location = new Point(19, 12);
             txtconfirmpass.Multiline = true;
             txtconfirmpass.Name = "txtconfirmpass";
-            txtconfirmpass.Size = new Size(539, 23);
+            txtconfirmpass.PlaceholderText = "Repeat your password";
+            txtconfirmpass.Size = new Size(539, 27);
             txtconfirmpass.TabIndex = 1;
+            txtconfirmpass.TextChanged += txtconfirmpass_TextChanged;
             // 
             // sdsadas
             // 
@@ -123,13 +127,16 @@
             sdsadas.Size = new Size(577, 56);
             sdsadas.TabIndex = 6;
             // 
-            // txtpassword
+            // txtusername
             // 
-            txtpassword.Location = new Point(19, 17);
-            txtpassword.Multiline = true;
-            txtpassword.Name = "txtpassword";
-            txtpassword.Size = new Size(539, 23);
-            txtpassword.TabIndex = 1;
+            txtusername.BorderStyle = BorderStyle.None;
+            txtusername.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtusername.Location = new Point(19, 14);
+            txtusername.Multiline = true;
+            txtusername.Name = "txtusername";
+            txtusername.PlaceholderText = "Enter your username";
+            txtusername.Size = new Size(539, 27);
+            txtusername.TabIndex = 1;
             // 
             // sdasd
             // 
@@ -141,13 +148,16 @@
             sdasd.Size = new Size(577, 54);
             sdasd.TabIndex = 6;
             // 
-            // txtusername
+            // txtpassword
             // 
-            txtusername.Location = new Point(19, 16);
-            txtusername.Multiline = true;
-            txtusername.Name = "txtusername";
-            txtusername.Size = new Size(539, 23);
-            txtusername.TabIndex = 1;
+            txtpassword.BorderStyle = BorderStyle.None;
+            txtpassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtpassword.Location = new Point(19, 14);
+            txtpassword.Multiline = true;
+            txtpassword.Name = "txtpassword";
+            txtpassword.PlaceholderText = "Enter your password";
+            txtpassword.Size = new Size(539, 27);
+            txtpassword.TabIndex = 1;
             // 
             // dsda
             // 
@@ -161,10 +171,13 @@
             // 
             // txtname
             // 
-            txtname.Location = new Point(15, 14);
+            txtname.BorderStyle = BorderStyle.None;
+            txtname.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtname.Location = new Point(19, 13);
             txtname.Multiline = true;
             txtname.Name = "txtname";
-            txtname.Size = new Size(539, 23);
+            txtname.PlaceholderText = "Enter your name";
+            txtname.Size = new Size(539, 27);
             txtname.TabIndex = 0;
             // 
             // panel6
@@ -252,9 +265,9 @@
         private Panel sdasd;
         private Panel panel11;
         private Panel panel12;
+        private TextBox txtname;
         private TextBox txtconfirmpass;
         private TextBox txtpassword;
         private TextBox txtusername;
-        private TextBox txtname;
     }
 }
