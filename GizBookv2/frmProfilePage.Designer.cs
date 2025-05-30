@@ -125,11 +125,10 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.Switch_container1;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Location = new Point(239, 19);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(198, 206);
+            pictureBox1.Size = new Size(188, 188);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
@@ -170,7 +169,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(21, 121, 243);
-            label4.Location = new Point(624, 155);
+            label4.Location = new Point(675, 155);
             label4.Name = "label4";
             label4.Size = new Size(140, 37);
             label4.TabIndex = 5;
@@ -185,8 +184,6 @@
             btnAllPost.Name = "btnAllPost";
             btnAllPost.Size = new Size(271, 100);
             btnAllPost.TabIndex = 6;
-            btnAllPost.Click += panel2_Click;
-            btnAllPost.Paint += panel2_Paint;
             btnAllPost.MouseClick += btnAllPost_MouseClick;
             // 
             // btnStats
@@ -198,8 +195,6 @@
             btnStats.Name = "btnStats";
             btnStats.Size = new Size(260, 100);
             btnStats.TabIndex = 8;
-            btnStats.Click += panel4_Click;
-            btnStats.Paint += btnStats_Paint;
             btnStats.MouseClick += btnStats_MouseClick;
             // 
             // mark1
@@ -209,7 +204,6 @@
             mark1.Name = "mark1";
             mark1.Size = new Size(287, 10);
             mark1.TabIndex = 10;
-            mark1.Click += mark1_Click;
             // 
             // mark2
             // 
@@ -219,7 +213,6 @@
             mark2.Size = new Size(287, 10);
             mark2.TabIndex = 11;
             mark2.Visible = false;
-            mark2.MouseClick += mark2_MouseClick;
             // 
             // mark3
             // 

@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
-
-namespace GizBookv2
+﻿namespace GizBookv2
 {
     public partial class frmRegister : Form
     {
@@ -18,21 +7,16 @@ namespace GizBookv2
             InitializeComponent();
         }
 
-        private void panel12_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel12_Click(object sender, EventArgs e)
         {
-            frmLogin fl = new frmLogin();
-            fl.Show();
-            this.Hide();
+            frmLogin loginForm = new();
+            loginForm.Show();
+            Close();
         }
 
         private void panel11_Click(object sender, EventArgs e)
         {
-            string name = this.txtname.Text;
+            string name = txtname.Text;
             string username = txtusername.Text;
             string password = txtpassword.Text;
             string confirmPassword = txtconfirmpass.Text;
@@ -47,36 +31,18 @@ namespace GizBookv2
             }
             else
             {
-                var userData = new UserRegistrationData();
-                userData.Name = txtname.Text;
-                userData.Username = txtusername.Text;
-                userData.Password = txtpassword.Text;
-                userData.ConfirmPassword = txtconfirmpass.Text;
+                var newUser = new UserRegistrationData
+                {
+                    name = txtname.Text,
+                    username = txtusername.Text,
+                    password = txtpassword.Text,
+                    confirmPassword = txtconfirmpass.Text
+                };
 
-                var avatarForm = new frmRegisterAvatar(userData);
+                var avatarForm = new frmRegisterAvatar(newUser);
                 avatarForm.Show();
-                this.Hide();
+                Close();
             }
-        }
-
-        private void frmRegister_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel11_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtpassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtconfirmpass_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

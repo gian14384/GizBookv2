@@ -1,61 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Newtonsoft.Json;
 
 namespace GizBookv2
 {
     public partial class frmProfilePage : Form
     {
-        public frmProfilePage()
+        private readonly string username;
+
+        public frmProfilePage(string _username)
         {
             InitializeComponent();
-        }
-
-        private void frmProfilePage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel13_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mark4_Click(object sender, EventArgs e)
-        {
-
+            username = _username;
         }
 
         private void btnAllPost_MouseClick(object sender, MouseEventArgs e)
@@ -68,11 +22,6 @@ namespace GizBookv2
             mark2.Visible = false;
             mark3.Visible = false;
             mark4.Visible = false;
-        }
-
-        private void mark2_MouseClick(object sender, MouseEventArgs e)
-        {
-
         }
 
         private void btnDecks_MouseClick(object sender, MouseEventArgs e)
@@ -110,20 +59,47 @@ namespace GizBookv2
             mark2.Visible = false;
             mark3.Visible = false;
         }
-
-        private void btnStats_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel19_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Close();
         }
 
-        private void mark1_Click(object sender, EventArgs e)
+        public static string GetOrdinalSuffix(int number)
+        {
+            if (number % 100 >= 11 && number % 100 <= 13)
+                return "th";
+            return (number % 10) switch
+            {
+                1 => "st",
+                2 => "nd",
+                3 => "rd",
+                _ => "th",
+            };
+        }
+
+        private void frmProfilePage_Load(object sender, EventArgs e)
         {
 
+            using HttpClient client = new();
+            var endpoint = new Uri($"https://gizbook.vercel.app/api/users/{username}");
+            var response = client.GetAsync(endpoint).Result;
+            var result = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result)!;
+
+            using HttpClient client2 = new();
+            var endpoint2 = new Uri("https://gizbook.vercel.app/api/users");
+            var response2 = client2.GetAsync(endpoint2).Result;
+            var result2 = JsonConvert.DeserializeObject<List<dynamic>>(response2.Content.ReadAsStringAsync().Result)!
+               .OrderByDescending(user => (int)user.score)
+               .ToList();
+            int rank = result2.FindIndex(user => (string)user.username == username) + 1;
+
+            pictureBox1.Image = (Image)Properties.Resources.ResourceManager.GetObject((string)result.avatar)!;
+            label1.Text = (string)result.name;
+            label2.Text = (string)result.username;
+            label3.Text = (string)result.total_followers + " followers";
+            label4.Text = (string)result.total_following + " following";
+            label10.Text = "Your Total Score: " + (string)result.score;
+            label11.Text = $"You're currently ranked {rank}{GetOrdinalSuffix(rank)} on the leaderboard! Keep Going!";
         }
     }
 }

@@ -34,9 +34,9 @@
             sdada = new Panel();
             txtconfirmpass = new TextBox();
             sdsadas = new Panel();
-            txtusername = new TextBox();
-            sdasd = new Panel();
             txtpassword = new TextBox();
+            sdasd = new Panel();
+            txtusername = new TextBox();
             dsda = new Panel();
             txtname = new TextBox();
             panel6 = new Panel();
@@ -82,7 +82,6 @@
             panel12.Size = new Size(284, 19);
             panel12.TabIndex = 1;
             panel12.Click += panel12_Click;
-            panel12.Paint += panel12_Paint;
             // 
             // panel11
             // 
@@ -93,7 +92,6 @@
             panel11.Size = new Size(577, 55);
             panel11.TabIndex = 8;
             panel11.Click += panel11_Click;
-            panel11.Paint += panel11_Paint;
             // 
             // sdada
             // 
@@ -115,7 +113,6 @@
             txtconfirmpass.PlaceholderText = "Repeat your password";
             txtconfirmpass.Size = new Size(539, 27);
             txtconfirmpass.TabIndex = 1;
-            txtconfirmpass.TextChanged += txtconfirmpass_TextChanged;
             // 
             // sdsadas
             // 
@@ -127,16 +124,16 @@
             sdsadas.Size = new Size(577, 56);
             sdsadas.TabIndex = 6;
             // 
-            // txtusername
+            // txtpassword
             // 
-            txtusername.BorderStyle = BorderStyle.None;
-            txtusername.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtusername.Location = new Point(19, 14);
-            txtusername.Multiline = true;
-            txtusername.Name = "txtusername";
-            txtusername.PlaceholderText = "Enter your username";
-            txtusername.Size = new Size(539, 27);
-            txtusername.TabIndex = 1;
+            txtpassword.BorderStyle = BorderStyle.None;
+            txtpassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtpassword.Location = new Point(19, 14);
+            txtpassword.Multiline = true;
+            txtpassword.Name = "txtpassword";
+            txtpassword.PlaceholderText = "Enter your password";
+            txtpassword.Size = new Size(539, 27);
+            txtpassword.TabIndex = 1;
             // 
             // sdasd
             // 
@@ -148,16 +145,16 @@
             sdasd.Size = new Size(577, 54);
             sdasd.TabIndex = 6;
             // 
-            // txtpassword
+            // txtusername
             // 
-            txtpassword.BorderStyle = BorderStyle.None;
-            txtpassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtpassword.Location = new Point(19, 14);
-            txtpassword.Multiline = true;
-            txtpassword.Name = "txtpassword";
-            txtpassword.PlaceholderText = "Enter your password";
-            txtpassword.Size = new Size(539, 27);
-            txtpassword.TabIndex = 1;
+            txtusername.BorderStyle = BorderStyle.None;
+            txtusername.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtusername.Location = new Point(19, 14);
+            txtusername.Multiline = true;
+            txtusername.Name = "txtusername";
+            txtusername.PlaceholderText = "Enter your username";
+            txtusername.Size = new Size(539, 27);
+            txtusername.TabIndex = 1;
             // 
             // dsda
             // 
@@ -237,8 +234,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmRegister";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmRegister";
-            Load += frmRegister_Load;
+            Text = "GizBook";
             panel1.ResumeLayout(false);
             sdada.ResumeLayout(false);
             sdada.PerformLayout();

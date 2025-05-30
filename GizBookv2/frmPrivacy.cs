@@ -25,7 +25,7 @@ namespace GizBookv2
 
         private void panel7_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void panel8_Click(object sender, EventArgs e)

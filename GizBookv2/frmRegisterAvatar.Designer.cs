@@ -78,7 +78,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1365, 769);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // panel3
             // 
@@ -103,7 +102,6 @@
             lblusername.Size = new Size(511, 30);
             lblusername.TabIndex = 7;
             lblusername.Text = "Username";
-            lblusername.Click += label2_Click;
             // 
             // lblname
             // 
@@ -113,7 +111,6 @@
             lblname.Size = new Size(532, 59);
             lblname.TabIndex = 6;
             lblname.Text = "Name";
-            lblname.Click += label1_Click;
             // 
             // pictureBox13
             // 
@@ -339,7 +336,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmRegisterAvatar";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmRegisterAvatar";
+            Text = "GizBook";
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();

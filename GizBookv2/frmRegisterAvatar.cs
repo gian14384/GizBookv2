@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
+﻿using System.Text;
 
 namespace GizBookv2
 {
     public partial class frmRegisterAvatar : Form
     {
+    #pragma warning disable CS8618
         public frmRegisterAvatar()
         {
             InitializeComponent();
         }
-     private string _selectedAvatarResourceName = null;
+
+        private string? _selectedAvatarResourceName = null;
         private void AvatarPictureBox_Click(object sender, EventArgs e)
         {
             if (sender is PictureBox pictureBox && pictureBox.Tag is string resourceName)
@@ -39,22 +32,7 @@ namespace GizBookv2
             pictureBox13.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private UserRegistrationData _userData;
+        private readonly UserRegistrationData _userData;
         // Add this field to the frmRegisterAvatar class
         private PictureBox _selectedPictureBox;
 
@@ -62,17 +40,17 @@ namespace GizBookv2
         {
             InitializeComponent();
             _userData = userData;
-            lblname.Text = _userData.Name;
-            lblusername.Text = _userData.Username;
+            lblname.Text = _userData.name;
+            lblusername.Text = _userData.username;
             lblname.TextAlign = ContentAlignment.MiddleCenter;
             lblusername.TextAlign = ContentAlignment.MiddleCenter;
         }
 
         private void panel6_Click(object sender, EventArgs e)
         {
-            frmRegister fr = new frmRegister();
-            fr.Show();
-            this.Hide();
+            frmRegister registerForm = new();
+            registerForm.Show();
+            Close();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -173,16 +151,50 @@ namespace GizBookv2
             }
 
             // Save the avatar image
-            _userData.Avatar = pictureBox13.BackgroundImage;
+            _userData.avatar = _selectedAvatarResourceName;
 
+            // TODO: REMOVE THIS
             // Add the user to the static list
             UserRegistrationData.RegisteredUsers.Add(_userData);
 
-            MessageBox.Show("Registration complete!");
+            using HttpClient client = new();
+            var endpoint = new Uri("https://gizbook.vercel.app/api/auth/register");
 
-            frmLogin loginForm = new frmLogin();
-            loginForm.Show();
-            this.Hide();
+            if (string.IsNullOrWhiteSpace(_userData.name) ||
+               string.IsNullOrWhiteSpace(_userData.username) ||
+               string.IsNullOrWhiteSpace(_userData.password) ||
+               string.IsNullOrWhiteSpace(_userData.avatar))
+            {
+                MessageBox.Show("All fields (name, username, password, avatar) must be filled before registration.");
+                return;
+            }
+
+            var newUserJson = Newtonsoft.Json.JsonConvert.SerializeObject(new Dictionary<string, string?>
+            {
+               { "name", _userData.name },
+               { "username", _userData.username },
+               { "password", _userData.password },
+               { "avatar", _userData.avatar }
+            });
+            var payload = new StringContent(newUserJson, Encoding.UTF8, "application/json");
+            var response = client.PostAsync(endpoint, payload).Result;
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+            {
+                MessageBox.Show("Username already exists.");
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                MessageBox.Show("Registration successful!");
+                frmLogin loginForm = new();
+                loginForm.Show();
+                Close();
+            }
+            else
+            {
+                var errorMessage = response.Content.ReadAsStringAsync().Result;
+                MessageBox.Show($"Something went wrong. Please try again.\nError: {errorMessage}");
+            }
         }
     }
 }

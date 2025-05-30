@@ -4,13 +4,13 @@ namespace GizBookv2
 {
     public class UserRegistrationData
     {
-        public string Name { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
-        public Image Avatar { get; set; }
+        public required string name { get; set; }
+        public required string username { get; set; }
+        public string? password { get; set; }
+        public string? confirmPassword { get; set; }
+        public string? avatar { get; set; }
 
         // Static list to store all registered users
-        public static List<UserRegistrationData> RegisteredUsers { get; } = new List<UserRegistrationData>();
+        public static List<UserRegistrationData> RegisteredUsers { get; } = [];
     }
 }

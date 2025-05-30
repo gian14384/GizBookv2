@@ -101,7 +101,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmLogout";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmLogout";
+            Text = "GizBook";
             ResumeLayout(false);
         }
 

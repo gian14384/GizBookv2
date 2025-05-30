@@ -115,7 +115,6 @@
             panel8.Size = new Size(572, 57);
             panel8.TabIndex = 5;
             panel8.Click += panel8_Click;
-            panel8.Paint += panel8_Paint;
             // 
             // panel6
             // 
@@ -210,7 +209,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "GizBook";
             Load += frmLogin_Load;
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);

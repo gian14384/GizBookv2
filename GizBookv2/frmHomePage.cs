@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using GizBook;
+﻿using GizBook;
+using Newtonsoft.Json;
 
 namespace GizBookv2
 {
     public partial class frmHomePage : Form
     {
+#pragma warning disable CS8618
         public frmHomePage()
         {
             InitializeComponent();
@@ -24,55 +17,35 @@ namespace GizBookv2
             panel6.Visible = true;
         }
 
-        private void frmHomePage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private UserRegistrationData _userData;
+        private readonly UserRegistrationData _userData;
 
         public frmHomePage(UserRegistrationData userData)
         {
             InitializeComponent();
             _userData = userData;
-            lblName.Text = _userData.Name; // Replace lblName with your actual label name
-            profile.Image = _userData.Avatar; // Replace pictureBoxAvatar with your actual PictureBox name
-            page.Image = userData.Avatar; // Replace page with your actual PictureBox name
-            page.SizeMode = PictureBoxSizeMode.StretchImage; // Set the size mode for the page PictureBox
+            lblName.Text = userData.name;
+            profile.Image = (Image)Properties.Resources.ResourceManager.GetObject(userData.avatar!)!;
+            page.Image = (Image)Properties.Resources.ResourceManager.GetObject(userData.avatar!)!;
+            page.SizeMode = PictureBoxSizeMode.StretchImage;
             profile.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void panel2_Click(object sender, EventArgs e)
         {
-            frmProfilePage fp = new frmProfilePage();
-            fp.Show();
+            frmProfilePage profilePage = new(_userData.username);
+            profilePage.Show();
         }
 
         private void page_Click(object sender, EventArgs e)
         {
-            frmProfilePage fp = new frmProfilePage();
-            fp.Show();
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
+            frmProfilePage profilePage = new(_userData.username);
+            profilePage.Show();
         }
 
         private void panel3_Click(object sender, EventArgs e)
         {
-            frmDeckPage fd = new frmDeckPage();
-            fd.Show();
-        }
-
-        private void panel33_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
+            frmDeckPage deckPage = new();
+            deckPage.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -88,8 +61,8 @@ namespace GizBookv2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmPrivacy fp = new frmPrivacy();
-            fp.Show();
+            frmPrivacy privacyPage = new();
+            privacyPage.Show();
 
             int panelHeight = panelDropdown.Visible ? panelDropdown.Height : 0;
             panelDropdown.Visible = !panelDropdown.Visible;
@@ -100,8 +73,8 @@ namespace GizBookv2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            frmFAQ ff = new frmFAQ();
-            ff.Show();
+            frmFAQ faqPage = new();
+            faqPage.Show();
 
             int panelHeight = panelDropdown.Visible ? panelDropdown.Height : 0;
             panelDropdown.Visible = !panelDropdown.Visible;
@@ -112,8 +85,8 @@ namespace GizBookv2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            frmContactUs fc = new frmContactUs();
-            fc.Show();
+            frmContactUs contactPage = new();
+            contactPage.Show();
 
             int panelHeight = panelDropdown.Visible ? panelDropdown.Height : 0;
             panelDropdown.Visible = !panelDropdown.Visible;
@@ -124,7 +97,7 @@ namespace GizBookv2
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            frmLogout logoutForm = new frmLogout(this);
+            frmLogout logoutForm = new(this);
             logoutForm.Show();
 
             int panelHeight = panelDropdown.Visible ? panelDropdown.Height : 0;
@@ -168,23 +141,8 @@ namespace GizBookv2
 
         private void lblName_Click(object sender, EventArgs e)
         {
-            frmProfilePage fp = new frmProfilePage();
-            fp.Show();
-        }
-
-        private void panel33_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelShare_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel33_MouseClick(object sender, MouseEventArgs e)
-        {
-
+            frmProfilePage profilePage = new(_userData.username);
+            profilePage.Show();
         }
 
         private void panel33_Click_1(object sender, EventArgs e)
@@ -194,21 +152,70 @@ namespace GizBookv2
 
         private void panel34_Click(object sender, EventArgs e)
         {
-            frmAddDeck fa = new frmAddDeck();
-            fa.Show();
+            frmAddDeck addDeckForm = new();
+            addDeckForm.Show();
 
         }
 
         private void panel7_Click(object sender, EventArgs e)
         {
-            frmAddDeck fa = new frmAddDeck();
-            fa.Show();
+            frmAddDeck addDeckForm = new();
+            addDeckForm.Show();
         }
 
         private void panel8_Click(object sender, EventArgs e)
         {
-            frmLearn fl = new frmLearn();
-            fl.Show();
+            frmLearn learnForm = new();
+            learnForm.Show();
+        }
+
+        private void frmHomePage_Load(object sender, EventArgs e)
+        {
+            // LEADERBOARDS
+            using HttpClient client = new();
+            var endpoint = new Uri("https://gizbook.vercel.app/api/users");
+            var response = client.GetAsync(endpoint).Result;
+            var result = JsonConvert.DeserializeObject<List<dynamic>>(response.Content.ReadAsStringAsync().Result)!
+               .OrderByDescending(user => (int)user.score)
+               .ToList();
+
+            for (int i = 0; i < 10; i++)
+            {
+                var pic = Controls.Find($"pic{i + 1}", true).FirstOrDefault() as PictureBox;
+                var picRank = Controls.Find($"picRank{i + 1}", true).FirstOrDefault() as PictureBox;
+                var lblRank = Controls.Find($"lblRank{i + 1}", true).FirstOrDefault() as Label;
+                var lblScore = Controls.Find($"lblScore{i + 1}", true).FirstOrDefault() as Label;
+                var pnlRank = Controls.Find($"pnlRank{i + 1}", true).FirstOrDefault() as Panel;
+
+                if (result.Count > i)
+                {
+                    if (pnlRank != null) pnlRank.Visible = true;
+                    if (pic != null) pic.Visible = true;
+                    if (picRank != null)
+                    {
+                        picRank.Image = (Image)Properties.Resources.ResourceManager.GetObject((string)result[i].avatar)!;
+                        picRank.Visible = true;
+                    }
+                    if (lblRank != null)
+                    {
+                        lblRank.Text = (string)result[i].name;
+                        lblRank.Visible = true;
+                    }
+                    if (lblScore != null)
+                    {
+                        lblScore.Text = result[i].score.ToString();
+                        lblScore.Visible = true;
+                    }
+                }
+                else
+                {
+                    if (pic != null) pic.Visible = false;
+                    if (picRank != null) picRank.Visible = false;
+                    if (lblRank != null) lblRank.Visible = false;
+                    if (lblScore != null) lblScore.Visible = false;
+                    if (pnlRank != null) pnlRank.Visible = false;
+                }
+            }
         }
     }
 }

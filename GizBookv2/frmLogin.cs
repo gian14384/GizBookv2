@@ -1,4 +1,6 @@
-using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.Net;
+using System.Text;
 
 namespace GizBookv2
 {
@@ -8,41 +10,52 @@ namespace GizBookv2
         {
             InitializeComponent();
             txtpassword.UseSystemPasswordChar = true;
-            panel7.BackgroundImage = Properties.Resources.open; // Replace with your actual resource name
+            panel7.BackgroundImage = Properties.Resources.open;
             panel7.BackgroundImageLayout = ImageLayout.Center;
         }
 
         private void panel9_Click(object sender, EventArgs e)
         {
-            frmRegister fr = new frmRegister();
-            fr.Show();
-            this.Hide();
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
+            frmRegister registerForm = new();
+            registerForm.Show();
+            Hide();
         }
 
         private void panel8_Click(object sender, EventArgs e)
         {
-            string username = txtusername.Text; // Replace with your actual username textbox name
-            string password = txtpassword.Text; // Replace with your actual password textbox name
+            string username = txtusername.Text;
+            string password = txtpassword.Text;
 
-            // Find user with matching username and password
-            var user = UserRegistrationData.RegisteredUsers
-                .FirstOrDefault(u => u.Username == username && u.Password == password);
+            using var client = new HttpClient();
+            var endpoint = new Uri("https://gizbook.vercel.app/api/auth/login");
+            var newUserJson = JsonConvert.SerializeObject(new { username, password });
+            var payload = new StringContent(newUserJson, Encoding.UTF8, "application/json");
+            var response = client.PostAsync(endpoint, payload).Result;
+            var resultContent = response.Content.ReadAsStringAsync().Result;
+            var result = JsonConvert.DeserializeObject<UserRegistrationData>(resultContent)!;
 
-            if (user == null)
+            UserRegistrationData user = new()
             {
-                MessageBox.Show("No user found. Try again.");
+                username = result.username,
+                name = result.name,
+                avatar = result.avatar,
+            };
+
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                MessageBox.Show("Wrong username or password. Try again.");
                 return;
             }
-
-            // If found, open HomePage and pass user data
-            frmHomePage home = new frmHomePage(user);
-            home.Show();
-            this.Hide();
+            else if (response.StatusCode == HttpStatusCode.OK)
+            {
+                frmHomePage home = new(user);
+                home.Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong. Please try again later.");
+            }
         }
 
 

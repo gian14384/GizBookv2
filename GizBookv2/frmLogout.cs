@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace GizBookv2
+﻿namespace GizBookv2
 {
     public partial class frmLogout : Form
     {
+        #pragma warning disable CS8618
         public frmLogout()
         {
             InitializeComponent();
@@ -19,7 +10,7 @@ namespace GizBookv2
 
         private void panel4_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Close();
         }
 
         private void panel5_Click(object sender, EventArgs e)
@@ -28,14 +19,14 @@ namespace GizBookv2
             _homePage.Hide();
 
             // Show the Login form
-            frmLogin loginForm = new frmLogin();
+            frmLogin loginForm = new();
             loginForm.Show();
 
             // Close the logout confirmation dialog
-            this.Hide();
+            Close();
         }
 
-        private frmHomePage _homePage;
+        private readonly frmHomePage _homePage;
 
         public frmLogout(frmHomePage homePage)
         {
