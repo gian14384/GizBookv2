@@ -50,7 +50,7 @@ namespace GizBook
             // deckPage.DeckName = deckName;
             // deckPage.DeckColor = deckColor;
 
-            deckPage.Show();
+            deckPage.Show();    
             this.Hide();
         }
 
