@@ -61,7 +61,10 @@ namespace GizBookv2
 
         private void panel3_Click(object sender, EventArgs e)
         {
-            frmDeckPage fd = new frmDeckPage();
+            // Provide default values for deckName and Color as required by frmDeckPage constructor
+            string defaultDeckName = "How to Kiss a Girl";
+            Color defaultColor = Color.Blue;
+            frmDeckPage fd = new frmDeckPage(defaultDeckName, defaultColor);
             fd.Show();
         }
 
