@@ -183,6 +183,16 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_deck {
+            get {
+                object obj = ResourceManager.GetObject("add_deck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ADD_deck_folder {
             get {
                 object obj = ResourceManager.GetObject("ADD deck folder", resourceCulture);
@@ -926,6 +936,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap exit_logo {
             get {
                 object obj = ResourceManager.GetObject("exit logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Expanded_privacy1 {
+            get {
+                object obj = ResourceManager.GetObject("Expanded-privacy1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1778,6 +1798,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap post {
             get {
                 object obj = ResourceManager.GetObject("post", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap privacy_modal1 {
+            get {
+                object obj = ResourceManager.GetObject("privacy modal1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

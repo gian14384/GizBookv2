@@ -129,8 +129,6 @@
   </data>
   <data name="share" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\share.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  <data name="Expanded-privacy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Expanded-privacy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Button (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -156,9 +154,6 @@
   <data name="Confirm Password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Confirm Password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Expanded privacy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Expanded privacy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="See how your profile looks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\See how your profile looks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -180,9 +175,6 @@
   <data name="Image2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Image2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="privacy-modal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\privacy-modal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Only Me" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Only Me.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -197,9 +189,6 @@
   </data>
   <data name="buttonOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buttonOn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="share" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\share.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="comment2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\comment2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -260,8 +249,6 @@
   </data>
   <data name="frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  <data name="learn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\learn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="learn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\learn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -296,9 +283,6 @@
   <data name="ADD deck folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ADD deck folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Confirm logout Text" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Confirm logout Text.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Frame 427319051" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame 427319051.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -310,9 +294,6 @@
   </data>
   <data name="3 dot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3 dot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Frame 427318909 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Frame 427318909 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Frame 427318909 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame 427318909 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -455,9 +436,6 @@
   <data name="Ellipse 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ellipse 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add deck" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Add deck.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Text input inside2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Text input inside2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -478,9 +456,6 @@
   </data>
   <data name="heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Expanded privacy1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Expanded privacy1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Image (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Image (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -509,14 +484,12 @@
   <data name="Image (1)4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Image (1)4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mdi_eye1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mdi_eye1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Image1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_pw1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_pw1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mdi_eye1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mdi_eye1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -574,9 +547,6 @@
   <data name="privacy-modal2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\privacy-modal2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="privacy-modal1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\privacy-modal1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Name" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Name.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -628,9 +598,6 @@
   <data name="Frame 4273189401" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame 4273189401.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bb2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bb2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="trophy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trophy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -673,9 +640,6 @@
   <data name="Button (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_pw1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn_pw1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="b1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -684,9 +648,6 @@
   </data>
   <data name="iconamoon_profile-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconamoon_profile-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="privacy modal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\privacy modal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Button (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -733,9 +694,6 @@
   <data name="Card (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Card (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Image1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="add decks btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add decks btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -777,9 +735,6 @@
   </data>
   <data name="Rating" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rating.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Text input (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Text input (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -828,6 +783,7 @@
   </data>
   <data name="flip mode1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flip mode1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Expanded-privacy2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Expanded-privacy2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
