@@ -77,6 +77,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(286, 55);
             panel3.TabIndex = 2;
+            panel3.Click += panel3_Click;
             // 
             // panel4
             // 

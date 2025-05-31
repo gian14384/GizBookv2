@@ -48,12 +48,13 @@
             // panel2
             // 
             panel2.BackColor = Color.Transparent;
-            panel2.BackgroundImage = Properties.Resources.flip_mode;
+            panel2.BackgroundImage = Properties.Resources.flip_mode1;
             panel2.BackgroundImageLayout = ImageLayout.Center;
             panel2.Location = new Point(89, 131);
             panel2.Name = "panel2";
             panel2.Size = new Size(284, 181);
             panel2.TabIndex = 1;
+            panel2.Click += panel2_Click;
             // 
             // panel3
             // 
@@ -74,6 +75,7 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(284, 181);
             panel4.TabIndex = 3;
+            panel4.Click += panel4_Click;
             // 
             // panel7
             // 

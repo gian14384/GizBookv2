@@ -17,7 +17,7 @@ namespace GizBookv2
         public frmDeckPage(string deckName, Color deckColor)
         {
             InitializeComponent();
-         
+
             DisplayDecks();
 
 
@@ -59,8 +59,8 @@ namespace GizBookv2
 
         }
 
-      
-        
+
+
 
         private void frmDeckPage_Click(object sender, EventArgs e)
         {
@@ -87,6 +87,12 @@ namespace GizBookv2
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            frmLearn fl = new frmLearn();
+            fl.Show();
         }
     }
 }
