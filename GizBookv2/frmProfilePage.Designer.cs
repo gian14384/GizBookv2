@@ -69,22 +69,10 @@
             label10 = new Label();
             panelFriends = new Panel();
             panel15 = new Panel();
-            panel18 = new Panel();
-            panel17 = new Panel();
-            panel16 = new Panel();
-            label19 = new Label();
-            label18 = new Label();
-            label17 = new Label();
-            label16 = new Label();
-            label15 = new Label();
-            label14 = new Label();
-            panel14 = new Panel();
-            label13 = new Label();
-            label12 = new Label();
-            pictureBox6 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            pnlFriend1 = new Panel();
+            lblFriendUsername1 = new Label();
+            lblFriend1 = new Label();
+            picFriend1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelAllPost.SuspendLayout();
@@ -97,10 +85,7 @@
             panel2.SuspendLayout();
             panelFriends.SuspendLayout();
             panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picFriend1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -116,6 +101,7 @@
             // 
             // panel19
             // 
+            panel19.Cursor = Cursors.Hand;
             panel19.Location = new Point(9, 12);
             panel19.Name = "panel19";
             panel19.Size = new Size(61, 52);
@@ -156,6 +142,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(21, 121, 243);
             label3.Location = new Point(481, 155);
@@ -167,6 +154,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Cursor = Cursors.Hand;
             label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(21, 121, 243);
             label4.Location = new Point(675, 155);
@@ -180,6 +168,7 @@
             btnAllPost.BackColor = Color.Transparent;
             btnAllPost.BackgroundImage = Properties.Resources.Text_input1;
             btnAllPost.BackgroundImageLayout = ImageLayout.Center;
+            btnAllPost.Cursor = Cursors.Hand;
             btnAllPost.Location = new Point(91, 247);
             btnAllPost.Name = "btnAllPost";
             btnAllPost.Size = new Size(271, 100);
@@ -191,6 +180,7 @@
             btnStats.BackColor = Color.Transparent;
             btnStats.BackgroundImage = Properties.Resources.Container2;
             btnStats.BackgroundImageLayout = ImageLayout.Center;
+            btnStats.Cursor = Cursors.Hand;
             btnStats.Location = new Point(693, 247);
             btnStats.Name = "btnStats";
             btnStats.Size = new Size(260, 100);
@@ -237,6 +227,7 @@
             btnDecks.BackColor = Color.Transparent;
             btnDecks.BackgroundImage = Properties.Resources.Horizontal_container2;
             btnDecks.BackgroundImageLayout = ImageLayout.Center;
+            btnDecks.Cursor = Cursors.Hand;
             btnDecks.Location = new Point(389, 245);
             btnDecks.Name = "btnDecks";
             btnDecks.Size = new Size(271, 100);
@@ -248,6 +239,7 @@
             btnFriends.BackColor = Color.Transparent;
             btnFriends.BackgroundImage = Properties.Resources.Container__1_1;
             btnFriends.BackgroundImageLayout = ImageLayout.Center;
+            btnFriends.Cursor = Cursors.Hand;
             btnFriends.Location = new Point(990, 245);
             btnFriends.Name = "btnFriends";
             btnFriends.Size = new Size(260, 100);
@@ -516,186 +508,55 @@
             // 
             panel15.BackgroundImage = Properties.Resources.Text_input_post2;
             panel15.BackgroundImageLayout = ImageLayout.Center;
-            panel15.Controls.Add(panel18);
-            panel15.Controls.Add(panel17);
-            panel15.Controls.Add(panel16);
-            panel15.Controls.Add(label19);
-            panel15.Controls.Add(label18);
-            panel15.Controls.Add(label17);
-            panel15.Controls.Add(label16);
-            panel15.Controls.Add(label15);
-            panel15.Controls.Add(label14);
-            panel15.Controls.Add(panel14);
-            panel15.Controls.Add(label13);
-            panel15.Controls.Add(label12);
-            panel15.Controls.Add(pictureBox6);
-            panel15.Controls.Add(pictureBox5);
-            panel15.Controls.Add(pictureBox4);
-            panel15.Controls.Add(pictureBox3);
+            panel15.Controls.Add(pnlFriend1);
+            panel15.Controls.Add(lblFriendUsername1);
+            panel15.Controls.Add(lblFriend1);
+            panel15.Controls.Add(picFriend1);
             panel15.Location = new Point(41, 8);
             panel15.Name = "panel15";
             panel15.Size = new Size(1104, 379);
             panel15.TabIndex = 0;
             // 
-            // panel18
+            // pnlFriend1
             // 
-            panel18.BackgroundImage = Properties.Resources.Button2;
-            panel18.BackgroundImageLayout = ImageLayout.Center;
-            panel18.Location = new Point(917, 312);
-            panel18.Name = "panel18";
-            panel18.Size = new Size(147, 48);
-            panel18.TabIndex = 15;
+            pnlFriend1.BackgroundImage = Properties.Resources.Button2;
+            pnlFriend1.BackgroundImageLayout = ImageLayout.Center;
+            pnlFriend1.Cursor = Cursors.Hand;
+            pnlFriend1.Location = new Point(917, 42);
+            pnlFriend1.Name = "pnlFriend1";
+            pnlFriend1.Size = new Size(147, 48);
+            pnlFriend1.TabIndex = 6;
             // 
-            // panel17
+            // lblFriendUsername1
             // 
-            panel17.BackgroundImage = Properties.Resources.Button2;
-            panel17.BackgroundImageLayout = ImageLayout.Center;
-            panel17.Location = new Point(917, 223);
-            panel17.Name = "panel17";
-            panel17.Size = new Size(147, 48);
-            panel17.TabIndex = 14;
+            lblFriendUsername1.AutoSize = true;
+            lblFriendUsername1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFriendUsername1.ForeColor = Color.FromArgb(115, 118, 123);
+            lblFriendUsername1.Location = new Point(105, 65);
+            lblFriendUsername1.Name = "lblFriendUsername1";
+            lblFriendUsername1.Size = new Size(73, 25);
+            lblFriendUsername1.TabIndex = 5;
+            lblFriendUsername1.Text = "label13";
             // 
-            // panel16
+            // lblFriend1
             // 
-            panel16.BackgroundImage = Properties.Resources.Button2;
-            panel16.BackgroundImageLayout = ImageLayout.Center;
-            panel16.Location = new Point(917, 132);
-            panel16.Name = "panel16";
-            panel16.Size = new Size(147, 48);
-            panel16.TabIndex = 13;
+            lblFriend1.AutoSize = true;
+            lblFriend1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFriend1.Location = new Point(101, 28);
+            lblFriend1.Name = "lblFriend1";
+            lblFriend1.Size = new Size(93, 37);
+            lblFriend1.TabIndex = 4;
+            lblFriend1.Text = "Name";
             // 
-            // label19
+            // picFriend1
             // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label19.ForeColor = Color.FromArgb(115, 118, 123);
-            label19.Location = new Point(114, 335);
-            label19.Name = "label19";
-            label19.Size = new Size(73, 25);
-            label19.TabIndex = 12;
-            label19.Text = "label19";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(110, 297);
-            label18.Name = "label18";
-            label18.Size = new Size(93, 37);
-            label18.TabIndex = 11;
-            label18.Text = "Name";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.ForeColor = Color.FromArgb(115, 118, 123);
-            label17.Location = new Point(110, 247);
-            label17.Name = "label17";
-            label17.Size = new Size(73, 25);
-            label17.TabIndex = 10;
-            label17.Text = "label17";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(104, 208);
-            label16.Name = "label16";
-            label16.Size = new Size(93, 37);
-            label16.TabIndex = 9;
-            label16.Text = "Name";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.ForeColor = Color.FromArgb(115, 118, 123);
-            label15.Location = new Point(109, 156);
-            label15.Name = "label15";
-            label15.Size = new Size(73, 25);
-            label15.TabIndex = 8;
-            label15.Text = "label15";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(104, 120);
-            label14.Name = "label14";
-            label14.Size = new Size(93, 37);
-            label14.TabIndex = 7;
-            label14.Text = "Name";
-            // 
-            // panel14
-            // 
-            panel14.BackgroundImage = Properties.Resources.Button2;
-            panel14.BackgroundImageLayout = ImageLayout.Center;
-            panel14.Location = new Point(917, 42);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(147, 48);
-            panel14.TabIndex = 6;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.ForeColor = Color.FromArgb(115, 118, 123);
-            label13.Location = new Point(105, 65);
-            label13.Name = "label13";
-            label13.Size = new Size(73, 25);
-            label13.TabIndex = 5;
-            label13.Text = "label13";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(101, 28);
-            label12.Name = "label12";
-            label12.Size = new Size(93, 37);
-            label12.TabIndex = 4;
-            label12.Text = "Name";
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.BackgroundImage = Properties.Resources.Image2;
-            pictureBox6.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox6.Location = new Point(21, 297);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(74, 68);
-            pictureBox6.TabIndex = 3;
-            pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackgroundImage = Properties.Resources.Image2;
-            pictureBox5.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox5.Location = new Point(21, 208);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(74, 68);
-            pictureBox5.TabIndex = 2;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackgroundImage = Properties.Resources.Image2;
-            pictureBox4.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox4.Location = new Point(21, 117);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(74, 68);
-            pictureBox4.TabIndex = 1;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackgroundImage = Properties.Resources.Image2;
-            pictureBox3.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox3.Location = new Point(21, 27);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(74, 68);
-            pictureBox3.TabIndex = 0;
-            pictureBox3.TabStop = false;
+            picFriend1.BackgroundImageLayout = ImageLayout.Center;
+            picFriend1.Location = new Point(21, 27);
+            picFriend1.Name = "picFriend1";
+            picFriend1.Size = new Size(74, 68);
+            picFriend1.SizeMode = PictureBoxSizeMode.Zoom;
+            picFriend1.TabIndex = 0;
+            picFriend1.TabStop = false;
             // 
             // frmProfilePage
             // 
@@ -743,10 +604,7 @@
             panelFriends.ResumeLayout(false);
             panel15.ResumeLayout(false);
             panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picFriend1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -793,22 +651,10 @@
         private Label label11;
         private Panel panelFriends;
         private Panel panel15;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox6;
-        private Label label12;
-        private Label label13;
-        private Panel panel18;
-        private Panel panel17;
-        private Panel panel16;
-        private Label label19;
-        private Label label18;
-        private Label label17;
-        private Label label16;
-        private Label label15;
-        private Label label14;
-        private Panel panel14;
+        private PictureBox picFriend1;
+        private Label lblFriend1;
+        private Label lblFriendUsername1;
+        private Panel pnlFriend1;
         private Panel panel19;
     }
 }

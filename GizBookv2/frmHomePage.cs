@@ -32,13 +32,13 @@ namespace GizBookv2
 
         private void panel2_Click(object sender, EventArgs e)
         {
-            frmProfilePage profilePage = new(_userData.username);
+            frmProfilePage profilePage = new(_userData.username, _userData.username);
             profilePage.Show();
         }
 
         private void page_Click(object sender, EventArgs e)
         {
-            frmProfilePage profilePage = new(_userData.username);
+            frmProfilePage profilePage = new(_userData.username, _userData.username);
             profilePage.Show();
         }
 
@@ -148,7 +148,7 @@ namespace GizBookv2
 
         private void lblName_Click(object sender, EventArgs e)
         {
-            frmProfilePage profilePage = new(_userData.username);
+            frmProfilePage profilePage = new(_userData.username, _userData.username);
             profilePage.Show();
         }
 
