@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace GizBookv2
 {
-    public partial class FlipMode : Form
+    public partial class QuizMode : Form
     {
-        public FlipMode()
+        public QuizMode()
         {
             InitializeComponent();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
