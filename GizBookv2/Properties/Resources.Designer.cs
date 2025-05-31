@@ -563,6 +563,16 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Button4 {
+            get {
+                object obj = ResourceManager.GetObject("Button4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buttonOff {
             get {
                 object obj = ResourceManager.GetObject("buttonOff", resourceCulture);
@@ -1153,6 +1163,16 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Frame_427318999 {
+            get {
+                object obj = ResourceManager.GetObject("Frame 427318999", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Frame_427319036 {
             get {
                 object obj = ResourceManager.GetObject("Frame 427319036", resourceCulture);
@@ -1438,6 +1458,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap home1 {
             get {
                 object obj = ResourceManager.GetObject("home1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home2 {
+            get {
+                object obj = ResourceManager.GetObject("home2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2035,6 +2065,26 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Slider__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Slider (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Slider__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Slider (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Switch_container {
             get {
                 object obj = ResourceManager.GetObject("Switch container", resourceCulture);
@@ -2105,6 +2155,16 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Text_input__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("Text input (2)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Text_input__3_ {
             get {
                 object obj = ResourceManager.GetObject("Text input (3)", resourceCulture);
@@ -2148,6 +2208,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap Text_input__5_ {
             get {
                 object obj = ResourceManager.GetObject("Text input (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Text_input__5_1 {
+            get {
+                object obj = ResourceManager.GetObject("Text input (5)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2328,6 +2398,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap Username1 {
             get {
                 object obj = ResourceManager.GetObject("Username1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vertical_container {
+            get {
+                object obj = ResourceManager.GetObject("Vertical container", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
