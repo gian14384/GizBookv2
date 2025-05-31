@@ -150,6 +150,8 @@ namespace GizBookv2
                 return;
             }
 
+            Cursor.Current = Cursors.WaitCursor;
+
             // Save the avatar image
             _userData.avatar = _selectedAvatarResourceName;
 
@@ -195,6 +197,8 @@ namespace GizBookv2
                 var errorMessage = response.Content.ReadAsStringAsync().Result;
                 MessageBox.Show($"Something went wrong. Please try again.\nError: {errorMessage}");
             }
+
+            Cursor.Current = Cursors.Default;
         }
     }
 }

@@ -79,11 +79,7 @@ namespace GizBookv2
 
         private void frmProfilePage_Load(object sender, EventArgs e)
         {
-
-            using HttpClient client = new();
-            var endpoint = new Uri($"https://gizbook.vercel.app/api/users/{username}");
-            var response = client.GetAsync(endpoint).Result;
-            var result = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result)!;
+            var result = UserRegistrationData.FetchUserData(username);
 
             using HttpClient client2 = new();
             var endpoint2 = new Uri("https://gizbook.vercel.app/api/users");

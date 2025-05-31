@@ -23,6 +23,8 @@ namespace GizBookv2
 
         private void panel8_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             string username = txtusername.Text;
             string password = txtpassword.Text;
 
@@ -44,7 +46,6 @@ namespace GizBookv2
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 MessageBox.Show("Wrong username or password. Try again.");
-                return;
             }
             else if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -56,6 +57,8 @@ namespace GizBookv2
             {
                 MessageBox.Show("Something went wrong. Please try again later.");
             }
+
+            Cursor.Current = Cursors.Default;
         }
 
 

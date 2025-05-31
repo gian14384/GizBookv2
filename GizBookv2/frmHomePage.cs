@@ -47,7 +47,7 @@ namespace GizBookv2
             // Provide default values for deckName and Color as required by frmDeckPage constructor
             string defaultDeckName = "How to Kiss a Girl";
             Color defaultColor = Color.Blue;
-            frmDeckPage fd = new frmDeckPage(defaultDeckName, defaultColor);
+            frmDeckPage fd = new(defaultDeckName, defaultColor);
             fd.Show();
         }
 
@@ -64,7 +64,9 @@ namespace GizBookv2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmPrivacy privacyPage = new();
+            Cursor.Current = Cursors.WaitCursor;
+
+            frmPrivacy privacyPage = new(_userData.username);
             privacyPage.Show();
 
             int panelHeight = panelDropdown.Visible ? panelDropdown.Height : 0;
@@ -72,6 +74,8 @@ namespace GizBookv2
 
             panel7.Top = panelDropdown.Visible ? panel7.Top + panelDropdown.Height : panel7.Top - panelHeight;
             panel8.Top = panelDropdown.Visible ? panel8.Top + panelDropdown.Height : panel8.Top - panelHeight;
+
+            Cursor.Current = Cursors.Default;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -180,6 +184,7 @@ namespace GizBookv2
             var response = client.GetAsync(endpoint).Result;
             var result = JsonConvert.DeserializeObject<List<dynamic>>(response.Content.ReadAsStringAsync().Result)!
                .OrderByDescending(user => (int)user.score)
+               .OrderBy(user => (string)user.name)
                .ToList();
 
             for (int i = 0; i < 10; i++)
@@ -201,7 +206,7 @@ namespace GizBookv2
                     }
                     if (lblRank != null)
                     {
-                        lblRank.Text = (string)result[i].name;
+                        lblRank.Text = (string)result[i].leaderboard_privacy == "public" ? (string)result[i].name : "Anonymous User";
                         lblRank.Visible = true;
                     }
                     if (lblScore != null)
@@ -219,6 +224,11 @@ namespace GizBookv2
                     if (pnlRank != null) pnlRank.Visible = false;
                 }
             }
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
