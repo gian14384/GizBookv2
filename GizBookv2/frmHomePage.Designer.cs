@@ -49,6 +49,10 @@
             panel20 = new Panel();
             profile = new PictureBox();
             pnlPost = new Panel();
+            pnlOptions = new Panel();
+            picDelete = new PictureBox();
+            picPrivacy = new PictureBox();
+            picEdit = new PictureBox();
             pnlShare = new Panel();
             pnlPostLike = new Panel();
             pnlPostTry = new Panel();
@@ -151,6 +155,10 @@
             panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)profile).BeginInit();
             pnlPost.SuspendLayout();
+            pnlOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picDelete).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picPrivacy).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picEdit).BeginInit();
             pnlStatic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picPost).BeginInit();
             ((System.ComponentModel.ISupportInitialize)page).BeginInit();
@@ -410,6 +418,7 @@
             pnlPost.BackColor = Color.Transparent;
             pnlPost.BackgroundImage = Properties.Resources.Text_input;
             pnlPost.BackgroundImageLayout = ImageLayout.Center;
+            pnlPost.Controls.Add(pnlOptions);
             pnlPost.Controls.Add(pnlShare);
             pnlPost.Controls.Add(pnlPostLike);
             pnlPost.Controls.Add(pnlPostTry);
@@ -424,10 +433,52 @@
             pnlPost.Size = new Size(533, 473);
             pnlPost.TabIndex = 24;
             // 
+            // pnlOptions
+            // 
+            pnlOptions.BackgroundImage = Properties.Resources.Drop_Down_Menu__1_;
+            pnlOptions.BackgroundImageLayout = ImageLayout.Stretch;
+            pnlOptions.Controls.Add(picDelete);
+            pnlOptions.Controls.Add(picPrivacy);
+            pnlOptions.Controls.Add(picEdit);
+            pnlOptions.Location = new Point(344, 47);
+            pnlOptions.Name = "pnlOptions";
+            pnlOptions.Size = new Size(168, 67);
+            pnlOptions.TabIndex = 10;
+            // 
+            // picDelete
+            // 
+            picDelete.Cursor = Cursors.Hand;
+            picDelete.Image = (Image)resources.GetObject("picDelete.Image");
+            picDelete.Location = new Point(0, 45);
+            picDelete.Name = "picDelete";
+            picDelete.Size = new Size(168, 19);
+            picDelete.TabIndex = 0;
+            picDelete.TabStop = false;
+            // 
+            // picPrivacy
+            // 
+            picPrivacy.Cursor = Cursors.Hand;
+            picPrivacy.Image = (Image)resources.GetObject("picPrivacy.Image");
+            picPrivacy.Location = new Point(0, 24);
+            picPrivacy.Name = "picPrivacy";
+            picPrivacy.Size = new Size(168, 19);
+            picPrivacy.TabIndex = 0;
+            picPrivacy.TabStop = false;
+            // 
+            // picEdit
+            // 
+            picEdit.Cursor = Cursors.Hand;
+            picEdit.Image = Properties.Resources.edit_caption;
+            picEdit.Location = new Point(0, 3);
+            picEdit.Name = "picEdit";
+            picEdit.Size = new Size(168, 19);
+            picEdit.TabIndex = 0;
+            picEdit.TabStop = false;
+            // 
             // pnlShare
             // 
             pnlShare.BackgroundImage = Properties.Resources.share;
-            pnlShare.BackgroundImageLayout = ImageLayout.Center;
+            pnlShare.BackgroundImageLayout = ImageLayout.Zoom;
             pnlShare.Cursor = Cursors.Hand;
             pnlShare.Location = new Point(358, 417);
             pnlShare.Name = "pnlShare";
@@ -437,7 +488,7 @@
             // pnlPostLike
             // 
             pnlPostLike.BackgroundImage = Properties.Resources.heart;
-            pnlPostLike.BackgroundImageLayout = ImageLayout.Center;
+            pnlPostLike.BackgroundImageLayout = ImageLayout.Zoom;
             pnlPostLike.Cursor = Cursors.Hand;
             pnlPostLike.Location = new Point(144, 417);
             pnlPostLike.Name = "pnlPostLike";
@@ -1549,6 +1600,10 @@
             ((System.ComponentModel.ISupportInitialize)profile).EndInit();
             pnlPost.ResumeLayout(false);
             pnlPost.PerformLayout();
+            pnlOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picDelete).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picPrivacy).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picEdit).EndInit();
             pnlStatic.ResumeLayout(false);
             pnlStatic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picPost).EndInit();
@@ -1716,5 +1771,9 @@
         private PictureBox pic9;
         private PictureBox pic10;
         private Panel pnlPosts;
+        private Panel pnlOptions;
+        private PictureBox picDelete;
+        private PictureBox picPrivacy;
+        private PictureBox picEdit;
     }
 }

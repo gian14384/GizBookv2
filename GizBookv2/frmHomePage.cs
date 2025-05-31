@@ -1,5 +1,8 @@
 ﻿using GizBook;
+using GizBookv2.Properties;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace GizBookv2
 {
@@ -173,7 +176,7 @@ namespace GizBookv2
             {
                 Size = picPost.Size,
                 BorderStyle = picPost.BorderStyle,
-                Image = (Image)Properties.Resources.ResourceManager.GetObject(avatar)!,
+                Image = (Image)Resources.ResourceManager.GetObject(avatar)!,
                 Location = new Point(picPost.Location.X, picPost.Location.Y),
                 SizeMode = picPost.SizeMode,
                 Visible = true,
@@ -274,7 +277,19 @@ namespace GizBookv2
             return cloned;
         }
 
-        private Panel ClonePanelLike(string bg)
+        private void LikePost(int postId, string type)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            using HttpClient client = new();
+            var endpoint = new Uri($"https://gizbook.vercel.app/api/posts/{(string)_userData.username}/{postId}?type={(type == "heart" ? "like" : "unlike")}");
+            var response = client.GetAsync(endpoint).Result;
+            var result = JsonConvert.DeserializeObject<List<dynamic>>(response.Content.ReadAsStringAsync().Result)!
+               .ToList();
+
+            LoadPosts(result);
+        }
+
+        private Panel ClonePanelLike(string bg, int postId)
         {
             Panel cloned = new()
             {
@@ -287,10 +302,32 @@ namespace GizBookv2
                 BackColor = pnlPostLike.BackColor
             };
 
+            cloned.Click += (sender, e) => LikePost(postId, bg);
+
             return cloned;
         }
 
-        private Panel ClonePanelShare(string bg)
+        private void SharePost(string postId)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            using HttpClient client = new();
+            var endpoint = new Uri("https://gizbook.vercel.app/api/posts/" + (string)_userData.username);
+
+            var newUserJson = JsonConvert.SerializeObject(new Dictionary<string, string>
+            {
+               { "deck_id", postId },
+               { "caption", $"Check out this deck!" }
+            });
+
+            var payload = new StringContent(newUserJson, Encoding.UTF8, "application/json");
+            var response = client.PostAsync(endpoint, payload).Result;
+            var result = JsonConvert.DeserializeObject<List<dynamic>>(response.Content.ReadAsStringAsync().Result)!
+               .ToList();
+
+            LoadPosts(result);
+        }
+
+        private Panel ClonePanelShare(string bg, string postId)
         {
             Panel cloned = new()
             {
@@ -302,6 +339,9 @@ namespace GizBookv2
                 Visible = true,
                 BackColor = pnlShare.BackColor
             };
+
+            if (bg == "share") cloned.Click += (sender, e) => SharePost(postId);
+            else cloned.Cursor = Cursors.No;
 
             return cloned;
         }
@@ -372,6 +412,91 @@ namespace GizBookv2
             return cloned;
         }
 
+        private PictureBox ClonePictureEdit()
+        {
+            PictureBox cloned = new()
+            {
+                Size = picEdit.Size,
+                BorderStyle = picEdit.BorderStyle,
+                Image = picEdit.Image,
+                Location = new Point(picEdit.Location.X, picEdit.Location.Y),
+                SizeMode = picEdit.SizeMode,
+                Visible = true,
+                BackColor = picEdit.BackColor,
+                Cursor = picEdit.Cursor
+            };
+
+            return cloned;
+        }
+        
+        private PictureBox ClonePicturePrivacy()
+        {
+            PictureBox cloned = new()
+            {
+                Size = picPrivacy.Size,
+                BorderStyle = picPrivacy.BorderStyle,
+                Image = picPrivacy.Image,
+                Location = new Point(picPrivacy.Location.X, picPrivacy.Location.Y),
+                SizeMode = picPrivacy.SizeMode,
+                Visible = true,
+                BackColor = picPrivacy.BackColor,
+                Cursor = picPrivacy.Cursor
+            };
+
+            return cloned;
+        }
+
+        private void DeletePost(string postId)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            using HttpClient client = new();
+            var endpoint = new Uri($"https://gizbook.vercel.app/api/posts/delete/{(string)_userData.username}/{postId}");
+            var response = client.PostAsync(endpoint, null).Result;
+            var result = JsonConvert.DeserializeObject<List<dynamic>>(response.Content.ReadAsStringAsync().Result)!
+               .ToList();
+
+            LoadPosts(result);
+        }
+
+        private PictureBox ClonePictureDelete(string postId)
+        {
+            PictureBox cloned = new()
+            {
+                Size = picDelete.Size,
+                BorderStyle = picDelete.BorderStyle,
+                Image = picDelete.Image,
+                Location = new Point(picDelete.Location.X, picDelete.Location.Y),
+                SizeMode = picDelete.SizeMode,
+                Visible = true,
+                BackColor = picDelete.BackColor,
+                Cursor = picDelete.Cursor
+            };
+
+            cloned.Click += (sender, e) => DeletePost(postId);
+
+            return cloned;
+        }
+
+        private Panel ClonePanelOptions(string postId)
+        {
+            Panel cloned = new()
+            {
+                Location = new Point(pnlOptions.Location.X, pnlOptions.Location.Y),
+                BackgroundImage = pnlOptions.BackgroundImage,
+                BackgroundImageLayout = pnlOptions.BackgroundImageLayout,
+                Cursor = pnlOptions.Cursor,
+                Size = pnlOptions.Size,
+                Visible = false,
+                BackColor = pnlOptions.BackColor
+            };
+
+            cloned.Controls.Add(ClonePictureEdit());
+            cloned.Controls.Add(ClonePicturePrivacy());
+            cloned.Controls.Add(ClonePictureDelete(postId));
+
+            return cloned;
+        }
+
         private Panel ClonePanelStatic(string username, string deckName)
         {
             Panel cloned = new()
@@ -393,7 +518,7 @@ namespace GizBookv2
             return cloned;
         }
 
-        private Panel ClonePanelPost(int yOffset, dynamic post)
+        private Panel ClonePanelPost(int yOffset, dynamic post, bool shared)
         {
             Panel cloned = new()
             {
@@ -408,17 +533,83 @@ namespace GizBookv2
 
             dynamic uploader = post.uploader;
             dynamic deck = post.deck;
+            string like = "heart";
+            if ((int)post.total_likes > 0) like = ((JArray)post.likes).Select(username => username.ToString()).ToArray().Contains((string)_userData.username) ? "fullheart" : "heart";
+
             cloned.Controls.Add(ClonePictureBox((string)uploader.avatar));
             cloned.Controls.Add(CloneLabelName((string)uploader.name, (string)uploader.username));
             cloned.Controls.Add(CloneLabelUsername((string)uploader.username));
-            cloned.Controls.Add(ClonePanelButton());
             cloned.Controls.Add(CloneLabelCaption((string)post.caption));
             cloned.Controls.Add(ClonePanelStatic((string)deck.owner, (string)deck.title));
             cloned.Controls.Add(ClonePanelTry());
-            cloned.Controls.Add(ClonePanelLike("heart"));
-            cloned.Controls.Add(ClonePanelShare("share"));
+            cloned.Controls.Add(ClonePanelLike(like, (int)post.id));
+            cloned.Controls.Add(ClonePanelShare(shared ? "shared" : "share", (string)post.id));
+
+            if ((string)uploader.username == (string)_userData.username)
+            {
+                Panel button = ClonePanelButton();
+                Panel options = ClonePanelOptions((string)post.id);
+                button.Click += (sender, e) => options.Visible = !options.Visible;
+                cloned.Controls.Add(button);
+                cloned.Controls.Add(options);
+            }
 
             return cloned;
+        }
+
+        private void LoadPosts(List<dynamic> posts)
+        {
+            foreach (Control control in pnlPosts.Controls.Cast<Control>().ToList())
+            {
+                if (control == pnlPost || control == picPost || control == lblPostName || control == lblPostUsername ||
+                    control == pnlPostButton || control == lblCaption || control == pnlStatic || control == pnlStatic2 ||
+                    control == lblPostUsername2 || control == lblPostDeckName || control == lblStatic || control == pnlPostTry ||
+                    control == pnlPostLike || control == pnlShare)
+                {
+                    if (control == pnlPostButton || control == pnlPostTry || control == pnlPostLike || control == pnlShare)
+                    {
+                        control.Click -= null;
+                    }
+                    continue;
+                }
+
+                pnlPosts.Controls.Remove(control);
+                control.Dispose();
+            }
+
+            pnlPost.Visible = false;
+            picPost.Visible = false;
+            lblPostName.Visible = false;
+            lblPostUsername.Visible = false;
+            pnlPostButton.Visible = false;
+            lblCaption.Visible = false;
+            pnlStatic.Visible = false;
+            pnlStatic2.Visible = false;
+            lblPostUsername2.Visible = false;
+            lblPostDeckName.Visible = false;
+            lblStatic.Visible = false;
+            pnlPostTry.Visible = false;
+            pnlPostLike.Visible = false;
+            pnlShare.Visible = false;
+            pnlOptions.Visible = false;
+
+            if (posts.Count > 0)
+            {
+                for (int i = 0; i < posts.Count; i++)
+                {
+                    dynamic post = posts[i];
+                    bool shared = false;
+                    if (posts.Select(post_ => post_.uploader.username.ToString()).ToArray().Contains((string)_userData.username))
+                    {
+                        int index = posts.Select(post_ => post_.uploader.username.ToString()).ToList().FindIndex(username => username == (string)_userData.username);
+                        if (posts[index].uploader.username == (string)_userData.username) shared = true;
+                    }
+                    Panel clonePost = ClonePanelPost(i, post, shared);
+                    pnlPosts.Controls.Add(clonePost);
+                }
+            }
+
+            Cursor.Current = Cursors.Default;
         }
 
 
@@ -503,17 +694,7 @@ namespace GizBookv2
             var postResult = JsonConvert.DeserializeObject<List<dynamic>>(postResponse.Content.ReadAsStringAsync().Result)!
                .ToList();
 
-            if (postResult.Count > 0)
-            {
-                for (int i = 0; i < postResult.Count; i++)
-                {
-                    dynamic post = postResult[i];
-                    Panel clonePost = ClonePanelPost(i, post);
-                    pnlPosts.Controls.Add(clonePost);
-                }
-            }
-
-            Cursor.Current = Cursors.Default;
+            LoadPosts(postResult);
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

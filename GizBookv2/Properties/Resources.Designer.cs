@@ -963,6 +963,36 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Drop_Down_Menu {
+            get {
+                object obj = ResourceManager.GetObject("Drop Down Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Drop_Down_Menu__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Drop Down Menu (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_caption {
+            get {
+                object obj = ResourceManager.GetObject("edit_caption", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ellipse_10 {
             get {
                 object obj = ResourceManager.GetObject("Ellipse 10", resourceCulture);
@@ -1376,6 +1406,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap Friends_only {
             get {
                 object obj = ResourceManager.GetObject("Friends only", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fullheart {
+            get {
+                object obj = ResourceManager.GetObject("fullheart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2345,6 +2385,16 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap redheart {
+            get {
+                object obj = ResourceManager.GetObject("redheart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap See_how_your_profile_looks {
             get {
                 object obj = ResourceManager.GetObject("See how your profile looks", resourceCulture);
@@ -2398,6 +2448,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap share2 {
             get {
                 object obj = ResourceManager.GetObject("share2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shared {
+            get {
+                object obj = ResourceManager.GetObject("shared", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2858,6 +2918,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap unfollow {
             get {
                 object obj = ResourceManager.GetObject("unfollow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unheart {
+            get {
+                object obj = ResourceManager.GetObject("unheart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
