@@ -15,6 +15,7 @@ namespace GizBook
 {
     public partial class frmAddDeck : Form
     {
+        public DeckInfo NewDeck { get; private set; }
         public frmAddDeck()
         {
             InitializeComponent();
@@ -45,13 +46,16 @@ namespace GizBook
             string deckName = txtDeckName.Text;
             Color deckColor = _selectedColor;
 
-            frmDeckPage deckPage = new frmDeckPage(deckName, deckColor);
-            // Optionally set properties if needed
-            // deckPage.DeckName = deckName;
-            // deckPage.DeckColor = deckColor;
-
-            deckPage.Show();    
-            this.Hide();
+            if (!string.IsNullOrWhiteSpace(deckName))
+            {
+                NewDeck = new DeckInfo { Name = deckName, Color = deckColor };
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a deck name.");
+            }
         }
 
         private void panel6_Click(object sender, EventArgs e)

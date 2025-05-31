@@ -210,6 +210,7 @@
             panel3.Size = new Size(291, 48);
             panel3.TabIndex = 2;
             panel3.Click += panel3_Click;
+            panel3.Paint += panel3_Paint;
             // 
             // panel4
             // 

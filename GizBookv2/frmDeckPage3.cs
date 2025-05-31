@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace GizBookv2
 {
-    public partial class DeckItemControl : UserControl
+    public partial class frmDeckPage3 : Form
     {
-        public DeckItemControl()
+        public frmDeckPage3()
         {
             InitializeComponent();
         }
 
-        private void DeckItemControl_Load(object sender, EventArgs e)
+        private void label12_Click(object sender, EventArgs e)
         {
 
-        }
-        public void SetDeck(string deckName, Color color)
-        {
-            lblDeckName.Text = deckName;
-            panelColor.BackColor = color;
         }
     }
 }
