@@ -59,9 +59,9 @@
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(2, 79);
             label1.Name = "label1";
-            label1.Size = new Size(52, 21);
+            label1.Size = new Size(60, 21);
             label1.TabIndex = 1;
-            label1.Text = "label1";
+            label1.Text = "0 cards";
             // 
             // lblDeckName
             // 
@@ -77,11 +77,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(lblDeckName);
             Controls.Add(label1);
             Controls.Add(panelColor);
             Name = "DeckItemControl";
-            Size = new Size(213, 109);
+            Size = new Size(211, 107);
             Load += DeckItemControl_Load;
             panelColor.ResumeLayout(false);
             ResumeLayout(false);

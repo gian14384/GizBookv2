@@ -40,7 +40,14 @@ namespace GizBookv2
         {
             DeckItemControl deckItem = new DeckItemControl();
             deckItem.SetDeck(deck.Name, deck.Color);
+            deckItem.DeckClicked += DeckItem_DeckClicked;
             flowLayoutPanel1.Controls.Add(deckItem);
+        }
+
+        private void DeckItem_DeckClicked(object sender, EventArgs e)
+        {
+            frmCreateDeck createDeckForm = new frmCreateDeck();
+            createDeckForm.Show();
         }
 
 
