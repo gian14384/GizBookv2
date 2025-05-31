@@ -23,13 +23,8 @@ namespace GizBookv2
         }
         public void SetDeck(string deckName, Color color)
         {
-            this.deckName.Text = deckName;
-            deckColor.BackColor = color;
-        }
-
-        private void deckColor_Paint(object sender, PaintEventArgs e)
-        {
-
+            lblDeckName.Text = deckName;
+            panelColor.BackColor = color;
         }
     }
 }

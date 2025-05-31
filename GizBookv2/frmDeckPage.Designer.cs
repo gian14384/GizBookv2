@@ -104,9 +104,9 @@
             // 
             flowLayoutPanel1.BackColor = Color.Transparent;
             flowLayoutPanel1.BackgroundImageLayout = ImageLayout.Center;
-            flowLayoutPanel1.Location = new Point(107, 128);
+            flowLayoutPanel1.Location = new Point(116, 128);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1219, 606);
+            flowLayoutPanel1.Size = new Size(1210, 606);
             flowLayoutPanel1.TabIndex = 8;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 

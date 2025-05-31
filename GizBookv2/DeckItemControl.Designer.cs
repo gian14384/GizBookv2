@@ -28,72 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            deckColor = new Panel();
-            panel9 = new Panel();
-            deckName = new Label();
-            label2 = new Label();
-            deckColor.SuspendLayout();
+            panelColor = new Panel();
+            panel2 = new Panel();
+            label1 = new Label();
+            lblDeckName = new Label();
+            panelColor.SuspendLayout();
             SuspendLayout();
             // 
-            // deckColor
+            // panelColor
             // 
-            deckColor.Controls.Add(panel9);
-            deckColor.Location = new Point(0, 0);
-            deckColor.Name = "deckColor";
-            deckColor.Size = new Size(221, 45);
-            deckColor.TabIndex = 8;
-            deckColor.Paint += deckColor_Paint;
+            panelColor.Controls.Add(panel2);
+            panelColor.Location = new Point(0, 0);
+            panelColor.Name = "panelColor";
+            panelColor.Size = new Size(213, 45);
+            panelColor.TabIndex = 0;
             // 
-            // panel9
+            // panel2
             // 
-            panel9.BackColor = Color.Transparent;
-            panel9.BackgroundImage = Properties.Resources.Rating2;
-            panel9.BackgroundImageLayout = ImageLayout.Center;
-            panel9.Location = new Point(195, 0);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(26, 45);
-            panel9.TabIndex = 8;
+            panel2.BackColor = Color.Transparent;
+            panel2.BackgroundImage = Properties.Resources.Rating5;
+            panel2.BackgroundImageLayout = ImageLayout.Center;
+            panel2.Location = new Point(185, -1);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(28, 45);
+            panel2.TabIndex = 3;
             // 
-            // deckName
+            // label1
             // 
-            deckName.AutoSize = true;
-            deckName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            deckName.Location = new Point(14, 58);
-            deckName.Name = "deckName";
-            deckName.Size = new Size(113, 25);
-            deckName.TabIndex = 9;
-            deckName.Text = "Deck Name";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(2, 79);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 21);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
             // 
-            // label2
+            // lblDeckName
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(15, 83);
-            label2.Name = "label2";
-            label2.Size = new Size(112, 21);
-            label2.TabIndex = 10;
-            label2.Text = "Cards Number";
+            lblDeckName.AutoSize = true;
+            lblDeckName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDeckName.Location = new Point(1, 54);
+            lblDeckName.Name = "lblDeckName";
+            lblDeckName.Size = new Size(65, 25);
+            lblDeckName.TabIndex = 2;
+            lblDeckName.Text = "label2";
             // 
             // DeckItemControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label2);
-            Controls.Add(deckName);
-            Controls.Add(deckColor);
+            Controls.Add(lblDeckName);
+            Controls.Add(label1);
+            Controls.Add(panelColor);
             Name = "DeckItemControl";
-            Size = new Size(221, 117);
+            Size = new Size(213, 109);
             Load += DeckItemControl_Load;
-            deckColor.ResumeLayout(false);
+            panelColor.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Panel deckColor;
-        private Panel panel9;
-        private Label deckName;
-        private Label label2;
+        private Panel panelColor;
+        private Panel panel2;
+        private Label label1;
+        private Label lblDeckName;
     }
 }
