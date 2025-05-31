@@ -12,9 +12,6 @@ namespace GizBookv2
         public string? confirmPassword { get; set; }
         public string? avatar { get; set; }
 
-        // Static list to store all registered users
-        public static List<UserRegistrationData> RegisteredUsers { get; } = [];
-
         public static dynamic FetchUserData(string username)
         {
             using HttpClient client = new();

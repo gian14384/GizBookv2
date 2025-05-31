@@ -48,25 +48,20 @@
             lblName = new Label();
             panel20 = new Panel();
             profile = new PictureBox();
-            panel22 = new Panel();
-            panel23 = new Panel();
-            panel24 = new Panel();
-            panel25 = new Panel();
-            panel26 = new Panel();
-            panel27 = new Panel();
-            label1 = new Label();
-            label3 = new Label();
-            panel28 = new Panel();
-            panel29 = new Panel();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            panel30 = new Panel();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            postprofile = new PictureBox();
-            panel37 = new Panel();
+            pnlPost = new Panel();
+            pnlShare = new Panel();
+            pnlPostLike = new Panel();
+            pnlPostTry = new Panel();
+            pnlStatic = new Panel();
+            lblStatic = new Label();
+            lblPostDeckName = new Label();
+            lblPostUsername2 = new Label();
+            pnlStatic2 = new Panel();
+            lblCaption = new Label();
+            lblPostName = new Label();
+            lblPostUsername = new Label();
+            picPost = new PictureBox();
+            pnlPostButton = new Panel();
             page = new PictureBox();
             panel2 = new Panel();
             panelDropdown = new Panel();
@@ -147,6 +142,7 @@
             picRank10 = new PictureBox();
             lblRank10 = new Label();
             lblScore10 = new Label();
+            pnlPosts = new Panel();
             btndropdown.SuspendLayout();
             pnlRank1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
@@ -154,9 +150,9 @@
             ((System.ComponentModel.ISupportInitialize)picRank1).BeginInit();
             panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)profile).BeginInit();
-            panel22.SuspendLayout();
-            panel27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)postprofile).BeginInit();
+            pnlPost.SuspendLayout();
+            pnlStatic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picPost).BeginInit();
             ((System.ComponentModel.ISupportInitialize)page).BeginInit();
             panel2.SuspendLayout();
             panelDropdown.SuspendLayout();
@@ -190,6 +186,7 @@
             pnlRank10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picRank10).BeginInit();
+            pnlPosts.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -224,7 +221,6 @@
             panel4.Size = new Size(145, 52);
             panel4.TabIndex = 3;
             panel4.Click += panel4_Click;
-            panel4.Paint += panel4_Paint;
             // 
             // panel5
             // 
@@ -247,7 +243,6 @@
             btndropdown.Size = new Size(291, 52);
             btndropdown.TabIndex = 5;
             btndropdown.Click += btndropdown_Click;
-            btndropdown.Paint += btndropdown_Paint;
             // 
             // panel7
             // 
@@ -284,6 +279,7 @@
             pnlRank1.Controls.Add(picRank1);
             pnlRank1.Controls.Add(lblRank1);
             pnlRank1.Controls.Add(lblScore1);
+            pnlRank1.Cursor = Cursors.Hand;
             pnlRank1.Location = new Point(985, 60);
             pnlRank1.Name = "pnlRank1";
             pnlRank1.Size = new Size(365, 61);
@@ -408,210 +404,158 @@
             profile.TabIndex = 16;
             profile.TabStop = false;
             // 
-            // panel22
+            // pnlPost
             // 
-            panel22.BackColor = Color.Transparent;
-            panel22.BackgroundImage = Properties.Resources.Text_input;
-            panel22.BackgroundImageLayout = ImageLayout.Center;
-            panel22.Controls.Add(panel23);
-            panel22.Controls.Add(panel24);
-            panel22.Controls.Add(panel25);
-            panel22.Controls.Add(panel26);
-            panel22.Controls.Add(panel27);
-            panel22.Controls.Add(label7);
-            panel22.Controls.Add(label8);
-            panel22.Controls.Add(label9);
-            panel22.Controls.Add(postprofile);
-            panel22.Controls.Add(panel37);
-            panel22.Location = new Point(365, 130);
-            panel22.Name = "panel22";
-            panel22.Size = new Size(533, 473);
-            panel22.TabIndex = 24;
+            pnlPost.BackColor = Color.Transparent;
+            pnlPost.BackgroundImage = Properties.Resources.Text_input;
+            pnlPost.BackgroundImageLayout = ImageLayout.Center;
+            pnlPost.Controls.Add(pnlShare);
+            pnlPost.Controls.Add(pnlPostLike);
+            pnlPost.Controls.Add(pnlPostTry);
+            pnlPost.Controls.Add(pnlStatic);
+            pnlPost.Controls.Add(lblCaption);
+            pnlPost.Controls.Add(lblPostName);
+            pnlPost.Controls.Add(lblPostUsername);
+            pnlPost.Controls.Add(picPost);
+            pnlPost.Controls.Add(pnlPostButton);
+            pnlPost.Location = new Point(20, 0);
+            pnlPost.Name = "pnlPost";
+            pnlPost.Size = new Size(533, 473);
+            pnlPost.TabIndex = 24;
             // 
-            // panel23
+            // pnlShare
             // 
-            panel23.BackgroundImage = Properties.Resources.share;
-            panel23.BackgroundImageLayout = ImageLayout.Center;
-            panel23.Cursor = Cursors.Hand;
-            panel23.Location = new Point(413, 421);
-            panel23.Name = "panel23";
-            panel23.Size = new Size(34, 27);
-            panel23.TabIndex = 9;
+            pnlShare.BackgroundImage = Properties.Resources.share;
+            pnlShare.BackgroundImageLayout = ImageLayout.Center;
+            pnlShare.Cursor = Cursors.Hand;
+            pnlShare.Location = new Point(358, 417);
+            pnlShare.Name = "pnlShare";
+            pnlShare.Size = new Size(34, 27);
+            pnlShare.TabIndex = 9;
             // 
-            // panel24
+            // pnlPostLike
             // 
-            panel24.BackgroundImage = Properties.Resources.comment;
-            panel24.BackgroundImageLayout = ImageLayout.Center;
-            panel24.Cursor = Cursors.Hand;
-            panel24.Location = new Point(241, 421);
-            panel24.Name = "panel24";
-            panel24.Size = new Size(34, 27);
-            panel24.TabIndex = 8;
+            pnlPostLike.BackgroundImage = Properties.Resources.heart;
+            pnlPostLike.BackgroundImageLayout = ImageLayout.Center;
+            pnlPostLike.Cursor = Cursors.Hand;
+            pnlPostLike.Location = new Point(144, 417);
+            pnlPostLike.Name = "pnlPostLike";
+            pnlPostLike.Size = new Size(34, 27);
+            pnlPostLike.TabIndex = 7;
             // 
-            // panel25
+            // pnlPostTry
             // 
-            panel25.BackgroundImage = Properties.Resources.heart;
-            panel25.BackgroundImageLayout = ImageLayout.Center;
-            panel25.Cursor = Cursors.Hand;
-            panel25.Location = new Point(79, 422);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(34, 27);
-            panel25.TabIndex = 7;
+            pnlPostTry.BackgroundImage = Properties.Resources.Button__1_1;
+            pnlPostTry.BackgroundImageLayout = ImageLayout.Center;
+            pnlPostTry.Cursor = Cursors.Hand;
+            pnlPostTry.Location = new Point(22, 387);
+            pnlPostTry.Name = "pnlPostTry";
+            pnlPostTry.Size = new Size(110, 28);
+            pnlPostTry.TabIndex = 6;
             // 
-            // panel26
+            // pnlStatic
             // 
-            panel26.BackgroundImage = Properties.Resources.Button__1_1;
-            panel26.BackgroundImageLayout = ImageLayout.Center;
-            panel26.Cursor = Cursors.Hand;
-            panel26.Location = new Point(22, 387);
-            panel26.Name = "panel26";
-            panel26.Size = new Size(110, 28);
-            panel26.TabIndex = 6;
+            pnlStatic.BackgroundImage = Properties.Resources.Button1;
+            pnlStatic.BackgroundImageLayout = ImageLayout.Center;
+            pnlStatic.Controls.Add(lblStatic);
+            pnlStatic.Controls.Add(lblPostDeckName);
+            pnlStatic.Controls.Add(lblPostUsername2);
+            pnlStatic.Controls.Add(pnlStatic2);
+            pnlStatic.Location = new Point(22, 120);
+            pnlStatic.Name = "pnlStatic";
+            pnlStatic.Size = new Size(492, 261);
+            pnlStatic.TabIndex = 5;
             // 
-            // panel27
+            // lblStatic
             // 
-            panel27.BackgroundImage = Properties.Resources.Button1;
-            panel27.BackgroundImageLayout = ImageLayout.Center;
-            panel27.Controls.Add(label1);
-            panel27.Controls.Add(label3);
-            panel27.Controls.Add(panel28);
-            panel27.Controls.Add(panel29);
-            panel27.Controls.Add(label4);
-            panel27.Controls.Add(label5);
-            panel27.Controls.Add(label6);
-            panel27.Controls.Add(panel30);
-            panel27.Location = new Point(22, 120);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(492, 261);
-            panel27.TabIndex = 5;
+            lblStatic.AutoSize = true;
+            lblStatic.Font = new Font("Segoe UI Semibold", 10.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblStatic.Location = new Point(31, 178);
+            lblStatic.Name = "lblStatic";
+            lblStatic.Size = new Size(340, 19);
+            lblStatic.TabIndex = 3;
+            lblStatic.Text = "Think you can beat my time? Let’s see what you got!";
             // 
-            // label1
+            // lblPostDeckName
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(171, 178);
-            label1.Name = "label1";
-            label1.Size = new Size(96, 25);
-            label1.TabIndex = 7;
-            label1.Text = "Exp Points";
+            lblPostDeckName.AutoEllipsis = true;
+            lblPostDeckName.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
+            lblPostDeckName.Location = new Point(15, 107);
+            lblPostDeckName.Name = "lblPostDeckName";
+            lblPostDeckName.Size = new Size(459, 62);
+            lblPostDeckName.TabIndex = 2;
+            lblPostDeckName.Text = "Deck Name";
             // 
-            // label3
+            // lblPostUsername2
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(171, 144);
-            label3.Name = "label3";
-            label3.Size = new Size(52, 25);
-            label3.TabIndex = 6;
-            label3.Text = "Time";
+            lblPostUsername2.AutoSize = true;
+            lblPostUsername2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPostUsername2.Location = new Point(65, 60);
+            lblPostUsername2.Name = "lblPostUsername2";
+            lblPostUsername2.Size = new Size(186, 25);
+            lblPostUsername2.TabIndex = 1;
+            lblPostUsername2.Text = "Usename + Caption";
             // 
-            // panel28
+            // pnlStatic2
             // 
-            panel28.BackgroundImage = Properties.Resources.Horizontal_container__1_;
-            panel28.BackgroundImageLayout = ImageLayout.Center;
-            panel28.Location = new Point(38, 177);
-            panel28.Name = "panel28";
-            panel28.Size = new Size(127, 27);
-            panel28.TabIndex = 5;
+            pnlStatic2.BackgroundImage = Properties.Resources.trophy;
+            pnlStatic2.BackgroundImageLayout = ImageLayout.Center;
+            pnlStatic2.Location = new Point(15, 56);
+            pnlStatic2.Name = "pnlStatic2";
+            pnlStatic2.Size = new Size(44, 34);
+            pnlStatic2.TabIndex = 0;
             // 
-            // panel29
+            // lblCaption
             // 
-            panel29.BackgroundImage = Properties.Resources.Horizontal_container;
-            panel29.BackgroundImageLayout = ImageLayout.Center;
-            panel29.Location = new Point(38, 144);
-            panel29.Name = "panel29";
-            panel29.Size = new Size(127, 27);
-            panel29.TabIndex = 4;
+            lblCaption.AutoSize = true;
+            lblCaption.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCaption.Location = new Point(22, 81);
+            lblCaption.Name = "lblCaption";
+            lblCaption.Size = new Size(78, 25);
+            lblCaption.TabIndex = 4;
+            lblCaption.Text = "Caption";
             // 
-            // label4
+            // lblPostName
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(38, 215);
-            label4.Name = "label4";
-            label4.Size = new Size(79, 25);
-            label4.TabIndex = 3;
-            label4.Text = "Caption";
+            lblPostName.AutoSize = true;
+            lblPostName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPostName.ForeColor = Color.Black;
+            lblPostName.Location = new Point(79, 22);
+            lblPostName.Name = "lblPostName";
+            lblPostName.Size = new Size(64, 25);
+            lblPostName.TabIndex = 3;
+            lblPostName.Text = "Name";
             // 
-            // label5
+            // lblPostUsername
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(18, 66);
-            label5.Name = "label5";
-            label5.Size = new Size(383, 86);
-            label5.TabIndex = 2;
-            label5.Text = "Deck Name";
+            lblPostUsername.AutoSize = true;
+            lblPostUsername.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPostUsername.ForeColor = Color.FromArgb(115, 118, 123);
+            lblPostUsername.Location = new Point(82, 49);
+            lblPostUsername.Name = "lblPostUsername";
+            lblPostUsername.Size = new Size(67, 17);
+            lblPostUsername.TabIndex = 2;
+            lblPostUsername.Text = "Username";
             // 
-            // label6
+            // picPost
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(68, 30);
-            label6.Name = "label6";
-            label6.Size = new Size(186, 25);
-            label6.TabIndex = 1;
-            label6.Text = "Usename + Caption";
+            picPost.BackgroundImageLayout = ImageLayout.Center;
+            picPost.Location = new Point(22, 18);
+            picPost.Name = "picPost";
+            picPost.Size = new Size(49, 46);
+            picPost.SizeMode = PictureBoxSizeMode.Zoom;
+            picPost.TabIndex = 1;
+            picPost.TabStop = false;
             // 
-            // panel30
+            // pnlPostButton
             // 
-            panel30.BackgroundImage = Properties.Resources.trophy;
-            panel30.BackgroundImageLayout = ImageLayout.Center;
-            panel30.Location = new Point(18, 26);
-            panel30.Name = "panel30";
-            panel30.Size = new Size(44, 34);
-            panel30.TabIndex = 0;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(22, 81);
-            label7.Name = "label7";
-            label7.Size = new Size(78, 25);
-            label7.TabIndex = 4;
-            label7.Text = "Caption";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Black;
-            label8.Location = new Point(79, 22);
-            label8.Name = "label8";
-            label8.Size = new Size(64, 25);
-            label8.TabIndex = 3;
-            label8.Text = "Name";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(115, 118, 123);
-            label9.Location = new Point(82, 49);
-            label9.Name = "label9";
-            label9.Size = new Size(67, 17);
-            label9.TabIndex = 2;
-            label9.Text = "Username";
-            // 
-            // postprofile
-            // 
-            postprofile.BackgroundImageLayout = ImageLayout.Center;
-            postprofile.Location = new Point(22, 18);
-            postprofile.Name = "postprofile";
-            postprofile.Size = new Size(49, 46);
-            postprofile.TabIndex = 1;
-            postprofile.TabStop = false;
-            // 
-            // panel37
-            // 
-            panel37.BackgroundImage = Properties.Resources._3_dot;
-            panel37.BackgroundImageLayout = ImageLayout.Center;
-            panel37.Cursor = Cursors.Hand;
-            panel37.Location = new Point(485, 34);
-            panel37.Name = "panel37";
-            panel37.Size = new Size(26, 12);
-            panel37.TabIndex = 0;
+            pnlPostButton.BackgroundImage = Properties.Resources._3_dot;
+            pnlPostButton.BackgroundImageLayout = ImageLayout.Center;
+            pnlPostButton.Cursor = Cursors.Hand;
+            pnlPostButton.Location = new Point(485, 34);
+            pnlPostButton.Name = "pnlPostButton";
+            pnlPostButton.Size = new Size(26, 12);
+            pnlPostButton.TabIndex = 0;
             // 
             // page
             // 
@@ -750,7 +694,7 @@
             panel6.Controls.Add(panel33);
             panel6.Controls.Add(panel34);
             panel6.Controls.Add(panel38);
-            panel6.Location = new Point(352, 219);
+            panel6.Location = new Point(352, 237);
             panel6.Name = "panel6";
             panel6.Size = new Size(558, 271);
             panel6.TabIndex = 27;
@@ -830,6 +774,7 @@
             pnlRank2.Controls.Add(picRank2);
             pnlRank2.Controls.Add(lblRank2);
             pnlRank2.Controls.Add(lblScore2);
+            pnlRank2.Cursor = Cursors.Hand;
             pnlRank2.Location = new Point(985, 127);
             pnlRank2.Name = "pnlRank2";
             pnlRank2.Size = new Size(365, 61);
@@ -909,6 +854,7 @@
             pnlRank3.Controls.Add(picRank3);
             pnlRank3.Controls.Add(lblRank3);
             pnlRank3.Controls.Add(lblScore3);
+            pnlRank3.Cursor = Cursors.Hand;
             pnlRank3.Location = new Point(985, 194);
             pnlRank3.Name = "pnlRank3";
             pnlRank3.Size = new Size(365, 61);
@@ -988,6 +934,7 @@
             pnlRank4.Controls.Add(picRank4);
             pnlRank4.Controls.Add(lblRank4);
             pnlRank4.Controls.Add(lblScore4);
+            pnlRank4.Cursor = Cursors.Hand;
             pnlRank4.Location = new Point(985, 261);
             pnlRank4.Name = "pnlRank4";
             pnlRank4.Size = new Size(365, 61);
@@ -1068,6 +1015,7 @@
             pnlRank5.Controls.Add(picRank5);
             pnlRank5.Controls.Add(lblRank5);
             pnlRank5.Controls.Add(lblScore5);
+            pnlRank5.Cursor = Cursors.Hand;
             pnlRank5.Location = new Point(985, 328);
             pnlRank5.Name = "pnlRank5";
             pnlRank5.Size = new Size(365, 61);
@@ -1159,6 +1107,7 @@
             pnlRank6.Controls.Add(picRank6);
             pnlRank6.Controls.Add(lblRank6);
             pnlRank6.Controls.Add(lblScore6);
+            pnlRank6.Cursor = Cursors.Hand;
             pnlRank6.Location = new Point(985, 395);
             pnlRank6.Name = "pnlRank6";
             pnlRank6.Size = new Size(365, 61);
@@ -1238,6 +1187,7 @@
             pnlRank7.Controls.Add(picRank7);
             pnlRank7.Controls.Add(lblRank7);
             pnlRank7.Controls.Add(lblScore7);
+            pnlRank7.Cursor = Cursors.Hand;
             pnlRank7.Location = new Point(985, 462);
             pnlRank7.Name = "pnlRank7";
             pnlRank7.Size = new Size(365, 61);
@@ -1317,6 +1267,7 @@
             pnlRank8.Controls.Add(picRank8);
             pnlRank8.Controls.Add(lblRank8);
             pnlRank8.Controls.Add(lblScore8);
+            pnlRank8.Cursor = Cursors.Hand;
             pnlRank8.Location = new Point(985, 529);
             pnlRank8.Name = "pnlRank8";
             pnlRank8.Size = new Size(365, 61);
@@ -1396,6 +1347,7 @@
             pnlRank9.Controls.Add(picRank9);
             pnlRank9.Controls.Add(lblRank9);
             pnlRank9.Controls.Add(lblScore9);
+            pnlRank9.Cursor = Cursors.Hand;
             pnlRank9.Location = new Point(985, 596);
             pnlRank9.Name = "pnlRank9";
             pnlRank9.Size = new Size(365, 61);
@@ -1475,6 +1427,7 @@
             pnlRank10.Controls.Add(picRank10);
             pnlRank10.Controls.Add(lblRank10);
             pnlRank10.Controls.Add(lblScore10);
+            pnlRank10.Cursor = Cursors.Hand;
             pnlRank10.Location = new Point(985, 663);
             pnlRank10.Name = "pnlRank10";
             pnlRank10.Size = new Size(365, 61);
@@ -1544,17 +1497,27 @@
             lblScore10.TabIndex = 19;
             lblScore10.Text = "Score";
             // 
+            // pnlPosts
+            // 
+            pnlPosts.AutoScroll = true;
+            pnlPosts.AutoScrollMinSize = new Size(0, 946);
+            pnlPosts.Controls.Add(pnlPost);
+            pnlPosts.Location = new Point(345, 130);
+            pnlPosts.Name = "pnlPosts";
+            pnlPosts.Size = new Size(573, 593);
+            pnlPosts.TabIndex = 28;
+            // 
             // frmHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1366, 768);
+            Controls.Add(pnlPosts);
             Controls.Add(panel6);
             Controls.Add(panel7);
             Controls.Add(panel8);
             Controls.Add(panelDropdown);
             Controls.Add(panel2);
-            Controls.Add(panel22);
             Controls.Add(panel20);
             Controls.Add(panel10);
             Controls.Add(pnlRank10);
@@ -1583,11 +1546,11 @@
             ((System.ComponentModel.ISupportInitialize)picRank1).EndInit();
             panel20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)profile).EndInit();
-            panel22.ResumeLayout(false);
-            panel22.PerformLayout();
-            panel27.ResumeLayout(false);
-            panel27.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)postprofile).EndInit();
+            pnlPost.ResumeLayout(false);
+            pnlPost.PerformLayout();
+            pnlStatic.ResumeLayout(false);
+            pnlStatic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picPost).EndInit();
             ((System.ComponentModel.ISupportInitialize)page).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -1632,6 +1595,7 @@
             pnlRank10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic10).EndInit();
             ((System.ComponentModel.ISupportInitialize)picRank10).EndInit();
+            pnlPosts.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -1654,25 +1618,20 @@
         private Label lblScore1;
         private Panel panel35;
         private Panel panel36;
-        private Panel panel22;
-        private Panel panel23;
-        private Panel panel24;
-        private Panel panel25;
-        private Panel panel26;
-        private Panel panel27;
-        private Label label1;
-        private Label label3;
-        private Panel panel28;
-        private Panel panel29;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Panel panel30;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private PictureBox postprofile;
-        private Panel panel37;
+        private Panel pnlPost;
+        private Panel pnlShare;
+        private Panel pnlPostLike;
+        private Panel pnlPostTry;
+        private Panel pnlStatic;
+        private Label lblStatic;
+        private Label lblPostDeckName;
+        private Label lblPostUsername2;
+        private Panel pnlStatic2;
+        private Label lblCaption;
+        private Label lblPostName;
+        private Label lblPostUsername;
+        private PictureBox picPost;
+        private Panel pnlPostButton;
         private PictureBox page;
         private Panel panel2;
         private Panel panelDropdown;
@@ -1755,5 +1714,6 @@
         private PictureBox pic8;
         private PictureBox pic9;
         private PictureBox pic10;
+        private Panel pnlPosts;
     }
 }

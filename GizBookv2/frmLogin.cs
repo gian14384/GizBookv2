@@ -35,21 +35,13 @@ namespace GizBookv2
             var response = client.PostAsync(endpoint, payload).Result;
             var resultContent = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<UserRegistrationData>(resultContent)!;
-
-            UserRegistrationData user = new()
-            {
-                username = result.username,
-                name = result.name,
-                avatar = result.avatar,
-            };
-
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 MessageBox.Show("Wrong username or password. Try again.");
             }
             else if (response.StatusCode == HttpStatusCode.OK)
             {
-                frmHomePage home = new(user);
+                frmHomePage home = new(result.username);
                 home.Show();
                 Hide();
             }

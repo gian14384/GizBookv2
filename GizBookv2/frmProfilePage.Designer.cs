@@ -150,6 +150,7 @@
             label3.Size = new Size(137, 37);
             label3.TabIndex = 4;
             label3.Text = "followers";
+            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -162,6 +163,7 @@
             label4.Size = new Size(140, 37);
             label4.TabIndex = 5;
             label4.Text = "following";
+            label4.Click += label4_Click;
             // 
             // btnAllPost
             // 
@@ -519,7 +521,6 @@
             // 
             // pnlFriend1
             // 
-            pnlFriend1.BackgroundImage = Properties.Resources.Button2;
             pnlFriend1.BackgroundImageLayout = ImageLayout.Center;
             pnlFriend1.Cursor = Cursors.Hand;
             pnlFriend1.Location = new Point(917, 42);

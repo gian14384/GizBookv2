@@ -155,10 +155,6 @@ namespace GizBookv2
             // Save the avatar image
             _userData.avatar = _selectedAvatarResourceName;
 
-            // TODO: REMOVE THIS
-            // Add the user to the static list
-            UserRegistrationData.RegisteredUsers.Add(_userData);
-
             using HttpClient client = new();
             var endpoint = new Uri("https://gizbook.vercel.app/api/auth/register");
 

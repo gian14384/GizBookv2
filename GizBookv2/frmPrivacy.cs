@@ -19,6 +19,9 @@ namespace GizBookv2
 
         private void panel7_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            frmHomePage homePage = new(Username);
+            homePage.Show();
             Close();
         }
 

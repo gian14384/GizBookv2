@@ -1003,6 +1003,16 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap follow {
+            get {
+                object obj = ResourceManager.GetObject("follow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap frame {
             get {
                 object obj = ResourceManager.GetObject("frame", resourceCulture);
@@ -2198,6 +2208,16 @@ namespace GizBookv2.Properties {
         internal static System.Drawing.Bitmap trophy1 {
             get {
                 object obj = ResourceManager.GetObject("trophy1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unfollow {
+            get {
+                object obj = ResourceManager.GetObject("unfollow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
