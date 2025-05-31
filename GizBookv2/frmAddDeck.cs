@@ -13,6 +13,7 @@ using static System.Windows.Forms.DataFormats;
 
 namespace GizBook
 {
+#pragma warning disable CS8618
     public partial class frmAddDeck : Form
     {
         public DeckInfo NewDeck { get; private set; }

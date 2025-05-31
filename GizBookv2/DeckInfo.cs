@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace GizBookv2
 {
+#pragma warning disable CS8618
+
     public class DeckInfo
     {
         public string Name { get; set; }
