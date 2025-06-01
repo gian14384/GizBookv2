@@ -237,7 +237,6 @@
             radioButton1.TabIndex = 10;
             radioButton1.TabStop = true;
             radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
@@ -258,7 +257,6 @@
             radioButton3.TabIndex = 12;
             radioButton3.TabStop = true;
             radioButton3.UseVisualStyleBackColor = true;
-            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
             // 
             // panel17
             // 
@@ -269,6 +267,7 @@
             panel17.Name = "panel17";
             panel17.Size = new Size(95, 38);
             panel17.TabIndex = 13;
+            panel17.Paint += panel17_Paint;
             // 
             // panel18
             // 
@@ -279,6 +278,7 @@
             panel18.Name = "panel18";
             panel18.Size = new Size(88, 38);
             panel18.TabIndex = 14;
+            panel18.Paint += panel18_Paint;
             // 
             // panel19
             // 
@@ -289,6 +289,7 @@
             panel19.Name = "panel19";
             panel19.Size = new Size(138, 38);
             panel19.TabIndex = 15;
+            panel19.Paint += panel19_Paint;
             // 
             // panel20
             // 
@@ -311,7 +312,6 @@
             btnSaveDeck.Size = new Size(156, 47);
             btnSaveDeck.TabIndex = 17;
             btnSaveDeck.Click += btnSaveDeck_Click;
-            btnSaveDeck.Paint += btnSaveDeck_Paint;
             // 
             // btn1
             // 
@@ -354,11 +354,11 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Cursor = Cursors.Hand;
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmAddDeck";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmAddDeck";
-            Load += frmAddDeck_Load;
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ResumeLayout(false);

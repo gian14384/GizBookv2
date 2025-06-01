@@ -14,6 +14,7 @@ namespace GizBookv2
         }
 
         private readonly dynamic _userData;
+        private static List<dynamic> AllUsers = [];
 
         public frmHomePage(string username)
         {
@@ -38,8 +39,9 @@ namespace GizBookv2
 
         private void panel3_Click(object sender, EventArgs e)
         {
-            frmDeckPage fd = new();
+            frmDeckPage fd = new(_userData, true);
             fd.Show();
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -57,7 +59,7 @@ namespace GizBookv2
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            frmPrivacy privacyPage = new((string)_userData.username);
+            frmPrivacy privacyPage = new(_userData);
             privacyPage.Show();
 
             int panelHeight = panelDropdown.Visible ? panelDropdown.Height : 0;
@@ -145,15 +147,18 @@ namespace GizBookv2
 
         private void panel34_Click(object sender, EventArgs e)
         {
-            frmAddDeck addDeckForm = new();
+            Cursor.Current = Cursors.WaitCursor;
+            frmAddDeck addDeckForm = new((string)_userData.username, true);
             addDeckForm.Show();
-
+            Close();
         }
 
         private void panel7_Click(object sender, EventArgs e)
         {
-            frmAddDeck addDeckForm = new();
+            Cursor.Current = Cursors.WaitCursor;
+            frmAddDeck addDeckForm = new((string)_userData.username, true);
             addDeckForm.Show();
+            Close();
         }
 
         private void panel8_Click(object sender, EventArgs e)
@@ -165,7 +170,7 @@ namespace GizBookv2
         private void OpenProfile(string username)
         {
             Cursor.Current = Cursors.WaitCursor;
-            frmProfilePage profilePage = new(username, (string)_userData.username);
+            frmProfilePage profilePage = new(username, _userData, AllUsers);
             profilePage.Show();
             Close();
         }
@@ -313,13 +318,13 @@ namespace GizBookv2
             using HttpClient client = new();
             var endpoint = new Uri("https://gizbook.vercel.app/api/posts/" + (string)_userData.username);
 
-            var newUserJson = JsonConvert.SerializeObject(new Dictionary<string, string>
+            var newPostJson = JsonConvert.SerializeObject(new Dictionary<string, string>
             {
                { "deck_id", postId },
                { "caption", $"Check out this deck!" }
             });
 
-            var payload = new StringContent(newUserJson, Encoding.UTF8, "application/json");
+            var payload = new StringContent(newPostJson, Encoding.UTF8, "application/json");
             var response = client.PostAsync(endpoint, payload).Result;
             var result = JsonConvert.DeserializeObject<List<dynamic>>(response.Content.ReadAsStringAsync().Result)!
                .ToList();
@@ -617,13 +622,23 @@ namespace GizBookv2
         private void frmHomePage_Load(object sender, EventArgs e)
         {
             // LEADERBOARDS
-            using HttpClient client = new();
-            var endpoint = new Uri("https://gizbook.vercel.app/api/users");
-            var response = client.GetAsync(endpoint).Result;
-            var result = JsonConvert.DeserializeObject<List<dynamic>>(response.Content.ReadAsStringAsync().Result)!
-               .OrderByDescending(user => (int)user.score)
-               .ThenBy(user => (string)user.name)
-               .ToList();
+            if (AllUsers.Count <= 0)
+            {
+                using HttpClient client = new();
+                var endpoint = new Uri("https://gizbook.vercel.app/api/users");
+                var response = client.GetAsync(endpoint).Result;
+                var result = JsonConvert.DeserializeObject<List<dynamic>>(response.Content.ReadAsStringAsync().Result)!
+                   .ToList();
+
+                List<dynamic> allUsers = [];
+                foreach (dynamic user in result)
+                {
+                    dynamic userData = UserRegistrationData.FetchUserData((string)user.username);
+                    allUsers.Add(userData);
+                }
+
+                AllUsers = allUsers;
+            }
 
             for (int i = 0; i < 10; i++)
             {
@@ -633,25 +648,25 @@ namespace GizBookv2
                 var lblScore = Controls.Find($"lblScore{i + 1}", true).FirstOrDefault() as Label;
                 var pnlRank = Controls.Find($"pnlRank{i + 1}", true).FirstOrDefault() as Panel;
 
-                if (i < result.Count)
+                if (i < AllUsers.Count)
                 {
-                    string username = (string)result[i].username;
+                    string username = (string)AllUsers[i].username;
                     if (pic != null) pic.Visible = true;
                     if (picRank != null)
                     {
-                        picRank.Image = (Image)Properties.Resources.ResourceManager.GetObject((string)result[i].avatar)!;
+                        picRank.Image = (Image)Properties.Resources.ResourceManager.GetObject((string)AllUsers[i].avatar)!;
                         picRank.Visible = true;
                         picRank.Click += (sender, e) => OpenProfile(username);
                     }
                     if (lblRank != null)
                     {
-                        lblRank.Text = (string)result[i].leaderboard_privacy == "public" ? (string)result[i].name : "Anonymous User";
+                        lblRank.Text = (string)AllUsers[i].leaderboard_privacy == "public" ? (string)AllUsers[i].name : "Anonymous User";
                         lblRank.Visible = true;
                         lblRank.Click += (sender, e) => OpenProfile(username);
                     }
                     if (lblScore != null)
                     {
-                        lblScore.Text = result[i].score.ToString();
+                        lblScore.Text = AllUsers[i].score.ToString();
                         lblScore.Visible = true;
                         lblScore.Click += (sender, e) => OpenProfile(username);
                     }

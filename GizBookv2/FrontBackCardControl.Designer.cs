@@ -34,21 +34,21 @@
             // 
             // lblFront
             // 
-            lblFront.AutoSize = true;
+            lblFront.AutoEllipsis = true;
             lblFront.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFront.Location = new Point(34, 32);
             lblFront.Name = "lblFront";
-            lblFront.Size = new Size(95, 45);
+            lblFront.Size = new Size(1113, 45);
             lblFront.TabIndex = 0;
             lblFront.Text = "Front";
             // 
             // lblBack
             // 
-            lblBack.AutoSize = true;
+            lblBack.AutoEllipsis = true;
             lblBack.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblBack.Location = new Point(34, 120);
             lblBack.Name = "lblBack";
-            lblBack.Size = new Size(85, 45);
+            lblBack.Size = new Size(1113, 45);
             lblBack.TabIndex = 1;
             lblBack.Text = "Back";
             // 
@@ -61,11 +61,11 @@
             BackgroundImageLayout = ImageLayout.Center;
             Controls.Add(lblBack);
             Controls.Add(lblFront);
+            DoubleBuffered = true;
             Name = "FrontBackCardControl";
             Size = new Size(1181, 189);
             Load += FrontBackCardControl_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

@@ -1,34 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GizBookv2
 {
     public partial class frmCreateDeck : Form
     {
-
-        public frmCreateDeck()
+        private readonly dynamic DeckInfo;
+        private readonly string Username;
+        private static int TotalCards;
+        public frmCreateDeck(dynamic deckInfo, string username)
         {
             InitializeComponent();
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
+            DeckInfo = deckInfo;
+            Username = username;
+            TotalCards = (int)DeckInfo.total_cards;
         }
 
         private void frmCreateDeck_Load(object sender, EventArgs e)
         {
-
+            pictureBox1.BackColor = ColorTranslator.FromHtml((string)DeckInfo.color);
+            label1.Text = (string)DeckInfo.title;
+            label2.Text = $"Recently Added Cards ({TotalCards})";
             SetQuizMode(true);
 
+            if (TotalCards > 0)
+            {
+                foreach (dynamic card in (JArray)DeckInfo.cards)
+                {
+                    if ((string)card.type == "one-sided")
+                    {
+                        var quizCard = new QuizCardControl();
+                        quizCard.SetQuiz((string)card.question);
+                        flowLayoutPanel1.Controls.Add(quizCard);
+                    }
+                    else if ((string)card.type == "two-sided")
+                    {
+                        var fbCard = new FrontBackCardControl();
+                        fbCard.SetFrontBack((string)card.question, (string)card.answer);
+                        flowLayoutPanel1.Controls.Add(fbCard);
+                    }
+                }
+            }
         }
         private bool isQuizMode = true;
 
@@ -66,10 +79,33 @@ namespace GizBookv2
                 string quizText = txtQuiz.Text.Trim();
                 if (!string.IsNullOrEmpty(quizText))
                 {
-                    var quizCard = new QuizCardControl();
-                    quizCard.SetQuiz(quizText);
-                    flowLayoutPanel1.Controls.Add(quizCard);
-                    txtQuiz.Clear();
+                    Cursor.Current = Cursors.WaitCursor;
+                    using HttpClient client = new();
+                    var endpoint = new Uri("https://gizbook.vercel.app/api/cards/" + (string)DeckInfo.id);
+
+                    var newDeckJson = JsonConvert.SerializeObject(new Dictionary<string, string?>
+                    {
+                        { "type", "one-sided" },
+                        { "question", quizText },
+                        { "answer", null }
+                    });
+
+                    var payload = new StringContent(newDeckJson, Encoding.UTF8, "application/json");
+                    var response = client.PostAsync(endpoint, payload).Result;
+
+                    if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    {
+                        var quizCard = new QuizCardControl();
+                        quizCard.SetQuiz(quizText);
+                        flowLayoutPanel1.Controls.Add(quizCard);
+                        txtQuiz.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong.");
+                    }
+                    label2.Text = $"Recently Added Cards ({++TotalCards})";
+                    Cursor.Current = Cursors.Default;
                 }
             }
             else
@@ -79,13 +115,41 @@ namespace GizBookv2
                 string back = txtback.Text.Trim();
                 if (!string.IsNullOrEmpty(front) && !string.IsNullOrEmpty(back))
                 {
-                    var fbCard = new FrontBackCardControl();
-                    fbCard.SetFrontBack(front, back);
-                    flowLayoutPanel1.Controls.Add(fbCard);
-                    txtfront.Clear();
-                    txtback.Clear();
+                    Cursor.Current = Cursors.WaitCursor;
+                    using HttpClient client = new();
+                    var endpoint = new Uri("https://gizbook.vercel.app/api/cards/" + (string)DeckInfo.id);
+
+                    var newDeckJson = JsonConvert.SerializeObject(new Dictionary<string, string>
+                    {
+                        { "type", "two-sided" },
+                        { "question", front },
+                        { "answer", back }
+                    });
+
+                    var payload = new StringContent(newDeckJson, Encoding.UTF8, "application/json");
+                    var response = client.PostAsync(endpoint, payload).Result;
+
+                    if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    {
+                        var fbCard = new FrontBackCardControl();
+                        fbCard.SetFrontBack(front, back);
+                        flowLayoutPanel1.Controls.Add(fbCard);
+                        txtfront.Clear();
+                        txtback.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong.");
+                    }
+                    label2.Text = $"Recently Added Cards ({++TotalCards})";
+                    Cursor.Current = Cursors.Default;
                 }
             }
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

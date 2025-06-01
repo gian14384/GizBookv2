@@ -4,11 +4,11 @@ namespace GizBookv2
 {
     public partial class frmPrivacy : Form
     {
-        private readonly string Username;
-        public frmPrivacy(string username)
+        private readonly dynamic UserData;
+        public frmPrivacy(dynamic userData)
         {
             InitializeComponent();
-            Username = username;
+            UserData = userData;
         }
 
         private void panel4_Click(object sender, EventArgs e)
@@ -20,7 +20,7 @@ namespace GizBookv2
         private void panel7_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            frmHomePage homePage = new(Username);
+            frmHomePage homePage = new((string)UserData.username);
             homePage.Show();
             Close();
         }
@@ -60,9 +60,7 @@ namespace GizBookv2
 
         private void frmPrivacy_Load(object sender, EventArgs e)
         {
-            var userData = UserRegistrationData.FetchUserData(Username);
-
-            SetDatas(userData);
+            SetDatas(UserData);
         }
 
         private void SetPostPrivacy(string privacy)
@@ -70,7 +68,7 @@ namespace GizBookv2
             Cursor.Current = Cursors.WaitCursor;
 
             using HttpClient client = new();
-            var endpoint = new Uri($"https://gizbook.vercel.app/api/settings/{Username}?type=posts&privacy={privacy}");
+            var endpoint = new Uri($"https://gizbook.vercel.app/api/settings/{(string)UserData.username}?type=posts&privacy={privacy}");
             var response = client.GetAsync(endpoint).Result;
             var result = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result)!;
 
@@ -82,7 +80,7 @@ namespace GizBookv2
             Cursor.Current = Cursors.WaitCursor;
 
             using HttpClient client = new();
-            var endpoint = new Uri($"https://gizbook.vercel.app/api/settings/{Username}?type=leaderboards");
+            var endpoint = new Uri($"https://gizbook.vercel.app/api/settings/{(string)UserData.username}?type=leaderboards");
             var response = client.GetAsync(endpoint).Result;
             var result = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result)!;
 

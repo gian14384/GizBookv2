@@ -1,87 +1,80 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using GizBook;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+﻿using GizBook;
+using Newtonsoft.Json.Linq;
 
 namespace GizBookv2
 {
     public partial class frmDeckPage : Form
     {
 
-        private List<DeckInfo> _decks = new List<DeckInfo>();
-        public frmDeckPage()
+        private readonly List<DeckInfo> _decks = [];
+        private readonly dynamic Userdata;
+        private readonly bool IsFromHomePage;
+        public frmDeckPage(dynamic userdata, bool isFromHomePage)
         {
             InitializeComponent();
-
+            Userdata = userdata;
+            IsFromHomePage = isFromHomePage;
         }
-     
+
         private void panel10_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            if (IsFromHomePage)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                frmHomePage homePage = new((string)Userdata.username);
+                homePage.Show();
+            }
+            Close();
         }
 
         private void frmDeckPage_Load(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
-            foreach (var deck in _decks)
+
+            if ((int)Userdata.total_decks > 0)
             {
-                AddDeckToPanel(deck);
+                foreach (dynamic deck in (JArray)Userdata.decks)
+                {
+                    DeckInfo deckInfo = new() { Name = deck.title, Color = deck.color, Deck = deck };
+                    _decks.Add(deckInfo);
+                    AddDeckToPanel(deckInfo);
+                }
             }
         }
 
         private void AddDeckToPanel(DeckInfo deck)
         {
-            DeckItemControl deckItem = new DeckItemControl();
-            deckItem.SetDeck(deck.Name, deck.Color);
-            deckItem.DeckClicked += DeckItem_DeckClicked;
+            DeckItemControl deckItem = new();
+            deckItem.SetDeck(deck.Name, (int)deck.Deck.total_cards, deck.Color);
+            deckItem.DeckClicked += (sender, e) => DeckItem_DeckClicked(deck.Deck);
             flowLayoutPanel1.Controls.Add(deckItem);
         }
 
-        private void DeckItem_DeckClicked(object sender, EventArgs e)
+        private void DeckItem_DeckClicked(dynamic deck)
         {
-            frmCreateDeck createDeckForm = new frmCreateDeck();
+            frmCreateDeck createDeckForm = new(deck, (string)Userdata.username);
             createDeckForm.Show();
         }
 
 
-
-        private void frmDeckPage_Click(object sender, EventArgs e)
-        {
-
-        }
-        
-
         private void panel4_Click(object sender, EventArgs e)
         {
-            using (var addDeckForm = new frmAddDeck())
+            using var addDeckForm = new frmAddDeck((string)Userdata.username, false);
+            if (addDeckForm.ShowDialog() == DialogResult.OK)
             {
-                if (addDeckForm.ShowDialog() == DialogResult.OK)
+                var newDeck = addDeckForm.NewDeck;
+                if (newDeck != null)
                 {
-                    // Get the new deck info from frmAddDeck
-                    var newDeck = addDeckForm.NewDeck;
-                    if (newDeck != null)
-                    {
-                        _decks.Add(newDeck);
-                        AddDeckToPanel(newDeck);
-                    }
+                    _decks.Add(newDeck);
+                    AddDeckToPanel(newDeck);
                 }
+                Cursor.Current = Cursors.Default;
             }
-        }
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void panel3_Click(object sender, EventArgs e)
         {
-            frmLearn fl = new frmLearn();
+            frmLearn fl = new();
             fl.Show();
         }
     }

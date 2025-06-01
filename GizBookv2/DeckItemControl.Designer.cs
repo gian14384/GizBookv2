@@ -30,7 +30,7 @@
         {
             panelColor = new Panel();
             panel2 = new Panel();
-            label1 = new Label();
+            lblTotalCards = new Label();
             lblDeckName = new Label();
             panelColor.SuspendLayout();
             SuspendLayout();
@@ -53,25 +53,25 @@
             panel2.Size = new Size(28, 45);
             panel2.TabIndex = 3;
             // 
-            // label1
+            // lblTotalCards
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(2, 79);
-            label1.Name = "label1";
-            label1.Size = new Size(60, 21);
-            label1.TabIndex = 1;
-            label1.Text = "0 cards";
+            lblTotalCards.AutoEllipsis = true;
+            lblTotalCards.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalCards.Location = new Point(3, 79);
+            lblTotalCards.Name = "lblTotalCards";
+            lblTotalCards.Size = new Size(194, 21);
+            lblTotalCards.TabIndex = 1;
+            lblTotalCards.Text = "0 cards";
             // 
             // lblDeckName
             // 
-            lblDeckName.AutoSize = true;
+            lblDeckName.AutoEllipsis = true;
             lblDeckName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDeckName.Location = new Point(1, 54);
+            lblDeckName.Location = new Point(3, 54);
             lblDeckName.Name = "lblDeckName";
-            lblDeckName.Size = new Size(65, 25);
+            lblDeckName.Size = new Size(205, 25);
             lblDeckName.TabIndex = 2;
-            lblDeckName.Text = "label2";
+            lblDeckName.Text = "Deck Title";
             // 
             // DeckItemControl
             // 
@@ -79,21 +79,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(lblDeckName);
-            Controls.Add(label1);
+            Controls.Add(lblTotalCards);
             Controls.Add(panelColor);
+            Cursor = Cursors.Hand;
             Name = "DeckItemControl";
             Size = new Size(211, 107);
             Load += DeckItemControl_Load;
             panelColor.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Panel panelColor;
         private Panel panel2;
-        private Label label1;
+        private Label lblTotalCards;
         private Label lblDeckName;
     }
 }

@@ -52,6 +52,7 @@
             // panel10
             // 
             panel10.BackColor = Color.Transparent;
+            panel10.Cursor = Cursors.Hand;
             panel10.Location = new Point(10, 11);
             panel10.Name = "panel10";
             panel10.Size = new Size(69, 57);
@@ -73,6 +74,7 @@
             panel3.BackColor = Color.Transparent;
             panel3.BackgroundImage = Properties.Resources.learn1;
             panel3.BackgroundImageLayout = ImageLayout.Center;
+            panel3.Cursor = Cursors.Hand;
             panel3.Location = new Point(736, 24);
             panel3.Name = "panel3";
             panel3.Size = new Size(286, 55);
@@ -84,6 +86,7 @@
             panel4.BackColor = Color.Transparent;
             panel4.BackgroundImage = Properties.Resources.add1;
             panel4.BackgroundImageLayout = ImageLayout.Center;
+            panel4.Cursor = Cursors.Hand;
             panel4.Location = new Point(1040, 24);
             panel4.Name = "panel4";
             panel4.Size = new Size(286, 55);
@@ -108,7 +111,6 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1210, 606);
             flowLayoutPanel1.TabIndex = 8;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // frmDeckPage
             // 
@@ -127,7 +129,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmDeckPage";
             Load += frmDeckPage_Load;
-            Click += frmDeckPage_Click;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

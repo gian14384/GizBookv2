@@ -50,17 +50,18 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImage = Properties.Resources.left__1_3;
             panel1.BackgroundImageLayout = ImageLayout.Center;
+            panel1.Cursor = Cursors.Hand;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(87, 773);
             panel1.TabIndex = 0;
+            panel1.Click += panel1_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.Button3;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(155, 47);
+            pictureBox1.Location = new Point(195, 47);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(27, 26);
             pictureBox1.TabIndex = 1;
@@ -68,11 +69,11 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
+            label1.AutoEllipsis = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(188, 34);
+            label1.Location = new Point(228, 34);
             label1.Name = "label1";
-            label1.Size = new Size(191, 45);
+            label1.Size = new Size(582, 45);
             label1.TabIndex = 2;
             label1.Text = "Deck Name";
             // 
@@ -81,9 +82,10 @@
             button1.BackColor = Color.Transparent;
             button1.BackgroundImage = Properties.Resources.Slider;
             button1.BackgroundImageLayout = ImageLayout.Center;
+            button1.Cursor = Cursors.Hand;
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(385, 43);
+            button1.Location = new Point(139, 44);
             button1.Name = "button1";
             button1.Size = new Size(48, 35);
             button1.TabIndex = 3;
@@ -94,6 +96,7 @@
             button2.BackColor = Color.Transparent;
             button2.BackgroundImage = Properties.Resources.Button_container;
             button2.BackgroundImageLayout = ImageLayout.Center;
+            button2.Cursor = Cursors.Hand;
             button2.FlatStyle = FlatStyle.Flat;
             button2.ForeColor = Color.Transparent;
             button2.Location = new Point(833, 27);
@@ -107,6 +110,7 @@
             button3.BackColor = Color.Transparent;
             button3.BackgroundImage = Properties.Resources.Text_input__1_2;
             button3.BackgroundImageLayout = ImageLayout.Center;
+            button3.Cursor = Cursors.Hand;
             button3.FlatStyle = FlatStyle.Flat;
             button3.ForeColor = Color.Transparent;
             button3.Location = new Point(1084, 27);
@@ -173,6 +177,7 @@
             button4.BackColor = Color.Transparent;
             button4.BackgroundImage = Properties.Resources.Button__1_4;
             button4.BackgroundImageLayout = ImageLayout.Center;
+            button4.Cursor = Cursors.Hand;
             button4.FlatStyle = FlatStyle.Flat;
             button4.ForeColor = Color.Transparent;
             button4.Location = new Point(127, 310);

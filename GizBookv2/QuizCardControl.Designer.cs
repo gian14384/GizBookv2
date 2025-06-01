@@ -33,12 +33,13 @@
             // 
             // lblQuiz
             // 
+            lblQuiz.AutoEllipsis = true;
             lblQuiz.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblQuiz.Location = new Point(18, 18);
             lblQuiz.Name = "lblQuiz";
             lblQuiz.Size = new Size(1139, 143);
             lblQuiz.TabIndex = 0;
-            lblQuiz.Text = "label1";
+            lblQuiz.Text = "Tesxt (One-Sided)";
             lblQuiz.Click += lblQuiz_Click;
             // 
             // QuizCardControl

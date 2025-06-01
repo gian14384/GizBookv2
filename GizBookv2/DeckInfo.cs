@@ -12,5 +12,6 @@ namespace GizBookv2
     {
         public string Name { get; set; }
         public Color Color { get; set; }
+        public dynamic Deck { get; set; }
     }
 }
