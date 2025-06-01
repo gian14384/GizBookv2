@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             panel1 = new Panel();
-            panel12 = new Panel();
-            panel10 = new Panel();
-            panel11 = new Panel();
             panel9 = new Panel();
             panel8 = new Panel();
             panel6 = new Panel();
@@ -53,9 +50,6 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImage = Properties.Resources.Frame_427318962__2_;
             panel1.BackgroundImageLayout = ImageLayout.Center;
-            panel1.Controls.Add(panel12);
-            panel1.Controls.Add(panel10);
-            panel1.Controls.Add(panel11);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(panel8);
             panel1.Controls.Add(panel6);
@@ -67,37 +61,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(857, 923);
             panel1.TabIndex = 0;
-            // 
-            // panel12
-            // 
-            panel12.BackgroundImage = Properties.Resources.title__2_;
-            panel12.BackgroundImageLayout = ImageLayout.Center;
-            panel12.Cursor = Cursors.Hand;
-            panel12.Location = new Point(596, 709);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(118, 32);
-            panel12.TabIndex = 8;
-            // 
-            // panel10
-            // 
-            panel10.BackColor = Color.Transparent;
-            panel10.BackgroundImage = Properties.Resources.title;
-            panel10.BackgroundImageLayout = ImageLayout.Center;
-            panel10.Cursor = Cursors.Hand;
-            panel10.Location = new Point(142, 709);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(135, 32);
-            panel10.TabIndex = 1;
-            // 
-            // panel11
-            // 
-            panel11.BackgroundImage = Properties.Resources.title__1_;
-            panel11.BackgroundImageLayout = ImageLayout.Center;
-            panel11.Cursor = Cursors.Hand;
-            panel11.Location = new Point(358, 709);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(157, 32);
-            panel11.TabIndex = 7;
             // 
             // panel9
             // 
@@ -233,9 +196,6 @@
         private Panel panel5;
         private Panel panel4;
         private Panel panel3;
-        private Panel panel12;
-        private Panel panel10;
-        private Panel panel11;
         private Panel panel9;
         private Panel panel8;
         private Panel panel7;

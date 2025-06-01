@@ -7,7 +7,7 @@ namespace GizBookv2
     {
 
         private readonly List<DeckInfo> _decks = [];
-        private readonly dynamic Userdata;
+        private static dynamic? Userdata;
         private readonly bool IsFromHomePage;
         public frmDeckPage(dynamic userdata, bool isFromHomePage)
         {
@@ -21,7 +21,7 @@ namespace GizBookv2
             if (IsFromHomePage)
             {
                 Cursor.Current = Cursors.WaitCursor;
-                frmHomePage homePage = new((string)Userdata.username);
+                frmHomePage homePage = new((string)Userdata!.username);
                 homePage.Show();
             }
             Close();
@@ -31,7 +31,7 @@ namespace GizBookv2
         {
             flowLayoutPanel1.Controls.Clear();
 
-            if ((int)Userdata.total_decks > 0)
+            if ((int)Userdata!.total_decks > 0)
             {
                 foreach (dynamic deck in (JArray)Userdata.decks)
                 {
@@ -52,19 +52,26 @@ namespace GizBookv2
 
         private void DeckItem_DeckClicked(dynamic deck)
         {
-            frmCreateDeck createDeckForm = new(deck, (string)Userdata.username);
+            frmCreateDeck createDeckForm = new(Userdata, deck, (string)Userdata!.username);
             createDeckForm.Show();
+            Close();
         }
 
 
         private void panel4_Click(object sender, EventArgs e)
         {
-            using var addDeckForm = new frmAddDeck((string)Userdata.username, false);
+            using var addDeckForm = new frmAddDeck((string)Userdata!.username, false);
             if (addDeckForm.ShowDialog() == DialogResult.OK)
             {
                 var newDeck = addDeckForm.NewDeck;
                 if (newDeck != null)
                 {
+                    if ((int)Userdata.total_decks <= 0)
+                    {
+                        Userdata.decks = new JArray();
+                        Userdata.total_decks = 1;
+                    }
+                    Userdata.decks.Add(newDeck.Deck);
                     _decks.Add(newDeck);
                     AddDeckToPanel(newDeck);
                 }
@@ -74,8 +81,8 @@ namespace GizBookv2
 
         private void panel3_Click(object sender, EventArgs e)
         {
-            frmLearn fl = new();
-            fl.Show();
+            frmDeckPage2 deckPage2 = new(Userdata);
+            deckPage2.Show();
         }
     }
 }

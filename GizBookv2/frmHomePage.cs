@@ -29,12 +29,12 @@ namespace GizBookv2
 
         private void panel2_Click(object sender, EventArgs e)
         {
-            OpenProfile((string)_userData.username);
+            OpenProfile(_userData);
         }
 
         private void page_Click(object sender, EventArgs e)
         {
-            OpenProfile((string)_userData.username);
+            OpenProfile(_userData);
         }
 
         private void panel3_Click(object sender, EventArgs e)
@@ -137,7 +137,7 @@ namespace GizBookv2
 
         private void lblName_Click(object sender, EventArgs e)
         {
-            OpenProfile((string)_userData.username);
+            OpenProfile(_userData);
         }
 
         private void panel33_Click_1(object sender, EventArgs e)
@@ -163,14 +163,14 @@ namespace GizBookv2
 
         private void panel8_Click(object sender, EventArgs e)
         {
-            frmLearn learnForm = new();
-            learnForm.Show();
+            frmDeckPage2 deckPage2 = new(_userData);
+            deckPage2.Show();
         }
 
-        private void OpenProfile(string username)
+        private void OpenProfile(dynamic user)
         {
             Cursor.Current = Cursors.WaitCursor;
-            frmProfilePage profilePage = new(username, _userData, AllUsers);
+            frmProfilePage profilePage = new(user, _userData, AllUsers);
             profilePage.Show();
             Close();
         }
@@ -321,7 +321,7 @@ namespace GizBookv2
             var newPostJson = JsonConvert.SerializeObject(new Dictionary<string, string>
             {
                { "deck_id", postId },
-               { "caption", $"Check out this deck!" }
+               { "caption", "Check out this deck!" }
             });
 
             var payload = new StringContent(newPostJson, Encoding.UTF8, "application/json");
@@ -433,7 +433,7 @@ namespace GizBookv2
 
             return cloned;
         }
-        
+
         private PictureBox ClonePicturePrivacy()
         {
             PictureBox cloned = new()
@@ -548,7 +548,7 @@ namespace GizBookv2
             cloned.Controls.Add(ClonePanelStatic((string)deck.owner, (string)deck.title));
             cloned.Controls.Add(ClonePanelTry());
             cloned.Controls.Add(ClonePanelLike(like, (int)post.id));
-            cloned.Controls.Add(ClonePanelShare(shared ? "shared" : "share", (string)post.id));
+            cloned.Controls.Add(ClonePanelShare(shared ? "shared" : "share", (string)deck.id));
 
             if ((string)uploader.username == (string)_userData.username)
             {
@@ -606,8 +606,12 @@ namespace GizBookv2
                     bool shared = false;
                     if (posts.Select(post_ => post_.uploader.username.ToString()).ToArray().Contains((string)_userData.username))
                     {
-                        int index = posts.Select(post_ => post_.uploader.username.ToString()).ToList().FindIndex(username => username == (string)_userData.username);
-                        if (posts[index].uploader.username == (string)_userData.username) shared = true;
+                        List<dynamic> __posts = posts.Where(post_ => post_.uploader.username.ToString() == (string)_userData.username).ToList();
+
+                        foreach (dynamic __post in __posts)
+                        {
+                            if (__post.deck.id == post.deck.id) shared = true;
+                        }
                     }
                     Panel clonePost = ClonePanelPost(i, post, shared);
                     pnlPosts.Controls.Add(clonePost);
@@ -650,30 +654,59 @@ namespace GizBookv2
 
                 if (i < AllUsers.Count)
                 {
-                    string username = (string)AllUsers[i].username;
+                    dynamic user = AllUsers[i];
+                    bool isAnonymous = (string)user.leaderboard_privacy == "private";
                     if (pic != null) pic.Visible = true;
                     if (picRank != null)
                     {
-                        picRank.Image = (Image)Properties.Resources.ResourceManager.GetObject((string)AllUsers[i].avatar)!;
+                        picRank.Image = (Image)Properties.Resources.ResourceManager.GetObject((string)user.avatar)!;
                         picRank.Visible = true;
-                        picRank.Click += (sender, e) => OpenProfile(username);
+                        if (!isAnonymous)
+                        {
+                            picRank.Click += (sender, e) => OpenProfile(user);
+                        }
+                        else
+                        {
+                            picRank.Cursor = Cursors.Default;
+                        }
                     }
                     if (lblRank != null)
                     {
-                        lblRank.Text = (string)AllUsers[i].leaderboard_privacy == "public" ? (string)AllUsers[i].name : "Anonymous User";
+                        lblRank.Text = isAnonymous ? "Anonymous User" : (string)user.name;
                         lblRank.Visible = true;
-                        lblRank.Click += (sender, e) => OpenProfile(username);
+                        if (!isAnonymous)
+                        {
+                            lblRank.Click += (sender, e) => OpenProfile(user);
+                        }
+                        else
+                        {
+                            lblRank.Cursor = Cursors.Default;
+                        }
                     }
                     if (lblScore != null)
                     {
-                        lblScore.Text = AllUsers[i].score.ToString();
+                        lblScore.Text = user.score.ToString();
                         lblScore.Visible = true;
-                        lblScore.Click += (sender, e) => OpenProfile(username);
+                        if (!isAnonymous)
+                        {
+                            lblScore.Click += (sender, e) => OpenProfile(user);
+                        }
+                        else
+                        {
+                            lblScore.Cursor = Cursors.Default;
+                        }
                     }
                     if (pnlRank != null)
                     {
                         pnlRank.Visible = true;
-                        pnlRank.Click += (sender, e) => OpenProfile(username);
+                        if (!isAnonymous)
+                        {
+                            pnlRank.Click += (sender, e) => OpenProfile(user);
+                        }
+                        else
+                        {
+                            pnlRank.Cursor = Cursors.Default;
+                        }
                     }
                 }
                 else
@@ -710,11 +743,6 @@ namespace GizBookv2
                .ToList();
 
             LoadPosts(postResult);
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

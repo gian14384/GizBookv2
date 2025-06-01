@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
 
@@ -7,15 +8,15 @@ namespace GizBookv2
 #pragma warning disable CS8618
     public partial class frmProfilePage : Form
     {
-        private readonly string Username;
         private readonly dynamic User;
+        private readonly dynamic OriginalUser;
         private readonly List<dynamic> AllUsers;
 
-        public frmProfilePage(string username, dynamic user, List<dynamic> allUsers)
+        public frmProfilePage(dynamic user, dynamic originalUser, List<dynamic> allUsers)
         {
             InitializeComponent();
-            Username = username;
             User = user;
+            OriginalUser = originalUser;
             AllUsers = allUsers;
         }
 
@@ -65,7 +66,7 @@ namespace GizBookv2
         private void panel19_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            frmHomePage homePage = new((string)User.username);
+            frmHomePage homePage = new((string)OriginalUser.username);
             homePage.Show();
             Close();
         }
@@ -106,7 +107,7 @@ namespace GizBookv2
                 AutoSize = lblFriend1.AutoSize,
                 BorderStyle = lblFriend1.BorderStyle,
                 Location = new Point(lblFriend1.Location.X, lblFriend1.Location.Y + (80 * yOffset)),
-                Text = text + ((string)User.username == username ? " (You)" : ""),
+                Text = text + ((string)OriginalUser.username == username ? " (You)" : ""),
                 Font = lblFriend1.Font,
                 ForeColor = lblFriend1.ForeColor,
                 Visible = true
@@ -131,30 +132,30 @@ namespace GizBookv2
             return cloned;
         }
 
-        private void ClickEventVisit(string username)
+        private void ClickEventVisit(dynamic user)
         {
             Cursor.Current = Cursors.WaitCursor;
-            frmProfilePage profilePage = new(username, User, AllUsers);
+            frmProfilePage profilePage = new(user, OriginalUser, AllUsers);
             profilePage.Show();
             Close();
         }
 
-        private void ClickEventUnfollow(string username)
+        private void ClickEventUnfollow(dynamic user)
         {
             Cursor.Current = Cursors.WaitCursor;
             using HttpClient client = new();
-            var endpoint = new Uri("https://gizbook.vercel.app/api/friends/delete/" + (string)User.username);
+            var endpoint = new Uri("https://gizbook.vercel.app/api/friends/delete/" + (string)OriginalUser.username);
 
             var newUserJson = JsonConvert.SerializeObject(new Dictionary<string, string>
             {
-               { "unfollow", username }
+               { "unfollow", (string)user.username }
             });
             var payload = new StringContent(newUserJson, Encoding.UTF8, "application/json");
             var response = client.PostAsync(endpoint, payload).Result;
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                frmProfilePage profilePage = new(Username, User, AllUsers);
+                frmProfilePage profilePage = new(User, OriginalUser, AllUsers);
                 profilePage.Show();
                 Close();
             }
@@ -166,22 +167,22 @@ namespace GizBookv2
             }
         }
         
-        private void ClickEventFollow(string username)
+        private void ClickEventFollow(dynamic user)
         {
             Cursor.Current = Cursors.WaitCursor;
             using HttpClient client = new();
-            var endpoint = new Uri("https://gizbook.vercel.app/api/friends/create/" + (string)User.username);
+            var endpoint = new Uri("https://gizbook.vercel.app/api/friends/create/" + (string)OriginalUser.username);
 
             var newUserJson = JsonConvert.SerializeObject(new Dictionary<string, string>
             {
-               { "follow", username }
+               { "follow", (string)user.username }
             });
             var payload = new StringContent(newUserJson, Encoding.UTF8, "application/json");
             var response = client.PostAsync(endpoint, payload).Result;
 
             if (response.StatusCode == System.Net.HttpStatusCode.Created)
             {
-                frmProfilePage profilePage = new(Username, User, AllUsers);
+                frmProfilePage profilePage = new(User, OriginalUser, AllUsers);
                 profilePage.Show();
                 Close();
             }
@@ -193,7 +194,7 @@ namespace GizBookv2
             }
         }
 
-        private Panel ClonePanel(int yOffset, string username, string bg)
+        private Panel ClonePanel(int yOffset, dynamic user, string bg)
         {
             Panel cloned = new()
             {
@@ -207,37 +208,37 @@ namespace GizBookv2
 
             if (bg == "unfollow")
             {
-                if ((string)User.username == username || (string)User.username != Username)
+                if ((string)OriginalUser.username == (string)user.username || (string)OriginalUser.username != (string)User.username)
                 {
                     cloned.Visible = false;
                 }
                 else
                 {
-                    cloned.Click += (sender, e) => ClickEventUnfollow(username);
+                    cloned.Click += (sender, e) => ClickEventUnfollow(user);
                 }
             }
             else if (bg == "follow")
             {
-                if ((int)User.total_following > 0)
+                if ((int)OriginalUser.total_following > 0)
                 {
-                    if (((JArray)User.following).Select(username => username.ToString()).ToArray().Contains(username))
+                    if (((JArray)OriginalUser.following).Select(username => username.ToString()).ToArray().Contains((string)user.username))
                     {
                         cloned.Visible = false;
                     }
                 }
                 
-                if ((string)User.username == username || (string)User.username != Username)
+                if ((string)OriginalUser.username == (string)user.username || (string)OriginalUser.username != (string)User.username)
                 {
                     cloned.Visible = false;
                 }
                 else
                 {
-                    cloned.Click += (sender, e) => ClickEventFollow(username);
+                    cloned.Click += (sender, e) => ClickEventFollow(user);
                 }
             }
             else
             {
-                cloned.Click += (sender, e) => ClickEventVisit(username);
+                cloned.Click += (sender, e) => ClickEventVisit(user);
             }
 
             return cloned;
@@ -278,7 +279,7 @@ namespace GizBookv2
                     PictureBox friendPic = ClonePictureBox(i, (string)friend.avatar);
                     Label friendName = CloneLabelName(i, (string)friend.name, (string)friend.username);
                     Label friendUsername = CloneLabelUsername(i, (string)friend.username);
-                    Panel friendPanel = ClonePanel(i, (string)friend.username, bg);
+                    Panel friendPanel = ClonePanel(i, friend, bg);
 
                     panel15.Controls.Add(friendPic);
                     panel15.Controls.Add(friendName);
@@ -290,14 +291,14 @@ namespace GizBookv2
 
         private void frmProfilePage_Load(object sender, EventArgs e)
         {
-            int rank = AllUsers.FindIndex(user => (string)user.username == Username) + 1;
+            int rank = AllUsers.FindIndex(user => (string)user.username == (string)User.username) + 1;
             pictureBox1.Image = (Image)Properties.Resources.ResourceManager.GetObject((string)User.avatar)!;
             label1.Text = (string)User.name;
             label2.Text = (string)User.username;
             label3.Text = (string)User.total_followers + " followers";
             label4.Text = (string)User.total_following + " following";
             label10.Text = "Your Total Score: " + (string)User.score;
-            label11.Text = $"{((string)User.username == Username ? "You're" : "They are")} currently ranked {rank}{GetOrdinalSuffix(rank)} on the leaderboard! {((string)User.username == Username ? "Keep Going!" : "")}";
+            label11.Text = $"{((string)OriginalUser.username == (string)User.username ? "You're" : "They are")} currently ranked {rank}{GetOrdinalSuffix(rank)} on the leaderboard! {((string)OriginalUser.username == (string)User.username ? "Keep Going!" : "")}";
 
             // FRIENDS
             SetFriendPanel((int)User.total_friends, (JArray)User.friends, "Button2");

@@ -7,12 +7,14 @@ namespace GizBookv2
     public partial class frmCreateDeck : Form
     {
         private readonly dynamic DeckInfo;
+        private readonly dynamic UserData;
         private readonly string Username;
         private static int TotalCards;
-        public frmCreateDeck(dynamic deckInfo, string username)
+        public frmCreateDeck(dynamic userData, dynamic deckInfo, string username)
         {
             InitializeComponent();
             DeckInfo = deckInfo;
+            UserData = userData;
             Username = username;
             TotalCards = (int)DeckInfo.total_cards;
         }
@@ -71,6 +73,12 @@ namespace GizBookv2
             }
         }
 
+        private dynamic GetCurrentDeck()
+        {
+            JArray decks = UserData.decks;
+            return decks.First(deck => (string)deck["id"]! == (string)DeckInfo.id);
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (isQuizMode)
@@ -92,6 +100,7 @@ namespace GizBookv2
 
                     var payload = new StringContent(newDeckJson, Encoding.UTF8, "application/json");
                     var response = client.PostAsync(endpoint, payload).Result;
+                    dynamic result = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result)!;
 
                     if (response.StatusCode == System.Net.HttpStatusCode.Created)
                     {
@@ -99,12 +108,17 @@ namespace GizBookv2
                         quizCard.SetQuiz(quizText);
                         flowLayoutPanel1.Controls.Add(quizCard);
                         txtQuiz.Clear();
+
+                        dynamic currentDeck = GetCurrentDeck();
+                        JArray cards = currentDeck.cards;
+                        cards.Add(result.card);
+                        currentDeck.total_cards = ++TotalCards;
                     }
                     else
                     {
                         MessageBox.Show("Something went wrong.");
                     }
-                    label2.Text = $"Recently Added Cards ({++TotalCards})";
+                    label2.Text = $"Recently Added Cards ({TotalCards})";
                     Cursor.Current = Cursors.Default;
                 }
             }
@@ -128,6 +142,7 @@ namespace GizBookv2
 
                     var payload = new StringContent(newDeckJson, Encoding.UTF8, "application/json");
                     var response = client.PostAsync(endpoint, payload).Result;
+                    dynamic result = JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result)!;
 
                     if (response.StatusCode == System.Net.HttpStatusCode.Created)
                     {
@@ -136,12 +151,17 @@ namespace GizBookv2
                         flowLayoutPanel1.Controls.Add(fbCard);
                         txtfront.Clear();
                         txtback.Clear();
+
+                        dynamic currentDeck = GetCurrentDeck();
+                        JArray cards = currentDeck.cards;
+                        cards.Add(result.card);
+                        currentDeck.total_cards = ++TotalCards;
                     }
                     else
                     {
                         MessageBox.Show("Something went wrong.");
                     }
-                    label2.Text = $"Recently Added Cards ({++TotalCards})";
+                    label2.Text = $"Recently Added Cards ({TotalCards})";
                     Cursor.Current = Cursors.Default;
                 }
             }
@@ -149,6 +169,8 @@ namespace GizBookv2
 
         private void panel1_Click(object sender, EventArgs e)
         {
+            frmDeckPage deckPage = new(UserData, true);
+            deckPage.Show();
             Close();
         }
     }

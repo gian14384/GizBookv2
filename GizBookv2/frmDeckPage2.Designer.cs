@@ -30,23 +30,17 @@
         {
             panel1 = new Panel();
             panel2 = new Panel();
-            panel3 = new Panel();
-            label2 = new Label();
-            label1 = new Label();
-            button1 = new Button();
-            pictureBox1 = new PictureBox();
-            panel4 = new Panel();
-            label3 = new Label();
-            label4 = new Label();
-            button2 = new Button();
-            pictureBox2 = new PictureBox();
+            pnlDeck = new Panel();
+            lblDeckNumber = new Label();
+            lblDeckTitle = new Label();
+            picDeckColor = new PictureBox();
             panel5 = new Panel();
             button3 = new Button();
-            button4 = new Button();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pnlDecks = new Panel();
+            lblSelectedDeck = new Label();
+            pnlDeck.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picDeckColor).BeginInit();
+            pnlDecks.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -54,10 +48,12 @@
             panel1.BackColor = Color.Transparent;
             panel1.BackgroundImage = Properties.Resources.left__1_5;
             panel1.BackgroundImageLayout = ImageLayout.Center;
+            panel1.Cursor = Cursors.Hand;
             panel1.Location = new Point(-1, -2);
             panel1.Name = "panel1";
             panel1.Size = new Size(85, 774);
             panel1.TabIndex = 0;
+            panel1.Click += panel1_Click;
             // 
             // panel2
             // 
@@ -69,120 +65,48 @@
             panel2.Size = new Size(235, 54);
             panel2.TabIndex = 1;
             // 
-            // panel3
+            // pnlDeck
             // 
-            panel3.BackColor = Color.Transparent;
-            panel3.BackgroundImage = Properties.Resources.decks;
-            panel3.BackgroundImageLayout = ImageLayout.Center;
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(label1);
-            panel3.Controls.Add(button1);
-            panel3.Controls.Add(pictureBox1);
-            panel3.Location = new Point(310, 106);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(815, 110);
-            panel3.TabIndex = 2;
+            pnlDeck.BackColor = Color.Transparent;
+            pnlDeck.BackgroundImage = Properties.Resources.decks_v21;
+            pnlDeck.BackgroundImageLayout = ImageLayout.Center;
+            pnlDeck.Controls.Add(lblDeckNumber);
+            pnlDeck.Controls.Add(lblDeckTitle);
+            pnlDeck.Controls.Add(picDeckColor);
+            pnlDeck.Location = new Point(24, 13);
+            pnlDeck.Name = "pnlDeck";
+            pnlDeck.Size = new Size(815, 110);
+            pnlDeck.TabIndex = 2;
             // 
-            // label2
+            // lblDeckNumber
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(88, 65);
-            label2.Name = "label2";
-            label2.Size = new Size(168, 32);
-            label2.TabIndex = 4;
-            label2.Text = "Cards Number";
+            lblDeckNumber.AutoSize = true;
+            lblDeckNumber.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDeckNumber.Location = new Point(88, 65);
+            lblDeckNumber.Name = "lblDeckNumber";
+            lblDeckNumber.Size = new Size(168, 32);
+            lblDeckNumber.TabIndex = 4;
+            lblDeckNumber.Text = "Cards Number";
             // 
-            // label1
+            // lblDeckTitle
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(83, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(94, 47);
-            label1.TabIndex = 3;
-            label1.Text = "Title";
-            label1.Click += label1_Click;
+            lblDeckTitle.AutoSize = true;
+            lblDeckTitle.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDeckTitle.Location = new Point(83, 18);
+            lblDeckTitle.Name = "lblDeckTitle";
+            lblDeckTitle.Size = new Size(94, 47);
+            lblDeckTitle.TabIndex = 3;
+            lblDeckTitle.Text = "Title";
             // 
-            // button1
+            // picDeckColor
             // 
-            button1.BackColor = Color.Transparent;
-            button1.BackgroundImage = Properties.Resources.Button__2_1;
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(28, 33);
-            button1.Name = "button1";
-            button1.Size = new Size(49, 49);
-            button1.TabIndex = 3;
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.Checkbox;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(727, 27);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(58, 57);
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.Transparent;
-            panel4.BackgroundImage = Properties.Resources.decks_v2;
-            panel4.BackgroundImageLayout = ImageLayout.Center;
-            panel4.Controls.Add(label3);
-            panel4.Controls.Add(label4);
-            panel4.Controls.Add(button2);
-            panel4.Controls.Add(pictureBox2);
-            panel4.Location = new Point(310, 217);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(815, 110);
-            panel4.TabIndex = 3;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(88, 65);
-            label3.Name = "label3";
-            label3.Size = new Size(168, 32);
-            label3.TabIndex = 4;
-            label3.Text = "Cards Number";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(83, 18);
-            label4.Name = "label4";
-            label4.Size = new Size(94, 47);
-            label4.TabIndex = 3;
-            label4.Text = "Title";
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Transparent;
-            button2.BackgroundImage = Properties.Resources.Switch;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(28, 33);
-            button2.Name = "button2";
-            button2.Size = new Size(49, 49);
-            button2.TabIndex = 3;
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.BackgroundImage = Properties.Resources.Button__3_2;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox2.Location = new Point(727, 27);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(58, 57);
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
+            picDeckColor.BackColor = SystemColors.ActiveCaptionText;
+            picDeckColor.BackgroundImageLayout = ImageLayout.Center;
+            picDeckColor.Location = new Point(727, 27);
+            picDeckColor.Name = "picDeckColor";
+            picDeckColor.Size = new Size(58, 57);
+            picDeckColor.TabIndex = 3;
+            picDeckColor.TabStop = false;
             // 
             // panel5
             // 
@@ -196,47 +120,53 @@
             button3.BackColor = Color.Transparent;
             button3.BackgroundImage = Properties.Resources.Segmented_picker;
             button3.BackgroundImageLayout = ImageLayout.Center;
-            button3.FlatStyle = FlatStyle.Flat;
+            button3.Cursor = Cursors.Hand;
             button3.Location = new Point(310, 565);
             button3.Name = "button3";
             button3.Size = new Size(815, 91);
             button3.TabIndex = 5;
             button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // pnlDecks
             // 
-            button4.BackColor = Color.Transparent;
-            button4.BackgroundImage = Properties.Resources.Horizontal_container3;
-            button4.BackgroundImageLayout = ImageLayout.Center;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(649, 662);
-            button4.Name = "button4";
-            button4.Size = new Size(141, 25);
-            button4.TabIndex = 6;
-            button4.UseVisualStyleBackColor = false;
+            pnlDecks.AutoScroll = true;
+            pnlDecks.AutoScrollMinSize = new Size(0, 550);
+            pnlDecks.Controls.Add(pnlDeck);
+            pnlDecks.Location = new Point(286, 72);
+            pnlDecks.Name = "pnlDecks";
+            pnlDecks.Size = new Size(864, 465);
+            pnlDecks.TabIndex = 7;
+            // 
+            // lblSelectedDeck
+            // 
+            lblSelectedDeck.Font = new Font("Segoe UI", 12F);
+            lblSelectedDeck.Location = new Point(310, 668);
+            lblSelectedDeck.Name = "lblSelectedDeck";
+            lblSelectedDeck.Size = new Size(815, 23);
+            lblSelectedDeck.TabIndex = 8;
+            lblSelectedDeck.Text = "Selected Deck: None";
+            lblSelectedDeck.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // frmDeckPage2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1366, 768);
-            Controls.Add(button4);
+            Controls.Add(lblSelectedDeck);
+            Controls.Add(pnlDecks);
             Controls.Add(button3);
             Controls.Add(panel5);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmDeckPage2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmDeckPage2";
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            Load += frmDeckPage2_Load;
+            pnlDeck.ResumeLayout(false);
+            pnlDeck.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picDeckColor).EndInit();
+            pnlDecks.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -244,18 +174,13 @@
 
         private Panel panel1;
         private Panel panel2;
-        private Panel panel3;
-        private Button button1;
-        private PictureBox pictureBox1;
-        private Label label2;
-        private Label label1;
-        private Panel panel4;
-        private Label label3;
-        private Label label4;
-        private Button button2;
-        private PictureBox pictureBox2;
+        private Panel pnlDeck;
+        private PictureBox picDeckColor;
+        private Label lblDeckNumber;
+        private Label lblDeckTitle;
         private Panel panel5;
         private Button button3;
-        private Button button4;
+        private Panel pnlDecks;
+        private Label lblSelectedDeck;
     }
 }

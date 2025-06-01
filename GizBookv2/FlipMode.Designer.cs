@@ -32,8 +32,6 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             button1 = new Button();
-            panel2 = new Panel();
-            label2 = new Label();
             panel3 = new Panel();
             label3 = new Label();
             button2 = new Button();
@@ -58,7 +56,7 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.Button4;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(566, 46);
+            pictureBox1.Location = new Point(566, 63);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(29, 30);
             pictureBox1.TabIndex = 1;
@@ -68,7 +66,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(601, 35);
+            label1.Location = new Point(601, 52);
             label1.Name = "label1";
             label1.Size = new Size(191, 45);
             label1.TabIndex = 2;
@@ -80,31 +78,11 @@
             button1.BackgroundImage = Properties.Resources.Slider;
             button1.BackgroundImageLayout = ImageLayout.Center;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(798, 41);
+            button1.Location = new Point(798, 58);
             button1.Name = "button1";
             button1.Size = new Size(48, 35);
             button1.TabIndex = 4;
             button1.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Transparent;
-            panel2.BackgroundImage = Properties.Resources.Vertical_container;
-            panel2.BackgroundImageLayout = ImageLayout.Center;
-            panel2.Location = new Point(620, 93);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(44, 33);
-            panel2.TabIndex = 5;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(681, 85);
-            label2.Name = "label2";
-            label2.Size = new Size(100, 45);
-            label2.TabIndex = 6;
-            label2.Text = "00:00";
             // 
             // panel3
             // 
@@ -173,8 +151,6 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(panel3);
-            Controls.Add(label2);
-            Controls.Add(panel2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -196,8 +172,6 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button button1;
-        private Panel panel2;
-        private Label label2;
         private Panel panel3;
         private Label label3;
         private Button button2;

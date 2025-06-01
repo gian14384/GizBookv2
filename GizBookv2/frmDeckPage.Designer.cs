@@ -73,7 +73,7 @@
             // 
             panel3.BackColor = Color.Transparent;
             panel3.BackgroundImage = Properties.Resources.learn1;
-            panel3.BackgroundImageLayout = ImageLayout.Center;
+            panel3.BackgroundImageLayout = ImageLayout.Stretch;
             panel3.Cursor = Cursors.Hand;
             panel3.Location = new Point(736, 24);
             panel3.Name = "panel3";
