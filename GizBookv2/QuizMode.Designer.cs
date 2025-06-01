@@ -28,26 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
             label1 = new Label();
             button1 = new Button();
-            label2 = new Label();
+            labelPoints = new Label();
             pictureBox2 = new PictureBox();
             label3 = new Label();
             pictureBox3 = new PictureBox();
-            label4 = new Label();
+            labelHearts = new Label();
             panel2 = new Panel();
+            label5 = new Label();
             button2 = new Button();
+            label2 = new Label();
+            label4 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
+            panel3 = new Panel();
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            lblfirstchoice = new Label();
+            lblsecondchoice = new Label();
+            lblthirdchoice = new Label();
+            lblfourthchoice = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -60,20 +66,9 @@
             panel1.Size = new Size(89, 772);
             panel1.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.Button5;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(551, 41);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(27, 28);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
             // label1
             // 
-            label1.AutoSize = true;
+            label1.AutoEllipsis = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(595, 27);
@@ -94,15 +89,15 @@
             button1.TabIndex = 3;
             button1.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // labelPoints
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(187, 94);
-            label2.Name = "label2";
-            label2.Size = new Size(99, 45);
-            label2.TabIndex = 4;
-            label2.Text = "+0XP";
+            labelPoints.AutoSize = true;
+            labelPoints.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelPoints.Location = new Point(190, 94);
+            labelPoints.Name = "labelPoints";
+            labelPoints.Size = new Size(38, 45);
+            labelPoints.TabIndex = 4;
+            labelPoints.Text = "0";
             // 
             // pictureBox2
             // 
@@ -136,110 +131,161 @@
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
             // 
-            // label4
+            // labelHearts
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Red;
-            label4.Location = new Point(1226, 103);
-            label4.Name = "label4";
-            label4.Size = new Size(27, 32);
-            label4.TabIndex = 8;
-            label4.Text = "5";
+            labelHearts.AutoSize = true;
+            labelHearts.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelHearts.ForeColor = Color.Red;
+            labelHearts.Location = new Point(1226, 103);
+            labelHearts.Name = "labelHearts";
+            labelHearts.Size = new Size(27, 32);
+            labelHearts.TabIndex = 8;
+            labelHearts.Text = "5";
             // 
             // panel2
             // 
             panel2.BackColor = Color.Transparent;
             panel2.BackgroundImage = Properties.Resources.Text_input__6_1;
             panel2.BackgroundImageLayout = ImageLayout.Center;
+            panel2.Controls.Add(label5);
             panel2.Location = new Point(140, 154);
             panel2.Name = "panel2";
             panel2.Size = new Size(1174, 267);
             panel2.TabIndex = 9;
             // 
+            // label5
+            // 
+            label5.Font = new Font("Segoe UI Semibold", 32.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(26, 25);
+            label5.Name = "label5";
+            label5.Size = new Size(1114, 221);
+            label5.TabIndex = 1;
+            label5.Text = "Cards Content";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
+            label5.Click += label5_Click;
+            // 
             // button2
             // 
             button2.BackColor = Color.Transparent;
-            button2.BackgroundImage = Properties.Resources.Frame_427319001;
+            button2.BackgroundImage = Properties.Resources.Frame_4273190011;
             button2.BackgroundImageLayout = ImageLayout.Center;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(130, 440);
+            button2.Location = new Point(119, 440);
             button2.Name = "button2";
             button2.Size = new Size(589, 79);
             button2.TabIndex = 10;
             button2.UseVisualStyleBackColor = false;
+            button2.Visible = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(155, 93);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 45);
+            label2.TabIndex = 18;
+            label2.Text = "+";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(244, 94);
+            label4.Name = "label4";
+            label4.Size = new Size(59, 45);
+            label4.TabIndex = 19;
+            label4.Text = "XP";
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(556, 35);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(33, 29);
+            panel3.TabIndex = 20;
             // 
             // button3
             // 
             button3.BackColor = Color.Transparent;
-            button3.BackgroundImage = Properties.Resources.Frame_427318998;
+            button3.BackgroundImage = Properties.Resources.Frame_4273190011;
             button3.BackgroundImageLayout = ImageLayout.Center;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(130, 538);
+            button3.Location = new Point(119, 539);
             button3.Name = "button3";
             button3.Size = new Size(589, 79);
-            button3.TabIndex = 11;
+            button3.TabIndex = 21;
             button3.UseVisualStyleBackColor = false;
+            button3.Visible = false;
             // 
             // button4
             // 
             button4.BackColor = Color.Transparent;
-            button4.BackgroundImage = Properties.Resources.Frame_427319000;
+            button4.BackgroundImage = Properties.Resources.Frame_4273190011;
             button4.BackgroundImageLayout = ImageLayout.Center;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(742, 440);
+            button4.Location = new Point(749, 440);
             button4.Name = "button4";
             button4.Size = new Size(589, 79);
-            button4.TabIndex = 12;
+            button4.TabIndex = 22;
             button4.UseVisualStyleBackColor = false;
+            button4.Visible = false;
             // 
             // button5
             // 
             button5.BackColor = Color.Transparent;
-            button5.BackgroundImage = Properties.Resources.Frame_427318999__1_;
+            button5.BackgroundImage = Properties.Resources.Frame_4273190011;
             button5.BackgroundImageLayout = ImageLayout.Center;
             button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(742, 538);
+            button5.Location = new Point(749, 539);
             button5.Name = "button5";
             button5.Size = new Size(589, 79);
-            button5.TabIndex = 13;
+            button5.TabIndex = 23;
             button5.UseVisualStyleBackColor = false;
+            button5.Visible = false;
             // 
-            // button6
+            // lblfirstchoice
             // 
-            button6.BackColor = Color.Transparent;
-            button6.BackgroundImage = Properties.Resources.Slider__2_1;
-            button6.BackgroundImageLayout = ImageLayout.Center;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Location = new Point(427, 632);
-            button6.Name = "button6";
-            button6.Size = new Size(94, 79);
-            button6.TabIndex = 14;
-            button6.UseVisualStyleBackColor = false;
+            lblfirstchoice.BackColor = Color.White;
+            lblfirstchoice.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblfirstchoice.Location = new Point(140, 452);
+            lblfirstchoice.Name = "lblfirstchoice";
+            lblfirstchoice.Size = new Size(548, 55);
+            lblfirstchoice.TabIndex = 24;
+            lblfirstchoice.Text = "First";
+            lblfirstchoice.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button7
+            // lblsecondchoice
             // 
-            button7.BackColor = Color.Transparent;
-            button7.BackgroundImage = Properties.Resources.Slider__1_1;
-            button7.BackgroundImageLayout = ImageLayout.Center;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Location = new Point(943, 632);
-            button7.Name = "button7";
-            button7.Size = new Size(94, 79);
-            button7.TabIndex = 15;
-            button7.UseVisualStyleBackColor = false;
+            lblsecondchoice.BackColor = Color.White;
+            lblsecondchoice.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblsecondchoice.Location = new Point(766, 452);
+            lblsecondchoice.Name = "lblsecondchoice";
+            lblsecondchoice.Size = new Size(548, 55);
+            lblsecondchoice.TabIndex = 25;
+            lblsecondchoice.Text = "Second";
+            lblsecondchoice.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button8
+            // lblthirdchoice
             // 
-            button8.BackColor = Color.Transparent;
-            button8.BackgroundImage = Properties.Resources.Frame_4273189991;
-            button8.BackgroundImageLayout = ImageLayout.Center;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Location = new Point(540, 632);
-            button8.Name = "button8";
-            button8.Size = new Size(384, 79);
-            button8.TabIndex = 16;
-            button8.UseVisualStyleBackColor = false;
+            lblthirdchoice.BackColor = Color.White;
+            lblthirdchoice.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblthirdchoice.Location = new Point(140, 551);
+            lblthirdchoice.Name = "lblthirdchoice";
+            lblthirdchoice.Size = new Size(548, 55);
+            lblthirdchoice.TabIndex = 26;
+            lblthirdchoice.Text = "Third";
+            lblthirdchoice.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblfourthchoice
+            // 
+            lblfourthchoice.BackColor = Color.White;
+            lblfourthchoice.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblfourthchoice.Location = new Point(766, 551);
+            lblfourthchoice.Name = "lblfourthchoice";
+            lblfourthchoice.Size = new Size(548, 55);
+            lblfourthchoice.TabIndex = 27;
+            lblfourthchoice.Text = "Fourth";
+            lblfourthchoice.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // QuizMode
             // 
@@ -247,30 +293,34 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1366, 768);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
+            Controls.Add(lblfourthchoice);
+            Controls.Add(lblthirdchoice);
+            Controls.Add(lblsecondchoice);
+            Controls.Add(lblfirstchoice);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
+            Controls.Add(panel3);
+            Controls.Add(label4);
+            Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(panel2);
-            Controls.Add(label4);
+            Controls.Add(labelHearts);
             Controls.Add(pictureBox3);
             Controls.Add(label3);
             Controls.Add(pictureBox2);
-            Controls.Add(label2);
+            Controls.Add(labelPoints);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "QuizMode";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "QuizMode";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += QuizMode_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -278,21 +328,27 @@
         #endregion
 
         private Panel panel1;
-        private PictureBox pictureBox1;
         private Label label1;
         private Button button1;
-        private Label label2;
+        private Label labelPoints;
         private PictureBox pictureBox2;
         private Label label3;
         private PictureBox pictureBox3;
-        private Label label4;
+        private Label labelHearts;
         private Panel panel2;
         private Button button2;
+        private Label label5;
+        private System.Windows.Forms.Timer quizTimer;
+        private Label label2;
+        private Label label4;
+        private System.Windows.Forms.Timer timer1;
+        private Panel panel3;
         private Button button3;
         private Button button4;
         private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
+        private Label lblfirstchoice;
+        private Label lblsecondchoice;
+        private Label lblthirdchoice;
+        private Label lblfourthchoice;
     }
 }

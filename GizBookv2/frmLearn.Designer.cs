@@ -65,6 +65,8 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(205, 61);
             panel3.TabIndex = 2;
+            panel3.Click += panel3_Click;
+            panel3.Paint += panel3_Paint;
             // 
             // panel4
             // 
@@ -103,6 +105,7 @@
             Name = "frmLearn";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmLearn";
+            Load += frmLearn_Load;
             ResumeLayout(false);
         }
 

@@ -10,19 +10,52 @@ namespace GizBookv2
         {
             InitializeComponent();
             UserData = userData;
+
+            pnlDeck.BackgroundImage = Resources.decks_v21;
+            pnlDeck.Tag = "v21";
+            pnlDeck.Click += (sender, e) => ButtonClick(pnlDeck, null);
         }
+        public frmDeckPage2()
+        {
+            InitializeComponent();
+     
+        }
+
+        private void DeselectAllDeckPanels()
+        {
+            // Deselect the template panel
+            pnlDeck.BackgroundImage = Resources.decks_v21;
+            pnlDeck.Tag = "v21";
+
+            // Deselect all dynamically created panels
+            foreach (Control ctrl in pnlDecks.Controls)
+            {
+                if (ctrl is Panel panel)
+                {
+                    panel.BackgroundImage = Resources.decks_v21;
+                    panel.Tag = "v21";
+                }
+            }
+        }
+
+
+
 
         private void ButtonClick(Panel panel, dynamic deck)
         {
-            if (panel.BackgroundImage!.GetHashCode() == Resources.decks_v21.GetHashCode())
+            if (panel.Tag == null || panel.Tag.ToString() == "v21")
             {
+                DeselectAllDeckPanels(); // Deselect all first
+
                 panel.BackgroundImage = Resources.decks2;
+                panel.Tag = "decks2";
                 SelectedDeck = deck;
-                lblSelectedDeck.Text = $"Selected Deck: {deck.title}";
+                lblSelectedDeck.Text = deck != null ? $"Selected Deck: {deck.title}" : "Selected Deck: None";
             }
             else
             {
                 panel.BackgroundImage = Resources.decks_v21;
+                panel.Tag = "v21";
                 SelectedDeck = null;
                 lblSelectedDeck.Text = "Selected Deck: None";
             }
@@ -95,7 +128,7 @@ namespace GizBookv2
             cloned.Controls.Add(CloneLabelName((string)deck.title));
             cloned.Controls.Add(CloneLabelCount((string)deck.total_cards));
             cloned.Controls.Add(ClonePictureBox((string)deck.color));
-            
+
             return cloned;
         }
 
@@ -118,6 +151,32 @@ namespace GizBookv2
         private void panel1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void pnlDeck_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblDeckTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (SelectedDeck != null)
+            {
+                string deckName = (string)SelectedDeck.title;
+                string deckColor = (string)SelectedDeck.color;
+                frmLearn learnForm = new frmLearn(SelectedDeck, deckName, deckColor, UserData);
+                learnForm.ShowDialog();
+            }
+        }
+
+        private void pnlDecks_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -173,5 +173,11 @@ namespace GizBookv2
             deckPage.Show();
             Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmLearn fl = new frmLearn(DeckInfo, (string)DeckInfo.title, (string)DeckInfo.color, UserData);
+            fl.ShowDialog();
+        }
     }
 }

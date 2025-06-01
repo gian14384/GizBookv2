@@ -1403,6 +1403,16 @@ namespace GizBookv2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Frame_4273190011 {
+            get {
+                object obj = ResourceManager.GetObject("Frame 4273190011", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Frame_427319036 {
             get {
                 object obj = ResourceManager.GetObject("Frame 427319036", resourceCulture);

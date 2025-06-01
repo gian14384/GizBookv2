@@ -77,6 +77,7 @@
             pnlDeck.Name = "pnlDeck";
             pnlDeck.Size = new Size(815, 110);
             pnlDeck.TabIndex = 2;
+            pnlDeck.Paint += pnlDeck_Paint;
             // 
             // lblDeckNumber
             // 
@@ -97,6 +98,7 @@
             lblDeckTitle.Size = new Size(94, 47);
             lblDeckTitle.TabIndex = 3;
             lblDeckTitle.Text = "Title";
+            lblDeckTitle.Click += lblDeckTitle_Click;
             // 
             // picDeckColor
             // 
@@ -126,6 +128,7 @@
             button3.Size = new Size(815, 91);
             button3.TabIndex = 5;
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // pnlDecks
             // 
@@ -136,6 +139,7 @@
             pnlDecks.Name = "pnlDecks";
             pnlDecks.Size = new Size(864, 465);
             pnlDecks.TabIndex = 7;
+            pnlDecks.Paint += pnlDecks_Paint;
             // 
             // lblSelectedDeck
             // 

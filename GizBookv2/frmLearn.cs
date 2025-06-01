@@ -12,10 +12,24 @@ namespace GizBookv2
 {
     public partial class frmLearn : Form
     {
-        public frmLearn()
+        private dynamic selectedDeck;
+        private string deckName;
+        private string deckColor;
+        private dynamic UserData;
+        public frmLearn(dynamic selectedDeck, string deckName, string deckColor, dynamic userdata)
         {
             InitializeComponent();
+            this.selectedDeck = selectedDeck;
+            this.UserData = userdata;
+            this.deckName = deckName;
+            this.deckColor = deckColor;
         }
+   
+
+        
+
+        private enum LearnMode { None, Flip, Quiz }
+        private LearnMode selectedMode = LearnMode.None;
 
         private void panel7_Click(object sender, EventArgs e)
         {
@@ -24,34 +38,55 @@ namespace GizBookv2
 
         private void panel2_Click(object sender, EventArgs e)
         {
-            if (!isPanel4Toggled)
-            {
-                panel2.BackgroundImage = Properties.Resources.p2;
-                panel2.BackgroundImageLayout = ImageLayout.Center;
-                isPanel4Toggled = true;
-            }
-            else
-            {
-                panel2.BackgroundImage = null;
-                isPanel4Toggled = false;
-            }
+            panel2.BackgroundImage = Properties.Resources.p2;
+            panel2.BackgroundImageLayout = ImageLayout.Center;
+
+            panel4.BackgroundImage = Properties.Resources.quiz_mode; // Replace with your actual resource name
+            panel4.BackgroundImageLayout = ImageLayout.Center;
+
+            selectedMode = LearnMode.Flip;
         }
 
-        private bool isPanel4Toggled = false;
+
 
         private void panel4_Click(object sender, EventArgs e)
         {
-            if (!isPanel4Toggled)
+            panel4.BackgroundImage = Properties.Resources.p1;
+            panel4.BackgroundImageLayout = ImageLayout.Center;
+
+            panel2.BackgroundImage = Properties.Resources.flip_mode; // Replace with your actual resource name
+            panel2.BackgroundImageLayout = ImageLayout.Center;
+
+            selectedMode = LearnMode.Quiz;
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            if (selectedMode == LearnMode.Flip)
             {
-                panel4.BackgroundImage = Properties.Resources.p1;
-                panel4.BackgroundImageLayout = ImageLayout.Center;
-                isPanel4Toggled = true;
+                var flipForm = new FlipMode(selectedDeck, deckName, deckColor);
+                flipForm.ShowDialog(this);
+            }
+            else if (selectedMode == LearnMode.Quiz)
+            {
+                QuizMode quizForm = new QuizMode(selectedDeck, deckName, deckColor, UserData);
+                quizForm.Show();
             }
             else
             {
-                panel4.BackgroundImage = null;
-                isPanel4Toggled = false;
+                MessageBox.Show("Please select a mode first.");
             }
+
+        }
+
+        private void frmLearn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1557,6 +1557,7 @@
             pnlPosts.Name = "pnlPosts";
             pnlPosts.Size = new Size(573, 593);
             pnlPosts.TabIndex = 28;
+            pnlPosts.Paint += pnlPosts_Paint;
             // 
             // frmHomePage
             // 
@@ -1665,7 +1666,6 @@
         private Panel panel8;
         private Panel pnlRank1;
         private Panel panel10;
-        private Label lblName;
         private Panel panel20;
         private PictureBox profile;
         private PictureBox picRank1;
@@ -1774,5 +1774,6 @@
         private PictureBox picDelete;
         private PictureBox picPrivacy;
         private PictureBox picEdit;
+        public Label lblName;
     }
 }

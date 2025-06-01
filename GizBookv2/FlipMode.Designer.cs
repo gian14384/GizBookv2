@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
             label1 = new Label();
             button1 = new Button();
             panel3 = new Panel();
@@ -37,7 +36,7 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2 = new Panel();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,20 +50,9 @@
             panel1.Size = new Size(87, 771);
             panel1.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = Properties.Resources.Button4;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(566, 63);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(29, 30);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
             // label1
             // 
-            label1.AutoSize = true;
+            label1.AutoEllipsis = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(601, 52);
             label1.Name = "label1";
@@ -97,13 +85,13 @@
             // 
             // label3
             // 
-            label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 32.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(42, 33);
+            label3.Location = new Point(42, 31);
             label3.Name = "label3";
-            label3.Size = new Size(305, 59);
+            label3.Size = new Size(1098, 289);
             label3.TabIndex = 0;
             label3.Text = "Cards Content";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // button2
             // 
@@ -116,6 +104,7 @@
             button2.Size = new Size(104, 74);
             button2.TabIndex = 8;
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -128,6 +117,7 @@
             button3.Size = new Size(104, 74);
             button3.TabIndex = 9;
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -142,34 +132,40 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Transparent;
+            panel2.BackgroundImageLayout = ImageLayout.Center;
+            panel2.Location = new Point(558, 58);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(37, 33);
+            panel2.TabIndex = 11;
+            // 
             // FlipMode
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1366, 768);
+            Controls.Add(panel2);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(panel3);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FlipMode";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FlipMode";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += FlipMode_Load;
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
-        private PictureBox pictureBox1;
         private Label label1;
         private Button button1;
         private Panel panel3;
@@ -177,5 +173,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Panel panel2;
     }
 }

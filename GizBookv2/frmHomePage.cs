@@ -8,6 +8,10 @@ namespace GizBookv2
 {
     public partial class frmHomePage : Form
     {
+        public frmHomePage()
+        {
+            InitializeComponent();
+        }
         private void panel20_Click(object sender, EventArgs e)
         {
             panel6.Visible = true;
@@ -15,6 +19,7 @@ namespace GizBookv2
 
         private readonly dynamic _userData;
         private static List<dynamic> AllUsers = [];
+
 
         public frmHomePage(string username)
         {
@@ -743,6 +748,11 @@ namespace GizBookv2
                .ToList();
 
             LoadPosts(postResult);
+        }
+
+        private void pnlPosts_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
