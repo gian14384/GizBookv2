@@ -1,29 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using Newtonsoft.Json.Linq;
-using static System.Formats.Asn1.AsnWriter;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace GizBookv2
 {
     public partial class QuizMode : Form
     {
-        private static int points = 0;
-        private List<dynamic>? cards;
+        private int points = 0;
+        private readonly List<dynamic>? cards;
         private dynamic? currentCard;
         private static int currentIndex;
-        private Random rng = new();
-        private dynamic UserData;
-        private static int timeLeft;
-        private static int hearts = 5;
+        private readonly Random rng = new();
+        private readonly dynamic UserData;
+        private int timeLeft;
+        private int hearts = 5;
         private readonly int totalCards;
         public QuizMode(dynamic selectedDeck, string deckName, string deckColor, dynamic userdata)
         {
@@ -32,11 +21,10 @@ namespace GizBookv2
             label1.Text = deckName;
             UserData = userdata;
             panel3.BackColor = ColorTranslator.FromHtml(deckColor);
-       
+
 
             // Extract and shuffle cards
-            var cardsArray = selectedDeck?.cards as JArray;
-            cards = cardsArray != null ? cardsArray.ToObject<List<dynamic>>() : new List<dynamic>();
+            cards = selectedDeck?.cards is JArray cardsArray ? cardsArray.ToObject<List<dynamic>>() : new List<dynamic>();
             ShuffleCards();
             currentIndex = 0;
 
@@ -51,14 +39,12 @@ namespace GizBookv2
 
         private void ShuffleCards()
         {
-            int n = cards.Count;
+            int n = cards!.Count;
             while (n > 1)
             {
                 n--;
                 int k = rng.Next(n + 1);
-                var value = cards[k];
-                cards[k] = cards[n];
-                cards[n] = value;
+                (cards[n], cards[k]) = (cards[k], cards[n]);
             }
         }
 
@@ -69,13 +55,13 @@ namespace GizBookv2
                 MessageBox.Show("Quiz finished!");
                 Cursor.Current = Cursors.WaitCursor;
                 using HttpClient client = new();
-                var endpoint = new Uri($"https://gizbook.vercel.app/api/users/score/{(string)UserData!.username}?score={points}");
+                var endpoint = new Uri($"https://gizbook.vercel.app/api/users/score/{(string)UserData.username}?score={points}");
 
                 var response = client.PostAsync(endpoint, null).Result;
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    frmHomePage homePage = new((string)UserData!.username);
+                    frmHomePage homePage = new((string)UserData.username);
                     homePage.Show();
                     Close();
                 }
@@ -88,12 +74,12 @@ namespace GizBookv2
             if (type == "two-sided")
             {
                 label5.Text = (string)currentCard.question;
-                List<string> choices = new();
+                List<string> choices = [];
 
                 if (currentCard.choices != null)
                 {
                     if (currentCard.choices is JArray jarr)
-                        choices = jarr.ToObject<List<string>>() ?? new List<string>();
+                        choices = jarr.ToObject<List<string>>() ?? [];
                     else if (currentCard.choices is List<string> list)
                         choices = list;
                 }
@@ -155,7 +141,7 @@ namespace GizBookv2
                 hearts--;
                 if (points > 0)
                 {
-                  
+
                     if (points < 0) points = 0;
                 }
                 if (hearts <= 0)
@@ -163,7 +149,7 @@ namespace GizBookv2
                     labelHearts.Text = hearts.ToString();
                     MessageBox.Show("No more hearts! Quiz over.");
                     this.Hide();
-                    frmHomePage fh = new frmHomePage();
+                    frmHomePage fh = new((string)UserData.username);
                     fh.Show();
                     this.Close();
                     return;
@@ -192,7 +178,7 @@ namespace GizBookv2
                     {
                         MessageBox.Show("No more hearts! Quiz over.");
                         this.Hide();
-                        frmHomePage fh = new frmHomePage();
+                        frmHomePage fh = new((string)UserData.username);
                         fh.Show();
                         this.Close();
                         return;
@@ -203,19 +189,11 @@ namespace GizBookv2
             }
         }
 
-        private string FormatTime(int seconds)
+        private static string FormatTime(int seconds)
         {
             int min = seconds / 60;
             int sec = seconds % 60;
             return $"{min:00}:{sec:00}";
-        }
-
-
-        public QuizMode()
-        {
-            InitializeComponent();
-            cards = new List<dynamic>();
-            currentCard = null;
         }
 
         private void QuizMode_Load(object sender, EventArgs e)
@@ -224,6 +202,11 @@ namespace GizBookv2
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

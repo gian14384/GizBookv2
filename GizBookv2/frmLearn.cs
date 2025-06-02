@@ -12,10 +12,10 @@ namespace GizBookv2
 {
     public partial class frmLearn : Form
     {
-        private dynamic selectedDeck;
-        private string deckName;
-        private string deckColor;
-        private dynamic UserData;
+        private readonly dynamic selectedDeck;
+        private readonly string deckName;
+        private readonly string deckColor;
+        private readonly dynamic UserData;
         public frmLearn(dynamic selectedDeck, string deckName, string deckColor, dynamic userdata)
         {
             InitializeComponent();
@@ -33,7 +33,9 @@ namespace GizBookv2
 
         private void panel7_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            frmDeckPage2 deckPage2 = new(UserData);
+            deckPage2.Show();
+            Close();
         }
 
         private void panel2_Click(object sender, EventArgs e)
@@ -74,8 +76,9 @@ namespace GizBookv2
             }
             else if (selectedMode == LearnMode.Quiz)
             {
-                QuizMode quizForm = new QuizMode(selectedDeck, deckName, deckColor, UserData);
+                QuizMode quizForm = new(selectedDeck, deckName, deckColor, UserData);
                 quizForm.Show();
+                Close();
             }
             else
             {

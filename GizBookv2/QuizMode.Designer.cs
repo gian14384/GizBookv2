@@ -65,6 +65,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(89, 772);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
@@ -338,7 +339,6 @@
         private Panel panel2;
         private Button button2;
         private Label label5;
-        private System.Windows.Forms.Timer quizTimer;
         private Label label2;
         private Label label4;
         private System.Windows.Forms.Timer timer1;

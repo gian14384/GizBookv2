@@ -8,10 +8,6 @@ namespace GizBookv2
 {
     public partial class frmHomePage : Form
     {
-        public frmHomePage()
-        {
-            InitializeComponent();
-        }
         private void panel20_Click(object sender, EventArgs e)
         {
             panel6.Visible = true;
@@ -170,6 +166,7 @@ namespace GizBookv2
         {
             frmDeckPage2 deckPage2 = new(_userData);
             deckPage2.Show();
+            Close();
         }
 
         private void OpenProfile(dynamic user)

@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
 namespace GizBookv2
 {
     public partial class FlipMode : Form
     {
-        private List<dynamic> cards;
+        private readonly List<dynamic> cards;
         private int currentIndex;
-        private Random rng = new();
+        private readonly Random rng = new();
         private bool isShowingFront = true;
-        private dynamic currentCard;
+        private dynamic? currentCard;
 
         public FlipMode(dynamic selectedDeck, string deckName, string deckColor)
         {
@@ -28,7 +19,7 @@ namespace GizBookv2
             panel2.BackColor = ColorTranslator.FromHtml(deckColor);
 
             // Extract and randomize cards
-            cards = ((JArray)selectedDeck.cards).ToObject<List<dynamic>>();
+            cards = ((JArray)selectedDeck.cards).ToObject<List<dynamic>>()!;
             ShuffleCards();
             currentIndex = 0;
             ShowCurrentCard();
@@ -42,9 +33,7 @@ namespace GizBookv2
             {
                 n--;
                 int k = rng.Next(n + 1);
-                var value = cards[k];
-                cards[k] = cards[n];
-                cards[n] = value;
+                (cards[n], cards[k]) = (cards[k], cards[n]);
             }
         }
 
@@ -78,10 +67,6 @@ namespace GizBookv2
 
             currentIndex = newIndex;
             ShowCurrentCard();
-        }
-        public FlipMode()
-        {
-            InitializeComponent();
         }
 
         private void button4_Click(object sender, EventArgs e)

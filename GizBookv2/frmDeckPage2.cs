@@ -15,11 +15,6 @@ namespace GizBookv2
             pnlDeck.Tag = "v21";
             pnlDeck.Click += (sender, e) => ButtonClick(pnlDeck, null);
         }
-        public frmDeckPage2()
-        {
-            InitializeComponent();
-     
-        }
 
         private void DeselectAllDeckPanels()
         {
@@ -41,7 +36,7 @@ namespace GizBookv2
 
 
 
-        private void ButtonClick(Panel panel, dynamic deck)
+        private void ButtonClick(Panel panel, dynamic? deck)
         {
             if (panel.Tag == null || panel.Tag.ToString() == "v21")
             {
@@ -150,6 +145,8 @@ namespace GizBookv2
 
         private void panel1_Click(object sender, EventArgs e)
         {
+            frmHomePage homePage = new((string)UserData.username);
+            homePage.Show();
             Close();
         }
 
@@ -169,8 +166,9 @@ namespace GizBookv2
             {
                 string deckName = (string)SelectedDeck.title;
                 string deckColor = (string)SelectedDeck.color;
-                frmLearn learnForm = new frmLearn(SelectedDeck, deckName, deckColor, UserData);
-                learnForm.ShowDialog();
+                frmLearn learnForm = new(SelectedDeck, deckName, deckColor, UserData);
+                learnForm.Show();
+                Close();
             }
         }
 
